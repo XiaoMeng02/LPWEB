@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <script>
+//const声明的值不能更改，而且const声明变量的时候需要里面进行初始化
+// 但是对于引用数据类型，const声明的变量，里面存的不是 值，不是值，不是值，是 地址。
+        // const arr = ['red','pink']
+        // arr = [1,2,3]
+        // console.log(arr);//错误
+        const div = document.querySelector('div')
+        console.dir(div)//dom 对象
+    </script>
+</body>
+
+</html>

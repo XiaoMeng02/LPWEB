@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>高圆圆</li>
+			<li>贾静雯</li>
+			<li>赵敏</li>
+		</ul>
+		<script>
+			// 获取到的是父元素ul
+			var ulObj = document.querySelector("ul");
+			// 进行了事件的绑定，绑定在父元素上(事件的委托)
+			// 如果给每个li标签绑定事件，需要绑定3个或者更多
+			// 将事件给父元素的话，只需要一个事件即可
+			ulObj.addEventListener('click', function(event) {
+				// this指向的是谁绑定了这个事件，这个例子中永远指向ulObj
+				console.log("this:", this); // ul
+				// 事件对象，是根据谁触发了这个事件，target指向谁
+				console.log("target:", event.target); // li
+			})
+		</script>
+	</body>
+</html>

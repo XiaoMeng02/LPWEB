@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			#move{
+				width: 100px;
+				height: 100px;
+				
+				background-color: #aaaaff;
+				
+				/* 缺少使用的过程 */
+				/* 1调用的动画名称 */
+				animation-name: move;
+				/* 2设置动画的样式 */
+				animation-duration: 3s;
+				/* 3设置播放次数 设置无限大的固定值 */
+				animation-iteration-count: infinite;
+				
+				/* 设置动画等待一会再执行 */
+				/* 还有一个常用的时间单位是毫秒  1 比 1000*/
+				/* animation-delay: 3000ms; */
+				
+				/* 播放周期的规律 */
+				/* 正反播放 */
+				animation-direction: alternate;
+				
+				/* 设置动画的播放的曲线 */
+				animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+				
+				
+				/* 使用简写属性 */
+				animation: move 3s ease 2s alternate cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			}
+			
+			/* 定义关键帧动画 */
+			/* @keyframes是关键字 */
+			/* 动画名称 遵循变量命名的标准 */
+			@keyframes move {
+				/* 开始时的状态 */
+				0%{
+					/* 元素的属性 */
+					transform: translate(0px,0px);
+				}
+				/* 中间状态 */
+				25%{
+					transform: translate(100px,0px);
+				}
+				50%{
+					transform: translate(100px,100px);
+				}
+				75%{
+					transform: translate(0px,100px);
+				}
+				/* 结束时的状态 */
+				100%{
+					transform: translate(0px,0px)
+				}
+			}
+			
+			/* 设置鼠标触碰到元素的时候，停止播放 */
+			#move:hover{
+				animation-play-state: paused;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="move">
+			
+		</div>
+	</body>
+</html>

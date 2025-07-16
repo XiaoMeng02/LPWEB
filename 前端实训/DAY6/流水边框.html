@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			:root{
+				
+			}
+			#box{
+				/* 父元素使用相对定位 */
+				position: relative;
+				left: 100px;
+				top: 100px;
+				color: #fff;
+				/* border: 1px solid black; */
+				padding: 5px 10px;
+				display: inline-block;
+				/* 设置多余内容隐藏 */
+				overflow: hidden;
+				/* 加上圆角边框 */
+				border-radius: 5px;
+				/* 默认情况下父元素在子元素下面 */
+				z-index: 0;
+			}
+			#box::before{
+				content: "";
+				/* 旋转的背景需要大于父元素 */
+				width: 300%;
+				height: 300%;
+				/* 设置位置定位*/
+				position: absolute;
+				left: -100%;
+				top: -100%;
+				background-color: #000000;
+				/* 锥状渐变 */
+				 background-image: conic-gradient(transparent, #ffd322, transparent 30%);
+				 z-index: -2;
+				 /* 添加动画效果 */
+				 animation-name:frame; /* 动画名称 */
+				 animation-duration: 3s;/* 属性设置动画完成一个动画周期所需的时间。 */
+				 animation-iteration-count: infinite;/* 属性设置动画序列在停止前应播放的次数 */
+				 animation-timing-function: linear;/* 设置动画在每个周期的持续时间匀速运动。 */
+				 }
+				 /* 挡板挡住背景 */
+				 #box::after{
+					 content: "";
+					 /* 给一个定位 */
+					 position: absolute;
+					 
+					 /* 给一个背景 */
+					 background-color: #000000;
+					 /* 设置元素大小 */
+					 /* 这里对应的是定位的上下左右，四个值 */
+					 inset:5px ;
+					 /* 放在两个元素中间 */
+					 z-index: -1;
+					
+				 }
+				 @keyframes frame {
+				 	0%{
+						transform: rotate(10deg);
+					}
+					100%{
+						transform: rotate(360deg);
+					}
+				 }
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			流水边框
+		</div>
+	</body>
+</html>

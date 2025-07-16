@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1号店登录页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 5px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      color: #f00;
+      font-weight: bold;
+    }
+
+    .header-right {
+      font-size: 14px;
+    }
+
+    .header-right a {
+      color: #005ea7;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .container {
+      display: flex;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .banner {
+      flex: 1;
+      margin-right: 40px;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .login-box {
+      width: 360px;
+    }
+
+    .login-box h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    .login-box .form-item {
+      margin-bottom: 15px;
+    }
+
+    .login-box .form-item label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .login-box .form-item input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+
+    .login-box .extra {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .login-box .extra a {
+      color: #005ea7;
+      text-decoration: none;
+    }
+
+    .login-box .btn-login {
+      width: 100%;
+      padding: 10px;
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .cooperate {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .cooperate p {
+      margin-bottom: 10px;
+    }
+
+    .cooperate .icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cooperate .icons img {
+      width: 24px;
+      height: 24px;
+    }
+	button a{
+		text-decoration: none;
+		color: #fff;
+	}
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 头部区域 -->
+  <header>
+    <div class="logo">
+      <!-- 这里替换为实际1号店logo图片链接 -->
+      <img src="../DAY7作业/商城素材/image/logo.png" alt="logo"> 
+      <span>1号店</span>
+    </div>
+    <div class="header-right">
+      您好，欢迎光临1号店 
+      <a href="#">请登录</a> | 
+      <a href="#">帮助中心</a>
+    </div>
+  </header>
+
+  <!-- 主体内容区域 -->
+  <div class="container">
+    <!-- 左侧 banner  -->
+    <div class="banner">
+      <!-- 替换为实际促销 banner 图片链接 -->
+      <img src="../DAY7作业/商城素材/image/loadimg.jpg" alt="banner"> 
+    </div>
+    <!-- 右侧登录框 -->
+    <div class="login-box">
+      <h2>1号店用户登录</h2>
+      <div class="form-item">
+        <label for="username">用户名/手机/邮箱</label>
+        <input type="text" id="username" placeholder="用户名/手机/邮箱">
+      </div>
+      <div class="form-item">
+        <label for="password">密码</label>
+        <input type="password" id="password" placeholder="密码">
+      </div>
+      <div class="extra">
+        <label><input type="checkbox"> 自动登录</label>
+        <a href="#">忘记密码</a>
+      </div>
+      <button class="btn-login"><a href="index.html">登录</a></button>
+      <div class="cooperate">
+        <p>更多合作网站登录</p>
+        <div class="icons">
+          <!-- 替换为实际合作平台图标链接，如 QQ、微博等 -->
+          <img src="商城素材/image/qqt.png" alt="qq"> 
+          <img src="商城素材/image/wbt.png" alt="weibo"> 
+          <img src="商城素材/image/wxt.png" alt="weixin"> 
+          <img src="商城素材/image/zhit.png" alt="alipay"> 
+        </div>
+        <p><a href="#">更多合作网站</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部区域 -->
+  <footer>
+    <p>沪ICP备10011278号 | 合字B1.B2-2010004 | 营业执照</p>
+    <p>Copyright © 1号店网上超市 2017-2036 All Right Reserved</p>
+  </footer>
+</body>
+
+</html>

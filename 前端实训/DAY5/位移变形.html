@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>位移</title>
+		
+		<style type="text/css">
+			#move{
+				/* position: fixed;
+				left: 100px;
+				top: 100px; */
+				
+				
+				display: inline-block;
+				
+				/* margin-left: 0px; */
+				
+				width: 100px;
+				height: 100px;
+				
+				background-color: #5dd8eb;
+				transition: all 2s ease;
+			}
+			
+			#move:hover{
+				/* margin-left: 300px; */
+				/* left: 300px; */
+				/* 使用位移进行移动，不会影响到其他的元素 */
+				/* transform: translate(100%,100%); */
+				transform: translateX(100px);
+				/* 重复赋值只会生效一个 */
+				transform:  translateY(100px);
+			
+				/* 想要生效多个变形属性 */
+				transform: translateX(100px) translateY(100px);
+			}
+			
+			
+			#box{
+				display: inline-block;
+				
+				width: 100px;
+				height: 100px;
+				
+				background-color: #71eb5b;
+				transition: all 2s ease;
+			}
+			
+			/* 让元素水平垂直居中 */
+		</style>
+	</head>
+	<body>
+		<div id="move">
+			
+		</div>
+		
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				border: 1px solid black;
+			}
+
+			#container {
+				display: grid;
+				grid-template-columns: 100px 100px 100px;
+				grid-template-rows: 100px 100px 100px;
+			}
+
+			.item-1 {
+				/* 尽量保证元素的起始位置，在网格布局的范围内 */
+				grid-column-start: 3;
+				grid-column-end: 2;
+			}
+
+			/* 容器内的项目，也可以成为网格布局的元素 */
+			.item-3 {
+				display: grid;
+
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(3, 1fr);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="item item-1">1</div>
+			<!-- 当一个网格元素没有位置信息的时候，自动占一个单元格的位置 -->
+			<div class="item item-2">2</div>
+			<div class="item item-3">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="item item-4">4</div>
+		</div>
+	</body>
+</html>

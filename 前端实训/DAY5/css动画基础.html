@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			div{
+				width: 60px;
+				height: 40px;
+				
+				background-color: rgba(170, 170, 255, 1.0);
+				
+				/* 添加 过渡属性 */
+				/* 什么属性变化有过渡 */
+				/* 过渡的时间 */
+				/* 过渡的方式 */
+				/* 过渡的时候，非数值的属性不能过渡 */
+				/* display: block; */
+				
+				transition: all 2s ease;
+			}
+			
+			/* 1 元素可见 能够触发hover
+			2 触发hover 元素隐藏
+			3 元素隐藏后不能触发hover 返回正常状态 元素可见 */
+			
+			div:hover{
+				/* display: none; */
+				
+				/* 元素隐藏 */
+				/* visibility: hidden; */
+				
+				width: 100px;
+				height: 60px;
+				
+				background-color: rgba(0, 255, 255, 0.1);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			按钮
+		</div>
+	</body>
+</html>

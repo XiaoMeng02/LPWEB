@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Flexbox弹性布局演示</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				padding: 20px;
+			}
+
+			.container {
+				display: flex;
+				border: 1px solid #ccc;
+				margin: 10px 0;
+				padding: 5px;
+			}
+
+			.item {
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: bold;
+
+				border: 1px solid white;
+			}
+
+			.grow-1 {
+				background: #3498db;
+				flex-grow: 1;
+			}
+
+			.grow-2 {
+				background: #e74c3c;
+				flex-grow: 2;
+			}
+
+			.grow-0 {
+				background: #2ecc71;
+				flex-grow: 0;
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="item grow-1">项目1</div>
+			<div class="item grow-1">项目2</div>
+			<div class="item grow-1">项目3</div>
+		</div>
+
+		<div class="container">
+			<div class="item grow-1">项目1</div>
+			<div class="item grow-2">项目2 (flex-grow: 2)</div>
+			<div class="item grow-1">项目3</div>
+		</div>
+
+
+		<div class="container">
+			<div class="item grow-0">项目1 (flex-grow: 0)</div>
+			<div class="item grow-1">项目2</div>
+			<div class="item grow-1">项目3</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// js的数组确实可以存储变量和方法
+			// 比如模拟一个人
+			// 尽管数组可以模拟一个人的属性和行为,太过复杂
+			let arr = new Array("张三", 18, 160, function() {
+				console.log("跳");
+			}, function() {
+				console.log("跑");
+			})
+			
+			// 使用对象保存
+			// 这里的花括号是对象的字面量
+			let obj = {}
+			// 对象保存值的方法非常的清晰
+			obj.name = "李四";
+			obj.age = 18;
+			obj.jump = function(){
+				console.log("跳");
+			}
+		</script>
+	</body>
+</html>

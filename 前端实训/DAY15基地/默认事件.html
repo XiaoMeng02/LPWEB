@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- a标签的跳转就是默认事件 -->
+		<a href="https://www.baidu.com/">跳转至百度</a>
+		<!-- 还有什么标签有默认事件？ -->
+		<form action="" method="get">
+			<!-- 当点击这个提交按钮，表单会自动收集提交，这也是一种默认事件 -->
+			<input type="submit" value="提交" />
+		</form>
+
+		<script>
+			// 默认事件？不需要js代码辅助，页面自动完成的行为，就是默认事件
+			// 如何阻止默认事件的执行？
+			let a = document.querySelector("a");
+			a.addEventListener("click", function(event) {
+				alert("不允许跳转");
+				
+				// 阻止元素的默认事件
+				event.preventDefault();
+				
+				// 非标准写法
+				// return false;
+			})
+		</script>
+	</body>
+</html>

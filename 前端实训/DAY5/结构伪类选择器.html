@@ -1,0 +1,46 @@
+<head>
+	<style>
+		/* 结构伪类的左边是一个元素的集合 */
+		/* 在这个例子中 ul li 选中了所有的ul下的li标签子元素 */
+		/* 在这个结果的集合当中,选中第一个 */
+		/* ul li:first-child{
+			color: red;
+		} */
+		
+		/* 1.满足选择器的要求,如例子的中类名arr */
+		/* 2.这个元素需要是父元素的第一个子元素 */
+		/* ul .arr:first-child{
+			color: blue;
+		} */
+		
+		/* 同样的用法 */
+		/* ul li:last-child{
+			color: yellow;
+		} */
+		
+		/* 获取指定位置的元素的用法 */
+		/* 选中ul下的li标签的第四个元素 */
+		/* ul li:nth-child(3){
+			color: #aaaaff;
+		} */
+		
+		/* 1 先按照结构找到元素(ul下的所有的li标签(子元素)) */
+		/* 2 找到排序为2的子元素 */
+		/* 3 检查这个子元素是否符合要求 */
+		/* ul .arr:nth-child(2){
+			color: #aaaaff;
+		} */
+	</style>
+</head>
+<body>
+    <ul>
+        <li class="arr">我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li class="arr">我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li class="arr">我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li class="arr">我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+</body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			/* 1 无法控制宽高 */
+			/* 2 宽高由内容决定 */
+			
+			span{
+				margin: 10px;
+				width: 30px;
+				height: 30px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<span>
+			内容1
+		</span>
+		<span>
+			内容1
+		</span>
+		<span>
+			内容1
+		</span>
+		<span>
+			内容1
+		</span>
+		
+		<!-- 这是错误的写法 -->
+		<a href="#">
+			这是一个链接
+			<a href="#">这是链接的链接</a>
+		</a>
+		
+		<!-- 当我们需要一个块级元素，并排显示的时候，通常就会把这个元素变成行内块，如果需要让一个行级元素能够控制宽高，也转换成行内块 -->
+	</body>
+</html>

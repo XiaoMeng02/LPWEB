@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人名片</title>
+		<style type="text/css">
+			/* 通配符选择器，作用于所有元素 */
+			*{
+				margin: 0;/* 清除外边距 */
+				padding: 0;/* 清除内边距 */
+				box-sizing: border-box;/* 框盒模型，使元素宽度/高度包含内边距和边框 */
+			}
+		    body {
+				background-image: url(./小星.jpg); /* 添加整体背景 */
+				background-size: cover; /*让背景图片覆盖整个页面*/
+				background-attachment: fixed; /* 背景固定不滚动 */
+				background-position: center; /* 居中显示 */
+				font-family: 'Segoe UI', sans-serif;/*整体字体*/
+				display: flex;/* 将元素设置为 弹性容器 */
+				justify-content: center;/*弹性项目在水平方向居中对齐*/
+				align-items: center;/* 弹性项目在交垂直方向居中对齐 */
+				background-repeat: no-repeat; /* 不重复 */
+				width: 100vw; /* 视口宽度 */
+				height: 100vh; /* 视口高度 */
+		    }
+			/* 卡片容器 */
+			.card {
+			  width: 500px;
+			  height: 700px;
+			  background: rgba(255, 255, 255, 0.6); /* 透明白色背景 */
+			  border: 1px solid rgba(204, 204, 204, 0.3); /* 透明边框 */
+			  border-radius: 18px;/* 卡片圆角 */
+			  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2); /* 优化阴影 */
+			  overflow:hidden;/*裁剪卡片圆角的溢出*/
+			  text-align: center;/*字居中*/
+			  position: relative;/* 定位基准，用于子元素绝对定位 */
+			
+			}
+			/* 卡片头部区域 */
+			.card-header {
+			     background-image: url(./小星.jpg);/* 头像背景图 */
+				  background-size: cover;/* 背景图覆盖头部区域 */
+			      height: 210px;/* 头部高度 */
+				  position: relative;/* 定位基准，用于头像绝对定位 */
+			}
+			/* 头像盒子类名*/
+			.avatar {
+			  width: 160px;/* width头像的宽 */
+			  height: 160px;/* 高 */
+			  border-radius: 50%;/* 设置外边框圆角 */
+			  border: 5px solid rgba(255, 255, 255, 0.9); /* 半透明白色边框 */
+			  position: absolute;/* 绝对定位，脱离文档流 */
+			  bottom: -60px;/* 距离头部底部-60px（实现头像悬浮效果） */
+			  left: 50%;/* 左侧定位50%（容器中心） */
+			  transform: translateX(-50%);/* 向左平移50%自身宽度，实现水平居中 */
+			  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 头像阴影 */
+			  transition: all 0.3s ease; /* 所有属性0.3秒平滑过渡 */
+			  opacity: 0.9; /* 轻微透明（与标签初始透明度一致） */
+			}
+			.avatar:hover {
+			  /* 鼠标悬停时的动态效果 */
+			  transform: translateX(-50%) scale(1.05); /* 保持居中并放大1.05倍 */
+			  border-color: rgba(255, 255, 255, 1); /* 边框变为完全不透明 */
+			  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.3); /* 阴影增强，提升立体感 */
+			  opacity: 1; /* 头像内容完全不透明 */
+			}
+			/* 卡片内容区 */
+			.card-body {
+		      padding: 80px 30px 20px; 
+			  
+		    }
+			/* 设置大小和粗细 */
+			.name {
+				font-size: 34px;
+				font-weight: bold;/* 字体加粗 */
+				color: #333;
+				margin-bottom: 20px;/* 底部外边距 */
+				text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* 文字阴影 */
+			}
+			
+		   .class-info {
+			  font-size: 15px;
+			  font-style:italic;
+			  color: #5d5d5d;
+			  margin-bottom: 30px;/* 底部外边距 */
+			}
+			/* 把中间介绍的文字大小，颜色，行高 */
+			.intro {
+			  font-size: 15px;
+			  color: #4b4b4b;
+			  line-height: 1.8;
+			  margin-bottom: 20px;/* 底部外边距40px */
+			}
+			/* 爱好标题样式 */
+			.hobby-title {
+			  font-size: 24px;
+			  font-weight: bold;
+			  color: #4a90e2;
+			  margin-bottom: 30px;
+			  position: relative;
+			  display: inline-block;
+			}
+			/* 爱好标题下划线（伪元素） */
+			.hobby-title::after {
+				content: "";
+				position: absolute;
+				left: 50%;
+				bottom: -4px;
+				width: 80px;
+				height: 3px;
+				background: rgba(74, 144, 226, 0.3); /* 标题下划线 */
+				transform: translateX(-50%);
+			}
+			/* 爱好标签容器 */
+			.hobby-tags {
+			  display: flex;
+			  justify-content: center;
+			  gap: 25px;/*每个爱好之间的间距*/
+			  margin-bottom: 25px;
+			}
+			/* 单个爱好标签 */
+			.hobby-tags span {
+			  font-size: 15px;
+			  padding: 10px 20px;
+			  background: rgba(230, 242, 255, 0.8); /* 透明标签背景 */
+			  color: #4488cc;
+			  border-radius: 30px;/* 标签圆角 */
+			  transition: all 0.3s ease;/* 所有属性0.3秒平滑过渡 */
+			  opacity: 0.9;/* 轻微透明 */
+			}
+			/* 标签鼠标悬停效果 */
+			.hobby-tags span:hover {
+				background: rgba(230, 242, 255, 1);/* 完全透明白色背景 */
+				transform: scale(1.05);/* 放大1.05倍 */
+			}
+			/* 分割线 */
+			.divider {
+			  width: 75%;/* 宽度占父容器70% */
+			  margin: 0 auto 18px;/* 水平居中，底部外边距18px */
+			  border-top: 2px solid rgba(255, 255, 255, 1); /* 透明分割线 */
+			}
+			/* 联系方式 */
+			.contact {
+			  display: flex;/* 弹性布局，内容横向排列 */
+			  justify-content: center;/* 联系方式水平居中 */
+			  gap: 77px;/* 联系方式之间间距40px */
+			  font-size:17px;
+			  color: #666;
+			}
+			/* 图标样式（Font Awesome图标） */
+			.contact i {
+			  font-size: 17px;/* 图标大小 */
+			  margin-right: 10px;/* 图标右侧间距10px */
+			  color: #4a90e2;/* 蓝色图标 */
+			  opacity: 0.9;/* 轻微透明 */
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="card">
+		    <div class="card-header">
+		        <!-- 背景图通过CSS渐变实现，此处仅保留头像 -->
+		        <img src="./头像.jpg" alt="头像" class="avatar">
+		    </div>
+		    <div class="card-body">
+		        <h2 class="name">许萌生</h2>
+		        <p class="class-info">软件WEB1班</p>
+		        <p class="intro">热爱Web开发，专注于前端技术，擅长HTML、CSS、JavaScript。喜欢探索新技术，致力于创建美观且功能丰富的网站。</p>
+		        <p class="hobby-title">爱好</p>
+		        <div class="hobby-tags">
+		            <span>编程</span>
+		            <span>摄影</span>
+		            <span>阅读</span>
+		            <span>旅行</span>
+		        </div>
+		        <div class="divider"></div>
+		        <div class="contact">
+		            <span><i class="fa fa-envelope"></i>2556242161@qq.com</span>
+		            <span><i class="fa fa-phone"></i>13047972172</span>
+		        </div>
+		    </div>
+		</div>
+		  <!-- 引入 Font Awesome 图标库（可选，用于邮箱和电话图标） -->
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</body>
+</html>

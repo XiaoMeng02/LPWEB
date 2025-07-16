@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<script>
+			function fn(x , y){
+				x = x || 0
+				y = y || 0
+				console.log(x + y)
+			}
+			fn(1,2)
+			// fn()
+
+			// console.log(false && 22)
+			let age = 18
+			// console.log(false && age++)//age++不执行 一假则假
+			// console.log(age)
+
+			// console.log(true || age++)
+			// console.log(age)
+
+			console.log(11 && 22)//都是真，这返回最后一个真值
+			console.log(11|| 22)//输出前面真值
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<script>
+			//求n-m的累加和
+			function getSum(n = 0,m = 0){
+				let sum = 0
+				for (let i = n; i < m; i++) {
+					sum += i
+				}
+				console.log(sum)
+			}
+			let num1 = +prompt('请输入起始值：')
+			let num2 = +prompt('请输入结束值：')
+			getSum(num1,num2)//s实参可以是变量
+        </script>
+	</body>
+</html>

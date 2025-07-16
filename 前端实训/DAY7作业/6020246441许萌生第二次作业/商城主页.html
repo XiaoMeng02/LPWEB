@@ -1,0 +1,1666 @@
+<!-- 首页面 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../CSS/home.css">
+		<title>首页页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.home {
+				width: 1500px;
+				margin: 0 auto;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			/* 头部 */
+			.title {
+				width: 1500px;
+				height: 258px;
+			}
+
+			.title_0 {
+				width: 1500px;
+				height: 60px;
+				background-color: gainsboro;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.title_0 div:nth-child(1) {
+				margin-left: 20px;
+				color: #757575;
+			}
+
+			.title_0 div:nth-child(2) {
+				margin-right: 50px;
+			}
+
+			.title_img {
+				vertical-align: middle;
+			}
+
+			table tr td {
+				padding-left: 5px;
+			}
+
+			.f_line {
+				margin: 0 10px;
+			}
+
+			tbody tr td a,
+			tbody tr td span {
+				color: #757575;
+			}
+
+			.a_1 {
+				color: orange;
+			}
+
+			.title_1,
+			.title_1_search,
+			.title_1_car {
+				margin-top: 30px;
+				display: flex;
+			}
+
+			.title_1_img {
+				margin-left: 20px;
+			}
+
+			.title_1_ss {
+				margin: 0 auto;
+				margin-left: 86px;
+			}
+
+			.title_1_search input {
+				width: 500px;
+				height: 35px;
+				text-indent: 1em;
+				border: 2px solid red;
+			}
+
+			.title_1_search div:nth-child(2) {
+				width: 100px;
+				height: 39px;
+				text-align: center;
+				color: white;
+				background-color: red;
+			}
+
+			.title_1_search div:nth-child(2) p {
+				margin-top: 10px;
+			}
+
+			.title_1_search_ul ul li {
+				line-height: 30px;
+				color: rgb(99, 99, 99);
+				margin: 0 10px;
+				display: inline;
+			}
+
+			.title_1_car {
+				width: 130px;
+				height: 40px;
+				margin-right: 250px;
+				align-items: center;
+				background-color: gainsboro;
+				border: 1px solid #ccc;
+			}
+
+			.title_1_car div {
+				margin-left: 20px;
+			}
+
+			.title_2 {
+				display: flex;
+				margin-top: 20px;
+				align-items: center;
+				width: 1430px;
+				height: 47px;
+				margin-left: 60px;
+				border-bottom: 3px solid orangered;
+			}
+
+			.title_2 div:nth-child(1) {
+				width: 230px;
+				height: 50px;
+				text-align: center;
+				background-color: red;
+			}
+
+			.title_2 div:nth-child(1) a {
+				color: white;
+				line-height: 50px;
+				margin-right: 55px;
+			}
+
+			.title_2 div:nth-child(2) {
+				margin: 0 auto;
+				margin-left: 2px;
+			}
+
+			.title_2 div:nth-child(2) li {
+				display: inline;
+				margin: 0 25px;
+			}
+
+			.title_2 div:nth-child(2) a {
+				color: black;
+			}
+
+			.title_2 div:nth-child(2) li:nth-child(1) a,
+			.title_2 div:nth-child(2) li:nth-child(2) a {
+				color: red;
+			}
+
+			.title_2 div:nth-child(3) {
+				margin-right: 60px;
+			}
+
+			/* 内容区域 */
+			.content1 {
+				width: 1500px;
+				height: 500px;
+				display: flex;
+				position: relative;
+			}
+
+			.content1_left {
+				width: 230px;
+				height: 500px;
+				margin-left: 60px;
+				background-color: rgb(122, 40, 40);
+			}
+
+			.content1_left ul {
+				margin-top: 10px;
+			}
+
+			.content1_left ul li {
+				height: 50px;
+				color: white;
+				margin-left: 10px;
+				font-size: 13px;
+				display: flex;
+				align-items: center;
+			}
+
+			.content1_left ul li img {
+				margin-right: 20px;
+			}
+
+			.content1_left ul li span:first-of-type {
+				margin-left: 10px;
+				flex-grow: 1;
+
+			}
+
+			.content1_left ul li span:last-of-type {
+				margin-left: auto;
+			}
+
+			.content1_con {
+				width: 845px;
+				height: 500px;
+				background-image: url(image/ban1.jpg);
+				background-size: 100% 100%;
+				margin-left: 20px;
+			}
+
+			.content1_con img {
+				margin-top: 225px;
+			}
+
+			.content1_con img:nth-child(2) {
+				float: right;
+			}
+
+			.content1_span {
+				text-align: center;
+				margin-top: 160px
+			}
+
+			.content1_span span {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				width: 20px;
+				height: 20px;
+				background-color: gray;
+				color: black;
+				border-radius: 50%;
+				font-size: 11px;
+				font-weight: bolder;
+				margin-right: 4px;
+			}
+
+			.content1_right {
+				margin-left: 20px;
+				width: 310px;
+				height: 496px;
+				border: 2px solid #ccc;
+			}
+
+			.content1_right1 {
+				width: 280px;
+				height: 40px;
+				display: flex;
+				margin: 0 auto;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.content1_right1 p {
+				font-size: 15px;
+				font-weight: bolder;
+			}
+
+			.content1_right1 a {
+				color: gray;
+			}
+
+			.content1_right2 {
+				margin-top: 10px;
+			}
+
+			.content1_right2 ul li {
+				line-height: 32px;
+				margin-left: 8px;
+				font-size: 16px;
+				color: gray;
+			}
+
+			.content1_right2 ul li span {
+				color: black;
+			}
+
+			.hr1 {
+				border: none;
+				border-top: 1px dashed #ebebeb;
+				margin: 8px 0;
+			}
+
+			.hr2 {
+				border-top: 1px solid #ebebeb;
+				margin: 8px 0;
+			}
+
+			.content1_right3 {
+				width: 280px;
+				height: 25px;
+				margin: 0 auto;
+			}
+
+			.content1_right4 {
+				width: 280px;
+				height: 210px;
+				margin: 0 auto;
+			}
+
+			.content1_right4 img {
+				width: 280px;
+				margin-top: 10px
+			}
+
+			/*  */
+			.content2 {
+				width: 1500px;
+				display: flex;
+				margin-top: 20px;
+				align-items: center;
+			}
+
+			.content2_0 {
+				width: 230px;
+				height: 280px;
+				text-align: center;
+				margin-left: 58px;
+				background-color: #d8eefc;
+			}
+
+			.content2_0 img {
+				width: 208px;
+				height: 208px;
+				margin-top: 25px;
+			}
+
+			.th,
+			.th1 {
+				width: 200px;
+				margin: 5px auto;
+				display: flex;
+			}
+
+			.th span,
+			.th1 span {
+				text-align: center;
+				width: 70px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 15px;
+				color: white;
+				margin-left: 50px;
+				background-color: orangered;
+			}
+
+			.th p {
+				margin-left: 25px;
+				line-height: 30px;
+				font-size: 15px;
+				color: orangered;
+			}
+
+			.th1 p {
+				margin-left: 25px;
+				line-height: 30px;
+				font-size: 15px;
+				color: gray;
+			}
+
+			.content2_1 {
+				display: flex;
+				margin-left: 20px;
+			}
+
+			.du1,
+			.du2,
+			.du3,
+			.du4 {
+				width: 293px;
+				height: 280px;
+				border: 1px solid gray;
+				text-align: center;
+			}
+
+			.img0 {
+				margin-top: 25px;
+				width: 190px;
+				height: 166px;
+			}
+
+			.img1 {
+				margin-left: -195px;
+				margin-top: -267px;
+			}
+
+			.ul1 {
+				font-size: 13px;
+				line-height: 20px;
+			}
+
+			.ul1 ul li:nth-child(1) a {
+				color: black;
+			}
+
+			.ul1 ul li:nth-child(2) a {
+				color: gray;
+			}
+
+			.img_left {
+				margin-left: -272px;
+				margin-top: 65px;
+			}
+
+			.img_right {
+				margin-left: 273px;
+				margin-top: 65px;
+			}
+
+			.content3_bj {
+				width: 1428px;
+				height: 170px;
+				margin-top: 20px;
+				margin-left: 60px;
+				background-image: url(image/mban_2.jpg);
+				background-size: 100% 100%;
+			}
+
+			/* 进口.生鲜 */
+			.content4 {
+				width: 1428px;
+				height: 50px;
+				margin-left: 60px;
+				border-bottom: 3px solid orangered;
+				margin-top: 25px;
+			}
+
+			.content4_title {
+				margin: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.content4_title_bj {
+				display: flex;
+				align-items: center;
+			}
+
+			.content4_tu {
+				width: 36px;
+				height: 36px;
+				background-image: url(image/floor.png);
+				background-size: 100% 100%;
+			}
+
+			.content4_title_bj span {
+				color: white;
+				font-size: 13px;
+				margin-left: 6px;
+				line-height: 44px;
+			}
+
+			.content4_title_ul ul li {
+				display: inline;
+			}
+
+			.content4_title_ul ul li a {
+				color: grey;
+				margin: 0 15px;
+			}
+
+			.content4_title_bj p {
+				color: orangered;
+				font-size: 18px;
+				margin-left: 10px;
+			}
+
+			/* 进口.生鲜内容 */
+			.content5 {
+				width: 1428px;
+				height: 470px;
+				display: flex;
+				margin-left: 60px;
+			}
+
+			.content5_left {
+				width: 230px;
+				height: 470px;
+			}
+
+			.content5_left div:nth-child(1) {
+				width: 230px;
+				height: 285px;
+				background-image: url(image/fre_r.jpg);
+				background-size: 100% 100%;
+				text-align: center;
+			}
+
+			.content5_left div:nth-child(1) img {
+				margin-top: 130px;
+			}
+
+			.content5_leftl {
+				margin-right: 185px;
+			}
+
+			.content5_left div:nth-child(2) {
+				width: 230px;
+				height: 185px;
+				background-color: #e4f7ec;
+			}
+
+			.content5_left div:nth-child(2) ul li {
+				line-height: 35px;
+				display: inline;
+				margin-left: 18px;
+			}
+
+			.content5_left div:nth-child(2) ul li a {
+				color: grey;
+			}
+
+			.hr_1 {
+				border: none;
+				border-top: 2px dashed #656565;
+			}
+
+			.content5_right {
+				margin-left: 20px;
+			}
+
+			.content5_right tbody {
+				text-align: center;
+				border: 2px solid black;
+			}
+
+			.content5_right tbody tr td {
+				width: 293px;
+				height: 235px;
+			}
+
+			.td_1,
+			.td_2,
+			.td_3,
+			.td_4 {
+				border-top: 1px solid gray;
+			}
+
+			.td4,
+			.td2,
+			.td3,
+			.td_4,
+			.td_2,
+			.td_3 {
+				border-left: 1px solid gray;
+			}
+
+			.content5_right table tr td p {
+				margin-top: 10px;
+				line-height: 20px;
+				font-size: 14px;
+				color: gray;
+			}
+
+			.content5_right table tr td p span {
+				color: orangered;
+			}
+
+			.td1 img {
+				width: 185px;
+				height: 155px;
+			}
+
+			.td2 img {
+				width: 185px;
+				height: 155px;
+			}
+
+			.td4 {
+				background-image: url(image/fre_b1.jpg);
+				background-size: 100% 100%;
+			}
+
+			.td_4 {
+				background-image: url(image/fre_b2.jpg);
+				background-size: 100% 100%;
+			}
+
+			/* 个人美妆内容 */
+			.content7 {
+				width: 1428px;
+				height: 470px;
+				display: flex;
+				margin-left: 60px;
+			}
+
+			.content7_left {
+				width: 230px;
+				height: 470px;
+			}
+
+			.content7_left div:nth-child(1) {
+				width: 230px;
+				height: 285px;
+				background-image: url(image/make_r.jpg);
+				background-size: 100% 100%;
+				text-align: center;
+			}
+
+			.content7_left div:nth-child(1) img {
+				margin-top: 130px;
+			}
+
+			.content7_leftl {
+				margin-right: 185px;
+			}
+
+			.content7_left div:nth-child(2) {
+				width: 230px;
+				height: 185px;
+				background-color: #feecea;
+			}
+
+			.content7_left div:nth-child(2) ul li {
+				line-height: 35px;
+				display: inline;
+				margin-left: 18px;
+			}
+
+			.content7_left div:nth-child(2) ul li a {
+				color: grey;
+			}
+
+			.content7_right {
+				margin-left: 20px;
+			}
+
+			.content7_right tbody {
+				text-align: center;
+				border: 2px solid black;
+			}
+
+			.content7_right tbody tr td {
+				width: 293px;
+				height: 235px;
+			}
+
+			.td_a,
+			.td_b,
+			.td_c,
+			.td_5 {
+				border-top: 1px solid gray;
+			}
+
+			.td5,
+			.td2_1,
+			.td3_1,
+			.td_5,
+			.td_b,
+			.td_c {
+				border-left: 1px solid gray;
+			}
+
+			.content7_right table tr td p {
+				margin-top: 10px;
+				line-height: 20px;
+				font-size: 14px;
+				color: gray;
+			}
+
+			.content7_right table tr td p span {
+				color: orangered;
+			}
+
+			.td5 {
+				background-image: url(image/make_b1.jpg);
+				background-size: 100% 100%;
+			}
+
+			.td_5 {
+				background-image: url(image/make_b2.jpg);
+				background-size: 100% 100%;
+			}
+
+			/* 母婴玩具内容 */
+			.content8 {
+				width: 1428px;
+				height: 470px;
+				display: flex;
+				margin-left: 60px;
+			}
+
+			.content8_left {
+				width: 230px;
+				height: 470px;
+			}
+
+			.content8_left div:nth-child(1) {
+				width: 230px;
+				height: 285px;
+				background-image: url(image/baby_r.jpg);
+				background-size: 100% 100%;
+				text-align: center;
+			}
+
+			.content8_left div:nth-child(1) img {
+				margin-top: 130px;
+			}
+
+			.content8_leftl {
+				margin-right: 185px;
+			}
+
+			.content8_left div:nth-child(2) {
+				width: 230px;
+				height: 185px;
+				background-color: #fcebf3;
+			}
+
+			.content8_left div:nth-child(2) ul li {
+				line-height: 35px;
+				display: inline;
+				margin-left: 18px;
+			}
+
+			.content8_left div:nth-child(2) ul li a {
+				color: grey;
+			}
+
+			.content8_right {
+				margin-left: 20px;
+			}
+
+			.content8_right tbody {
+				text-align: center;
+				border: 2px solid black;
+			}
+
+			.content8_right tbody tr td {
+				width: 293px;
+				height: 235px;
+			}
+
+			.td_a1,
+			.td_b1,
+			.td_c1,
+			.td_5b {
+				border-top: 1px solid gray;
+			}
+
+			.td2_b,
+			.td3_c,
+			.td5_1,
+			.td_b1,
+			.td_c1,
+			.td_5d {
+				border-left: 1px solid gray;
+			}
+
+			.content8_right table tr td p {
+				margin-top: 10px;
+				line-height: 20px;
+				font-size: 14px;
+				color: gray;
+			}
+
+			.content8_right table tr td p span {
+				color: orangered;
+			}
+
+			.td5_1 {
+				background-image: url(image/baby_b1.jpg);
+				background-size: 100% 100%;
+			}
+
+			.td_5b {
+				background-image: url(image/baby_b2.jpg);
+				background-size: 100% 100%;
+			}
+
+			/* 页面底部 */
+			.tail {
+				width: 1430px;
+				height: 700px;
+				margin-top: 50px;
+				margin-left: 60px;
+			}
+
+			.tail1 {
+				width: 1430px;
+				height: 135px;
+			}
+
+			.tail1 table {
+				margin-top: 10px;
+				margin-left: 150px;
+			}
+
+			.tail1 table tr td {
+				width: 220px;
+				height: 80px;
+				text-align: center;
+			}
+
+			.tail1 table tr td img {
+				width: 50px;
+				height: 50px;
+			}
+
+			.tail1 table tr td ul li {
+				color: grey;
+				font-size: 18px;
+				margin-top: 10px;
+			}
+
+			.tail2 {
+				width: 1200px;
+				height: 280px;
+				display: flex;
+				justify-content: space-between;
+				margin: 0 auto;
+			}
+
+			.tail2_1 {
+				display: flex;
+				width: 690px;
+				height: 230px;
+				justify-content: space-between;
+			}
+
+			.tail2_1_0 ul {
+				margin-top: 20px;
+			}
+
+			.tail2_1_0 ul li a {
+				color: grey;
+				font-size: 18px;
+				line-height: 30px;
+			}
+
+			.tail2_1_1 {
+				color: black;
+				font-size: 18px;
+				margin-top: 20px;
+			}
+
+			.tail2_2 {
+				display: flex;
+				width: 300px;
+				height: 230px;
+				margin-right: 120px;
+				justify-content: space-between;
+			}
+
+			.tail2_2_tp {
+				width: 150px;
+				height: 230px;
+				text-align: center;
+			}
+
+			.tail2_2_tp div img {
+				margin-top: 20px;
+			}
+
+			.tail2_2_wz {
+				width: 150px;
+				height: 230px;
+				margin-top: 20px;
+			}
+
+			.tail2_2_wz0 {
+				width: 150px;
+				height: 90px;
+			}
+
+			.tail2_2_wz1 {
+				width: 130px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				float: right;
+			}
+
+			.tail2_2_wz div a {
+				margin-left: 5px;
+				font-size: 18px;
+				color: grey;
+			}
+
+			.tail2_2_wz2 {
+				width: 210px;
+				height: 50px;
+				margin-left: 20px;
+			}
+
+			.tail2_2_wz2 p {
+				color: grey;
+				font-size: 18px;
+				margin-bottom: 5px;
+			}
+
+			.tail2_2_wz2 span {
+				font-size: 26px;
+				color: orangered;
+			}
+
+			.tail3 {
+				width: 1430px;
+				height: 80px;
+				text-align: center;
+				border-top: 1px solid grey;
+			}
+
+			.tail3_wz p {
+				font-size: 12px;
+				color: grey;
+				margin-top: 30px;
+			}
+
+			.tail3_tp {
+				width: 850px;
+				margin: 30px auto;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.tail3_tp div {
+				width: 120px;
+				height: 45px;
+				border-radius: 8px;
+				border: 1px solid #ccc;
+			}
+
+			.tail3_tp div img {
+				width: 120px;
+				height: 45px;
+				border-radius: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<!-- 页面头部 -->
+			<div class="title">
+				<div class="title_0">
+					<div>
+						<p>送货至：四川</p>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td><a href="./登录页面.html">你好!请登录</a></td>
+								<td>
+									<a href="./注册页面.html" class="a_1">免费注册</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">我的订单</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">收藏夹</a>
+									<img src="image/t_arrow.gif" alt="" class="title_img">
+								</td>
+								<td>
+									<a href="#">客户服务</a>
+									<img src="image/t_arrow.gif" alt="" class="title_img">
+								</td>
+								<td>
+									<a href="#">网站导航</a>
+									<img src="image/t_arrow.gif" alt="" class="title_img">
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">关注我们：</a>
+									<img src="image/sh1.png"">
+                                <img src=" image/sh2.png" alt="">
+									<span>|</span>
+								</td>
+								<td>
+									<a href="#">手机版</a>
+									<img src="image/i_tel.png" alt="" class="title_img">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="title_1">
+					<div class="title_1_img">
+						<img src="image/logo.png" alt="">
+					</div>
+					<div class="title_1_ss">
+						<div class="title_1_search">
+							<div>
+								<input type="text" placeholder="请输入关键字">
+							</div>
+							<div>
+								<p>搜索</p>
+							</div>
+						</div>
+						<div class="title_1_search_ul">
+							<ul>
+								<li>咖啡</li>
+								<li>iPhone 6S</li>
+								<li>新鲜美食</li>
+								<li>蛋糕</li>
+								<li>日用品</li>
+								<li>连衣裙</li>
+							</ul>
+						</div>
+					</div>
+					<div class="title_1_car">
+						<div>
+							<img src="image/car.png" alt="">
+						</div>
+						<div>
+							<p>购物车</p>
+						</div>
+					</div>
+				</div>
+				<div class="title_2">
+					<div>
+						<a href="#">全部商品分类</a>
+					</div>
+					<div>
+						<ul>
+							<li><a href="#">首页</a></li>
+							<li><a href="#">自营超市</a></li>
+							<li><a href="#">1号团</a></li>
+							<li><a href="#">1号超市</a></li>
+							<li><a href="#">女妆</a></li>
+							<li><a href="#">美妆</a></li>
+							<li><a href="#">1号海购</a></li>
+							<li><a href="#">团购</a></li>
+						</ul>
+					</div>
+					<div>
+						<img src="image/phone.png" alt="">
+					</div>
+				</div>
+			</div>
+
+			<!-- 页面内容 -->
+			<div class="content">
+				<div class="content1">
+					<div class="content1_left">
+						<ul>
+							<li>
+								<img src="image/nav1.png" alt="">
+								<span>进口食物、生鲜</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav2.png" alt="">
+								<span>食品、饮料、酒</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav3.png" alt="">
+								<span>母婴、玩具、童装</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav4.png" alt="">
+								<span>家居、家庭清洁、纸品</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav5.png" alt="">
+								<span>美妆、个人护理、洗护</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav6.png" alt="">
+								<span>女妆、内衣、中老年</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav7.png" alt="">
+								<span>鞋靴、箱包、腕表配饰</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav8.png" alt="">
+								<span>男装、运动</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav9.png" alt="">
+								<span>手机、小家电、电脑</span>
+								<span>></span>
+							</li>
+							<li>
+								<img src="image/nav10.png" alt="">
+								<span>礼品、充值</span>
+								<span>></span>
+							</li>
+						</ul>
+					</div>
+					<div class="content1_con">
+						<img src="image/b_left.png" alt="">
+						<img src="image/b_right.png" alt="">
+						<div class="content1_span">
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+						</div>
+					</div>
+					<div class="content1_right">
+						<div class="content1_right1">
+							<p>快讯</p>
+							<a href="#">更多 ></a>
+						</div>
+						<hr class="hr1">
+						<div class="content1_right2">
+							<ul>
+								<li><span>【特惠】</span>掬一轮明月 表无尽惦念</li>
+								<li><span>【公告】</span>好奇金装成长裤新品上市</li>
+								<li><span>【特惠】</span>大牌闪购·抢!</li>
+								<li><span>【公告】</span>发福利 买车就抢千元油卡</li>
+								<li><span>【公告】</span>家电低至五折</li>
+							</ul>
+						</div>
+						<hr class="hr2">
+						<div class="content1_right3">
+							<h4>1号钱包</h4>
+						</div>
+						<hr class="hr2">
+						<div class="content1_right4">
+							<p>收益日结,收益赚High！</p>
+							<img src="image/oneAD.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="content2">
+					<div class="content2_0">
+						<img src="image/l_img.jpg"">
+                    <div class=" th">
+						<span>￥53.00</span>
+						<p>16R</p>
+					</div>
+				</div>
+				<div class="content2_1">
+					<div class="du1">
+						<img src="image/hot1.jpg" alt="" class="img0">
+						<div class="ul1">
+							<ul>
+								<li><a href="#">德国进口</a></li>
+								<li><a href="#">德亚全脂纯牛奶200ml*48盒</a></li>
+							</ul>
+							<div class="th1">
+								<span>￥189</span>
+								<p>26R</p>
+							</div>
+						</div>
+						<div class="img1">
+							<img src="image/hot.png" alt="">
+						</div>
+						<div class="img_left">
+							<img src="image/s_left.png" alt="">
+						</div>
+					</div>
+					<div class="du2">
+						<img src="image/hot2.jpg" alt="" class="img0">
+						<div class="ul1">
+							<ul>
+								<li><a href="#">iphone 6S</a></li>
+								<li><a href="#">Apple/苹果 iPhone 6s Plus公开版</a></li>
+							</ul>
+							<div class="th1">
+								<span>￥5288</span>
+								<p>25R</p>
+							</div>
+						</div>
+						<div class="img1">
+							<img src="image/hot.png" alt="">
+						</div>
+					</div>
+					<div class="du3">
+						<img src="image/hot3.jpg" alt="" class="img0">
+						<div class="ul1">
+							<ul>
+								<li><a href="#">倩碧特惠组合套装</a></li>
+								<li><a href="#">倩碧补水组合套装8折促销</a></li>
+							</ul>
+							<div class="th1">
+								<span>￥368</span>
+								<p>18R</p>
+							</div>
+						</div>
+						<div class="img1">
+							<img src="image/hot.png" alt="">
+						</div>
+					</div>
+					<div class="du4">
+						<img src="image/hot4.jpg" alt="" class="img0">
+						<div class="ul1">
+							<ul>
+								<li><a href="#">品利特级橄榄油</a></li>
+								<li><a href="#">750ml*4瓶装组合 西班牙原装进口</a></li>
+							</ul>
+							<div class="th1">
+								<span>￥280</span>
+								<p>30R</p>
+							</div>
+						</div>
+						<div class="img1">
+							<img src="image/hot.png" alt="">
+						</div>
+						<div class="img_right">
+							<img src="image/s_right.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content3">
+				<div class="content3_bj"></div>
+			</div>
+			<!-- 进口.生鲜 -->
+			<div class="content4">
+				<div class="content4_title">
+					<div class="content4_title_bj">
+						<div class="content4_tu">
+							<span>1F</span>
+						</div>
+						<div>
+							<p>进口<b>·</b>生鲜</p>
+						</div>
+					</div>
+					<div class="content4_title_ul">
+						<ul>
+							<li><a href="#">进口咖啡</a></li>
+							<li><a href="#">进口酒</a></li>
+							<li><a href="#">进口母婴</a></li>
+							<li><a href="#">新鲜蔬菜</a></li>
+							<li><a href="#">新鲜水</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 进口.生鲜内容 -->
+			<div class="content5">
+				<div class="content5_left">
+					<div>
+						<img src="image/s_left.png" alt="" class="content5_leftl">
+						<img src="image/s_right.png" alt="">
+					</div>
+					<div>
+						<ul>
+							<li><a href="#">进口水果</a></li>
+							<li><a href="#">奇异果</a></li>
+							<li><a href="#">西柚</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">海鲜水产</a></li>
+							<li><a href="#">品质牛肉</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">奶粉</a></li>
+							<li><a href="#">鲜活禽蛋</a></li>
+							<li><a href="#">进口酒</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">进口奶粉</a></li>
+							<li><a href="#">鲜活禽蛋</a></li>
+						</ul>
+						<hr class="hr_1">
+					</div>
+				</div>
+				<div class="content5_right">
+					<div>
+						<table>
+							<tr>
+								<td class="td1">
+									<p>贝思客 草莓先生&蓝莓小姐</p>
+									<p><span>¥98.00</span></p>
+									<img src="image/fre_b1.jpg" alt="">
+								</td>
+								<td class="td2">
+									<p>微笑果园SMILE 智利进口绿奇异果</p>
+									<p><span>¥84.00</span></p>
+									<img src="image/fre_b2.jpg" alt="">
+								</td>
+								<td class="td3">
+									<p>新鲜美味 进口美食</p>
+									<p><span>¥98.00</span></p>
+									<img src="image/fre_3.jpg" alt="">
+								</td>
+								<td class="td4"></td>
+							</tr>
+							<tr>
+								<td class="td_1">
+									<p>新鲜美味 进口美食</p>
+									<p><span>¥24.00</span></p>
+									<img src="image/fre_4.jpg" alt="">
+								</td>
+								<td class="td_2">
+									<p>新鲜美味 进口美食</p>
+									<p><span>¥142.00</span></p>
+									<img src="image/fre_5.jpg" alt="">
+								</td>
+								<td class="td_3">
+									<p>莫斯利安</p>
+									<p><span>¥62.00</span></p>
+									<img src="image/fre_6.jpg" alt="">
+								</td>
+								<td class="td_4"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- 个人美妆 -->
+			<div class="content4">
+				<div class="content4_title">
+					<div class="content4_title_bj">
+						<div class="content4_tu">
+							<span>2F</span>
+						</div>
+						<div>
+							<p>个人美妆</p>
+						</div>
+					</div>
+					<div class="content4_title_ul">
+						<ul>
+							<li><a href="#">洗发护发</a></li>
+							<li><a href="#">面膜</a></li>
+							<li><a href="#">洗面奶</a></li>
+							<li><a href="#">香水</a></li>
+							<li><a href="#">沐浴露</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 个人美妆内容 -->
+			<div class="content7">
+				<div class="content7_left">
+					<div>
+						<img src="image/s_left.png" alt="" class="content5_leftl">
+						<img src="image/s_right.png" alt="">
+					</div>
+					<div>
+						<ul>
+							<li><a href="#">洗发护发</a></li>
+							<li><a href="#">牙刷牙膏</a></li>
+
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">面膜</a></li>
+							<li><a href="#">补水面膜</a></li>
+							<li><a href="#">香水</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">面霜</a></li>
+							<li><a href="#">洗面奶</a></li>
+							<li><a href="#">脱毛膏</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">沐浴露</a></li>
+						</ul>
+						<hr class="hr_1">
+					</div>
+				</div>
+				<div class="content7_right">
+					<div>
+						<table>
+							<tr>
+								<td class="td1_1">
+									<p>美宝莲粉饼</p>
+									<p><span>¥260.00</span></p>
+									<img src="image/make_1.jpg" alt="">
+								</td>
+								<td class="td2_1">
+									<p>洗衣液</p>
+									<p><span>¥60.00</span></p>
+									<img src="image/make_2.jpg" alt="">
+								</td>
+								<td class="td3_1">
+									<p>洗发水</p>
+									<p><span>¥160.00</span></p>
+									<img src="image/make_3.jpg" alt="">
+								</td>
+								<td class="td5"></td>
+							</tr>
+							<tr>
+								<td class="td_a">
+									<p>男士洗发水</p>
+									<p><span>¥120.00</span></p>
+									<img src="image/make_4.jpg" alt="">
+								</td>
+								<td class="td_b">
+									<p>美宝莲粉饼</p>
+									<p><span>¥260.00</span></p>
+									<img src="image/make_5.jpg" alt="">
+								</td>
+								<td class="td_c">
+									<p>男士设计 洗面奶</p>
+									<p><span>¥90.00</span></p>
+									<img src="image/make_6.jpg" alt="">
+								</td>
+								<td class="td_5"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="content3">
+				<div class="content3_bj"></div>
+			</div>
+			<!-- 母婴玩具 -->
+			<div class="content4">
+				<div class="content4_title">
+					<div class="content4_title_bj">
+						<div class="content4_tu">
+							<span>3F</span>
+						</div>
+						<div>
+							<p>母婴玩具</p>
+						</div>
+					</div>
+					<div class="content4_title_ul">
+						<ul>
+							<li><a href="#">营养品</a></li>
+							<li><a href="#">孕妈背带裤</a></li>
+							<li><a href="#">儿童玩具</a></li>
+							<li><a href="#">婴儿床</a></li>
+							<li><a href="#">喂奶器</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 母婴玩具内容 -->
+			<div class="content8">
+				<div class="content8_left">
+					<div>
+						<img src="image/s_left.png" alt="" class="content5_leftl">
+						<img src="image/s_right.png" alt="">
+					</div>
+					<div>
+						<ul>
+							<li><a href="#">孕妈必备</a></li>
+							<li><a href="#">儿童玩具</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">童装童鞋</a></li>
+							<li><a href="#">辅助食品</a></li>
+
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">奶粉</a></li>
+							<li><a href="#">鲜活禽蛋</a></li>
+							<li><a href="#">维生素</a></li>
+						</ul>
+						<hr class="hr_1">
+						<ul>
+							<li><a href="#">童装童鞋</a></li>
+							<li><a href="#">辅助食品</a></li>
+						</ul>
+						<hr class="hr_1">
+					</div>
+				</div>
+				<div class="content8_right">
+					<div>
+						<table>
+							<tr>
+								<td class="td1_a">
+									<p>儿童推车</p>
+									<p><span>¥560.00</span></p>
+									<img src="image/baby_1.jpg" alt="">
+								</td>
+								<td class="td2_b">
+									<p>妈咪纸尿裤</p>
+									<p><span>¥260.00</span></p>
+									<img src="image/baby_2.jpg" alt="">
+								</td>
+								<td class="td3_c">
+									<p>儿童玩具 挖掘机</p>
+									<p><span>¥160.00</span></p>
+									<img src="image/baby_3.jpg" alt="">
+								</td>
+								<td class="td5_1"></td>
+							</tr>
+							<tr>
+								<td class="td_a1">
+									<p>纸尿裤</p>
+									<p><span>¥260.00</span></p>
+									<img src="image/baby_4.jpg" alt="">
+								</td>
+								<td class="td_b1">
+									<p>儿童推车</p>
+									<p><span>¥86.00</span></p>
+									<img src="image/baby_5.jpg" alt="">
+								</td>
+								<td class="td_c1">
+									<p>奶粉</p>
+									<p><span>¥660.00</span></p>
+									<img src="image/baby_6.jpg" alt="">
+								</td>
+								<td class="td_5b"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 页面尾部 -->
+		<div class="tail">
+			<div class="tail1">
+				<table>
+					<tr>
+						<td>
+							<img src="image/b1.png" alt="">
+							<ul>
+								<li>正品保障</li>
+								<li>正品行货 放心购买</li>
+							</ul>
+						</td>
+						<td>
+							<img src="image/b2.png" alt="">
+							<ul>
+								<li>满38包邮</li>
+								<li>满38包邮 免运费</li>
+							</ul>
+						</td>
+						<td>
+							<img src="image/b3.png" alt="">
+							<ul>
+								<li>天天低价</li>
+								<li>天天低价 畅选无忧</li>
+							</ul>
+						</td>
+						<td>
+							<img src="image/b4.png" alt="">
+							<ul>
+								<li>准时送达</li>
+								<li>收货时间由你做主</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="tail2">
+				<div class="tail2_1">
+					<div class="tail2_1_0">
+						<div>
+							<div class="tail2_1_1">新手上路</div>
+							<ul>
+								<li><a href="#">售后流程</a></li>
+								<li><a href="#">购物流程</a></li>
+								<li><a href="#">订购方式</a></li>
+								<li><a href="#">隐私声明</a></li>
+								<li><a href="#">推荐分享说明</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="tail2_1_0">
+							<div class="tail2_1_1">配送与支付</div>
+							<ul>
+								<li><a href="">货到付款区域</a></li>
+								<li><a href="">配送支付查询</a></li>
+								<li><a href="">支付方式说明</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="tail2_1_0">
+							<div class="tail2_1_1">会员中心</div>
+							<ul>
+								<li><a href="">资金管理</a></li>
+								<li><a href="">我的收藏</a></li>
+								<li><a href="">我的订单</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="tail2_1_0">
+							<div class="tail2_1_1">服务保证</div>
+							<ul>
+								<li><a href="">退换货原则</a></li>
+								<li><a href="">售后服务保证</a></li>
+								<li><a href="">产品质量保证</a></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div class="tail2_1_0">
+							<div class="tail2_1_1">联系我们</div>
+							<ul>
+								<li><a href="">网站故障报告</a></li>
+								<li><a href="">购物咨询</a></li>
+								<li><a href="">投诉与建议</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="tail2_2">
+					<div class="tail2_2_tp">
+						<div>
+							<img src="image/er.gif" alt="">
+						</div>
+						<div>
+							<img src="image/ss.png" alt="">
+						</div>
+					</div>
+					<div class="tail2_2_wz">
+						<div class="tail2_2_wz0">
+							<div class="tail2_2_wz1">
+								<img src="image/b_sh_1.png" alt="">
+								<a href="#">新浪微博</a>
+							</div>
+							<div class="tail2_2_wz1">
+								<img src="image/b_sh_2.png" alt="">
+								<a href="#">腾讯微博</a>
+							</div>
+						</div>
+						<div class="tail2_2_wz2">
+							<p>服务热线：</p>
+							<span>400-123-4567</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tail3">
+				<div class="tail3_wz">
+					<p>备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright© 1号店网
+						上超市 2007-2016，All Rights Reserved. 复制必究 , Technical Support: Dgg
+						Group</p>
+				</div>
+				<div class="tail3_tp">
+					<div>
+						<img src="image/b_1.gif" alt="">
+					</div>
+					<div>
+						<img src="image/b_2.gif" alt="">
+					</div>
+					<div>
+						<img src="image/b_3.gif" alt="">
+					</div>
+					<div>
+						<img src="image/b_4.gif" alt="">
+					</div>
+					<div>
+						<img src="image/b_5.gif" alt="">
+					</div>
+					<div>
+						<img src="image/b_6.gif" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

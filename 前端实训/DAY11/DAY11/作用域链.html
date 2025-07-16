@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 这种声明方法,就是为什么要有作用域的原因
+			// 可以避免变量名冲突
+			// var num = 456;
+
+			// 如果都没有,则查找全局作用域
+			function f1() {
+				// var num = 123;
+				
+				// 在上一级作用域查找
+				function f2() {
+					// var num = 0;
+					// 优先在当前作用域查找
+					console.log(num); // 站在目标出发，一层一层的往外查找
+				}
+				f2();
+			}
+			f1();
+			
+			// 原型链
+		</script>
+	</body>
+</html>

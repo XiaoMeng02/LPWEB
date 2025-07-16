@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>请求图书信息</button>
+		<script>
+			let btn = document.querySelector("button");
+
+			btn.addEventListener("click", function() {
+				let xhr = new XMLHttpRequest();
+				// 增加优化
+				// 字符串拼接的优化
+				let user = {
+					username: "xiaoli",
+					password: "123456",
+				}
+				// 解构出账户密码
+				let {
+					username,
+					password
+				} = user;
+				// 拼接字符串
+				// let req = "http://localhost:3000/users?" +
+				// `username=${username}&password=${password}`;
+				// console.log("请求路径", req);
+				// 使用提供的方法，完成字符串拼接
+				let req = new URLSearchParams();
+				req.append("username", username);
+				req.append("password", password);
+				console.log("请求完成的对象", req);
+
+				// 这个方法拼接的是参数，不是路径
+				xhr.open("get", "http://localhost:3000/users?" + req)
+				xhr.send();
+				xhr.addEventListener("load", function() {
+					console.log(xhr.responseText);
+				})
+			})
+		</script>
+	</body>
+</html>

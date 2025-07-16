@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .dad{
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+    }
+    .baby{
+        width: 200px;
+        height: 200px;
+        background: purple;
+    }
+</style>
+<body>
+    <ul>
+        <li>第1个孩子</li>
+        <li>第2个孩子</li>
+        <li>第3个孩子</li>
+        <li>第4个孩子</li>
+        <li>第5个孩子</li>
+        <li>第6个孩子</li>
+        <p>我不需要变色</p>
+    </ul>
+    <script>
+        //点击每一个小li当前li 文字变成红色
+        //按照事件委托方式 委托给父级,委托给父级，事件写到父级身上
+        //1.获取父元素
+        const ul = document.querySelector('ul')
+        ul.addEventListener('click',function(e){
+            // alert(11)
+            // this.style.color = 'red'
+            // console.log(e.target)
+            // e.target.style.color = 'red'
+            //我们只需要点击li才变色
+            if(e.target.tagName === 'LI'){
+                e.target.style.color = 'red'
+            }
+        })
+    </script>
+</body>
+
+</html>

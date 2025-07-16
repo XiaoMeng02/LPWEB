@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 构造函数
+			function Person(username, password) {
+				this.username = username;
+				this.password = password;
+			}
+			// 实例对象
+			let xiaowang = new Person("xiaowang", 123456);
+			let xiaoli = new Person("xiaoli", 123456);
+
+
+			// 在整个体系中，有三个互相能够访问的内容 
+			// 构造函数
+			// 实例对象
+			// 原型
+
+			// 复杂类型保存的是地址，所以可以通过属性互相访问
+			// 实例对象访问原型 xiaowan.__proto__ 
+			// 构造函数访问原型 Person.prototype
+			// 实例对象访问构造函数  xiaowang.constructor
+		</script>
+	</body>
+</html>

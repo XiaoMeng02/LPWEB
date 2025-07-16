@@ -1,0 +1,104 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "zhangsan",
+            "password": "123456",
+            "age": 28,
+            "gender": "男",
+            "address": "北京市朝阳区",
+            "phone": "13800138000",
+            "email": "zhangsan@example.com"
+        },
+        {
+            "id": 2,
+            "username": "lisi",
+            "password": "abcdef",
+            "age": 32,
+            "gender": "女",
+            "address": "上海市浦东新区",
+            "phone": "13900139000",
+            "email": "lisi@example.com"
+        },
+        {
+            "id": 3,
+            "username": "wangwu",
+            "password": "qwe123",
+            "age": 25,
+            "gender": "男",
+            "address": "广州市天河区",
+            "phone": "13700137000",
+            "email": "wangwu@example.com"
+        },
+        {
+            "id": 4,
+            "username": "zhaoliu",
+            "password": "asdfgh",
+            "age": 41,
+            "gender": "女",
+            "address": "深圳市南山区",
+            "phone": "13600136000",
+            "email": "zhaoliu@example.com"
+        },
+        {
+            "id": 5,
+            "username": "qianqi",
+            "password": "zxcvbn",
+            "age": 35,
+            "gender": "男",
+            "address": "杭州市西湖区",
+            "phone": "13500135000",
+            "email": "qianqi@example.com"
+        },
+        {
+            "id": 6,
+            "username": "sunba",
+            "password": "1qaz2wsx",
+            "age": 29,
+            "gender": "女",
+            "address": "南京市鼓楼区",
+            "phone": "13400134000",
+            "email": "sunba@example.com"
+        },
+        {
+            "id": 7,
+            "username": "zhoujiu",
+            "password": "3edc4rfv",
+            "age": 38,
+            "gender": "男",
+            "address": "武汉市武昌区",
+            "phone": "13300133000",
+            "email": "zhoujiu@example.com"
+        },
+        {
+            "id": 8,
+            "username": "wushi",
+            "password": "5tgb6yhn",
+            "age": 26,
+            "gender": "女",
+            "address": "成都市锦江区",
+            "phone": "13200132000",
+            "email": "wushi@example.com"
+        },
+        {
+            "id": 9,
+            "username": "zhengshi",
+            "password": "7ujm8ik,",
+            "age": 33,
+            "gender": "男",
+            "address": "重庆市渝中区",
+            "phone": "13100131000",
+            "email": "zhengshi@example.com"
+        },
+        {
+            "id": 10,
+            "username": "fengshiyi",
+            "password": "9ol.0p;/",
+            "age": 27,
+            "gender": "女",
+            "address": "天津市和平区",
+            "phone": "13000130000",
+            "email": "fengshiyi@example.com"
+        }
+    ]
+}

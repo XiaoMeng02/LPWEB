@@ -1,0 +1,98 @@
+*{
+	margin: auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #53d3ec;
+}
+.logo{
+	width: 1200px;
+	height: 150px;
+	background:url(../images/logo.jpg) no-repeat;
+}
+.logo p{
+	float: right;
+	margin: 10px;
+	color: #134373;
+}
+.main{
+	width: 1200px;
+	background-color: #53d3ec;
+	margin: auto;
+	color: #fff;
+}
+.nav{
+	margin: 0;
+	width: 1200px;
+	height: 60px;
+	
+}
+ul{
+	width: 1200px;
+}
+li{
+	width: 240px;
+	height: 60px;
+	line-height: 60px;
+	float: left;
+	text-align: center;
+	list-style: none;
+	background-color: #134373;
+}
+li:hover{
+	background-color: #247bd2;
+}
+li a{text-decoration: none;
+	font-size: 22px;
+	color: #fff;
+	display: block;//让文字和块
+}
+.shoutu{
+	width: 1200px;
+}
+.shoutu img{
+	width: 1200px;
+}
+.wenzi{
+	width: 1200px;
+	height: 700px;
+	padding: 0 40px;
+	/* background-color: aqua; */
+}
+.wenzi-left{
+	float: left;
+	width: 500px;
+	height: 700px;
+	/* background-color: #000; */
+	font-size: 18px;
+	padding: 40px;
+}
+.wenzi h3{
+	margin: 20px;
+	font-size: 40px;
+	
+}
+.wenzi p{
+	text-indent: 2rem;
+	line-height: 30px;
+}
+
+.wenzi-right{
+	float: right;
+	width: 500px;
+	height: 650px;
+	background-image: url(../images/jrsy-2.jpg);
+	padding: 20px;
+	color: #ebebeb;
+}
+.wenzi-right h3{
+	margin-top: 300px;
+}
+.footer{
+	width: 1200px;
+	height: 60px;
+	line-height: 60px;
+	background-color:#134373;
+	text-align: center;
+}

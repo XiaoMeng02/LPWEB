@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>可选按钮</button>
+
+		<script>
+			let btn = document.querySelector("button");
+			// 使用注册的方式完成绑定
+			btn.addEventListener("click", function() {
+				// 这里的this关键字指向谁?
+				// 谁调用了这个函数，this指向谁
+				console.log("调用中的this指向", this);
+				// 禁用按钮
+				this.innerHTML = "按钮禁用"
+
+				// 当遇到这样的情况的时候，常见的处理方法
+				// 使用一个我们定义的变量，保存外部的this指向
+				// 这种保存某个系统值的变量，一般都会使用下划线作为前缀
+				let _this = this;
+
+				// 定时器中的指向为什么没有指向btn?
+				// 要注意的是，定时器的指向，都是谁调用指向谁
+				// window.setTimeout(function() {
+				// 	// 定时器都是由bom调用，也就是window，所以这里面this指向window
+				// 	console.log("定时器的中的this指向", this);
+				// 	//回复按钮使用 但这里的写法是错误的
+				// 	this.innerHTML = "可选按钮";
+				// 	// 使用外部定义的this指向
+				// 	_this.innerHTML = "可选按钮";
+				// }, 1000);
+
+
+				// 使用新的方法完成 错误实例
+				// setTimeout不能够使用call这样的方法
+				// 其次，call方法应该是想改变谁的this指向给谁使用，这里改变了setTimeout里面的this指向，会导致setTimeout无法执行
+				// window.setTimeout.call(this, function() {
+				// 	console.log("定时器的中的this指向", this);
+				// 	this.innerHTML = "可选按钮";
+				// }, 1000)
+				
+				
+				//错误写法2
+				// call方法会立刻执行
+				// window.setTimeout(select.call(this), 1000)
+				// 类似于我们直接调用select这个函数
+				// select函数的执行结果，会作为参数传入
+				// window.setTimeout(select(), 1000)
+
+				// 正确写法
+				function select() {
+					console.log("定时器的中的this指向", this);
+					this.innerHTML = "可选按钮";
+				}
+				// 改变了指向
+				// bind方法会改变函数的this指向，但是不会立刻执行
+				window.setTimeout(select.bind(this), 1000);
+			})
+		</script>
+	</body>
+</html>

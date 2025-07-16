@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			/* 把共同的属性提取出来,使用同一个选择器设置 */
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			
+			/* 有区别的属性单个设置 */
+			#box1{
+				background-color: red;
+				margin-bottom: 100px;
+			}
+			
+			#box2{
+				background-color: blue;
+				margin-top: 60px;
+			}
+			
+			/* 当相邻的两个元素,垂直布局时,两个元素的垂直外边距会发生合并 */
+			/* 以较高的外边距为准 */
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+	</body>
+</html>

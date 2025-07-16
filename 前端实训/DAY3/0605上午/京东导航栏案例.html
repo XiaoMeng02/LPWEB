@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			/* 父容器,用来放置导航栏按钮 */
+			.nav{
+				height: 45px;
+				border-bottom: 2px solid gray;
+				
+				/* 垂直居中 */
+				line-height: 45px;
+			}
+			
+			
+			/* 给每个a标签添加样式 */
+			.nav>a{
+				height: 100%;
+				text-decoration: none;
+				display: inline-block;
+				
+				/* 通过内边距,使得元素之间间距一致 */
+				padding: 0px 20px;
+				/* 我们无法使用宽高达到这个目的,因为每个导航的字数不一样,宽度不一样 */
+			}
+			
+			.nav>a:hover{
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+		    <a href="#">秒杀</a>
+		    <a href="#">优惠券</a>
+		    <a href="#">PLUS会员</a>
+		    <a href="">品牌闪购</a>
+		    <a href="">拍卖</a>
+		    <a href="">京东家电</a>
+		    <a href="">京东超市</a>
+		    <a href="">京东生鲜</a>
+		    <a href="">京东国际</a>
+		    <a href="">京东云</a>
+		</div>
+	</body>
+</html>

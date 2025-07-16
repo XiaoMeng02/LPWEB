@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>日期对象</title>
+	</head>
+	<body>
+		<script>
+			// 通过这个对象，能够得到当前时间的时间戳信息
+			let time = new Date();
+			// 根据时间变化，在页面上时间
+			// 通过这个时间对象得到的当前时间是不会变化的
+			// 所以时间对象具有时效性，要得到当前时间，必须随时创建，随时使用
+
+			// 可以格式化时间的功能
+			// 给了参数，就是获取指定时间的时间戳
+			console.log(new Date(2022, 10, 1));
+			console.log(new Date('2021-10-08 12:12:12'));
+			// 这个时间戳事实上记录的是格林尼治时间1970年1月1日至今的毫秒数
+
+			// 通过提供的方法获取年月日
+			console.log("年份:", time.getFullYear());
+			// 由于换算的原因，月份会显示为 0 ~ 11 所以使用的时候一般 + 1
+			console.log("月份:", time.getMonth() + 1)
+			console.log("日期:", time.getDate())
+
+
+			// 获取星期
+			console.log("星期", time.getDay());
+
+			// 时分秒
+			console.log("时", time.getHours());
+			console.log("分", time.getMinutes());
+			console.log("秒", time.getSeconds());
+		</script>
+	</body>
+</html>

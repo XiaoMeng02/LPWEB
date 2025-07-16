@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 工厂模式
+			// 当遇到类似的代码，效果有细微区别的时候，
+			// 我们可以使用工厂模式，完成promise的定义
+
+			// 通过一个函数批量的创建promise的容器
+			// 这种通过传入的参数，批量的创建某个对象的方法
+			// 我们称之为工厂模式
+			function createPromise(run) {
+				// 这个函数的作用域，在这个函数内部，因此可以使用
+				// 函数传入的形参，放到容器中
+				return new Promise(function(resolve, reject) {
+					setTimeout(function() {
+						let v = Math.random();
+
+						// 模拟网络请求
+						if (v > run) {
+							resolve("数据请求成功");
+						} else {
+							reject("用户数据请求失败，请检查网络");
+						}
+					}, 2 * 1000)
+				});
+			}
+
+			// 使用工厂模式完成
+			Promise.all([createPromise(0.4), createPromise(0.7), createPromise(0.8)])
+				.then(function(rlt) {
+					console.log("数据请求成功");
+				}).catch(function(error) {
+					console.log("数据请求失败，请检查网络", error);
+				})
+
+			// 总结
+			// promise就是异步版本的分支语句，本质上和ifelse和switch分支语句类似
+			// promise 异步容器
+		</script>
+	</body>
+</html>

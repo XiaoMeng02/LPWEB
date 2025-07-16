@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 最大值最小值的方法
+			// 数学对象是一个现成的对象，可以直接使用
+			console.log("最大值", Math.max(10, 7, 4, 52, 32));
+			console.log("最小值", Math.min(10, 7, 4, 52, 32));
+			// 使用字符串而非数值
+			// 内置对象的特点，代码的健壮性很强，不容易出错
+			console.log("最大值", Math.max("10", 7, "4", "52", "字符串"));
+
+			// 内置对象和自定义对象区别在于是否是自己构建的
+			// 使用上没有区别
+			// 使用常量
+			console.log("PI的值", Math["PI"]);
+
+			// 绝对值方法
+			var num = -100;
+			// 绝对值方法
+			console.log("绝对值的方法:", Math.abs(num));
+
+
+			// 取整方法
+			// 向上取整，向下取整，四舍五入
+			// 之前讲的取整方法
+			var num_2 = 3.14;
+			// 舍弃了所有小数部分
+			console.log("取整方法1", parseInt(num_2));
+
+			// 现在使用数学对象的方法完成取整
+			console.log("取整方法2", Math.floor(num_2));
+			// 向上取整的方法
+			console.log("取整方法3", Math.ceil(num_2));
+			// 四舍五入的用法
+			console.log("取整方法4", Math.round(5.5));
+		</script>
+	</body>
+</html>

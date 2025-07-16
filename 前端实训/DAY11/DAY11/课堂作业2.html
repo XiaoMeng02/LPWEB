@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 声明一个函数，可以执行以下功能
+			// 有三个参数，行和列以及样式
+			// 如: function show(line , row，type){}
+
+			// 当用户使用弹窗输入行和列样式后，在页面上输出一个根据用户选择显示的矩阵，如
+			// show(3,4,"@")
+
+			// 输出
+			// @@@@
+			// @@@@
+			// @@@@
+			// @@@@
+
+
+			// 先使用固定值完成代码
+			// 先调用
+			show(4, 3, "♥");
+
+			// 再声明
+			function show(line, row, type) {
+				// 二维矩阵使用什么方法完成？
+				var text = "";
+
+				// 外层循环负责行
+				for (var x = 0; x < line; x++) {
+					// 内层循环负责列
+					for (var y = 0; y < row; y++) {
+						// 增加文本
+						text += type;
+					}
+					text += "\n";
+				}
+
+				// 将生成的文本返回
+				return text;
+			}
+			
+			// 由于预解析的存在，变量的声明会提前
+			var num;
+			// 先使用变量
+			console.log(num);
+			// 再声明，变量的赋值行为不会提前
+			num = 100;
+		</script>
+	</body>
+</html>

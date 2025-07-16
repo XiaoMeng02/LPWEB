@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// if(条件表达式){
+			// 	条件满足执行
+			// }else{
+			// 	条件不符合执行
+			// }
+			
+			// 这里不要给固定值,而是条件表达式
+			if(true){
+				console.log("条件满足");
+			}
+			
+			// if else 的嵌套
+			if (false) {
+				console.log("条件满足");
+			} else{
+				console.log("条件不满足");
+			}
+			
+			var age = 33;
+			// 18~30 为青年 31~50为中年 51~90为老年
+			// 这种复杂条件,需要使用多重的嵌套
+			if(age > 18 && age < 30){
+				console.log("青年");
+			}else if(age > 30 && age < 50){
+				console.log("中年");
+			}else if(age > 50 && age < 90){
+				console.log("老年");
+			}else{
+				// 当其他条件都不符合的时候执行
+			}
+			
+			// 一个好的分支语句,要能够根据条件精准的执行,并且有冗余的处理
+			// 分支语句只会执行符合体条件的第一个条件语句
+		
+			// 写代码的时候错误分为两种
+			// 第一种是 拼写错误,或者格式错误
+			// 第二种是 逻辑错误,不会报错,很难发现
+		</script>
+	</body>
+</html>

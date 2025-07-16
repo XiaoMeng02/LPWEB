@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 为了避免混淆,新版本的自定义属性,要求加上前缀 -->
+		<!-- <div index="001"></div> -->
+		<div data-index="001" data-name="张三"></div>
+
+		<script>
+			// 除了定义时的区别,还有使用时的区别
+			let div = document.querySelector("div");
+
+			// 由于加了前缀,获取时候也需要使用前缀
+			div.getAttribute("index")
+			div.getAttribute("data-index")
+
+
+			// 还有新的方法操作值,使用dom中的dataset对象操作值
+			// dataset中,保存了自定义属性和值的映射关系,因此可以通过.的方式访问该值,也可以使用下标的方式访问
+			// div.dataset.index
+			// div.dataset[index]
+			
+			// 也可使用这个方法增加值
+			div.dataset.getnum = "数字" 
+		</script>
+	</body>
+</html>

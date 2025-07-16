@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 剩余参数
+			// es6之前也能够实现剩余参数的获取,但是比较麻烦
+			// 在写代码时,函数有时候确实不确定参数的数量
+			// 其他语言中一般使用多态来实现
+			function fn1(num1, num2) {
+				console.log("获取参数", num1, num2);
+				console.log("参数列表", arguments);
+			}
+			// 在调用的时候,给了多余的参数
+			// 普通的函数调用时,多余的参数会被接收吗?
+			// 不会,多余的参数会被忽略
+			// fn1(1, 2, 3, 4, 5)
+
+
+			// 使用多余参数的方法接收
+			// 1.剩余参数,在接收的时候,使用...符号接收
+			// 表示这是一个剩余参数,使用时不需要三点符
+			// 2.剩余参数的获取,必须放到参数列表的最后
+			function fn2(num1, num2, ...num3) {
+				console.log("获取到的正常参数", num1, num2);
+				// 多出来的参数,会以数组的形式,保存到num3中
+				console.log("剩余的参数", num3)
+			}
+			// fn2(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+			// 除了作为剩余参数的符号以外
+			// 三点符...也是一个用于解构的符号
+			let arr = ["xiaoli", "123456", "18", "深圳"]
+
+			// 这个函数接收四个参数
+			function getUser(username, password, age, address) {
+				console.log("账户:", username);
+				console.log("密码:", password);
+				console.log("年龄:", age);
+				console.log("地址:", address);
+			}
+
+			// 在es6以前,如何将数组arr中的值传递给函数?
+			// 先使用赋值方法取值
+			// let username = arr[0];
+			// let password = arr[1];
+			// let age = arr[2];
+			// let address = arr[3];
+			// getUser(username,password,age,address);
+			// getUser(arr[0],arr[1],arr[2],arr[3]);
+
+			// 新的写法 使用对象的解构来完成
+			// let [username,password,age,address] = arr;
+			// getUser(username,password,age,address);
+			// 使用 ... 符完成解构
+			getUser(...arr);
+			// ...符完成了对数组的解构,将数组中的值进行了拆分
+			// 每个元素都变成了独立的变量,因此可以直接放到函数参数中使用
+
+			// 除此之外,还可以用来拼接数组
+			let arr1 = [1, 2, 3]
+			let arr2 = [4, 5, 6]
+			// 使用push方法拼接数组,这样得到是
+			// Array(4) [ 1, 2, 3, (3) […] ]的格式
+			// arr1.push(arr2);
+			// 使用三点符,将数组拓展开,然后再push
+			arr1.push(...arr2);
+
+			// 三点符 会 拓展数组 将数组变成一个一个的单独的变量
+			// 对象类型无法拓展,原因无法被循环迭代 
+		</script>
+	</body>
+</html>

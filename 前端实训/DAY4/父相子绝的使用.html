@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#bigBox{
+				width: 80%;
+				height: 70px;
+				
+				
+				/* 父元素使用相对定位 */
+				position: relative; */
+				left: 10%;
+				
+				/* 如果使用外边距，父元素失去了定位属性
+				/* margin-left: 50px; */
+				
+				border: 1px solid black;
+			}
+			
+			/* 使用绝对定位完成 */
+			#box1{
+				width: 50px;
+				height: 50px;
+				
+				/* 绝对定位 */
+				position: absolute;
+				/* left: 0px; */
+				top: 0px;
+				/* bottom: 0px; */
+				right: 0px;
+				
+				/* 使用边偏移量的时候，只能选择一组定位方式 */
+				/* 左右选择一个，上下选择一个 */
+				
+				background-color: aqua;
+			}
+			
+			
+			#lunbotu{
+				width: 80%;
+				height: 100px;
+				
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bigBox">
+			导航栏
+			<div id="box1"></div>
+		</div>
+		
+		<div id="lunbotu">
+			轮播图
+		</div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			元素1
+		</div>
+		<div>
+			元素2
+		</div>
+		<div>
+			元素3
+		</div>
+		<script>
+			// 获取所有的div标签
+			let divList = document.querySelectorAll("div");
+
+
+			// 是否可以这样批量的绑定事件？
+			// 不可以，这里保存的是伪数组类型的对象，保存起来没有效果
+			// divList.onclick = function() {
+			// 	alert("这是绑定事件");
+			// }
+
+			// 需要找到指定元素监听事件
+			// divList[0].addEventListener("click", event);
+			// 点击事件
+			// 使用形参的方式，获取值，这个形参的名字可以随便起名
+			// 但是一般使用e 或者 event 获取
+			function event(event) {
+				// 当点击事件以后，获取到是那个元素被点击了
+				// alert("点击了元素");
+				// 在控制台输出获取到的事件对象
+				console.log(event);
+
+				// 使用this关键字去绑定事件
+				console.log("绑定的元素1", this);
+				// this关键字，是谁绑定，指向谁
+
+				// 事件对象中，也有一个类似的值，可以触发事件的对象
+				console.log("绑定的元素2", event.target);
+				// event.target谁触发绑定谁
+
+				// 好像都是指向触发事件的元素？
+			}
+
+			// 需求场景1 - 这样的情况下如何判断是那个元素被点击了
+			// 遍历绑定事件，将元素全部绑定事件
+			for (let i = 0; i < divList.length; i++) {
+				divList[i].addEventListener("click", event);
+			}
+
+			// 需求场景2 - 如何获取鼠标在元素中的位置
+			divList[0].addEventListener("mousemove", function(event) {
+				// ie兼容写法 逻辑短路
+				event = event || window.event;
+
+				// 获取鼠标的位置
+				// console.log("鼠标X", event.pageX);
+				// console.log("鼠标Y", event.pageY);
+			});
+
+			// 需求场景3 - 当用户使用键盘输入的时候，获取用的输入
+
+
+			// 事件对象，是当事件触发的时候，bom传递给函数的一个对象
+			// 这个对象包含了事件触发时的，键盘的状态，鼠标的状态，页面的状态
+		</script>
+	</body>
+</html>

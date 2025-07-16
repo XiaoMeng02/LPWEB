@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			/* div {
+				color: red;
+			} */
+			
+			/* 2类名选择器 */
+			/* 选中所有类名位box1的元素 */
+			.box1 {
+				color: red;
+			}
+			
+			/* 3 id选择器 */
+			/* 选中id = duanluo的元素 */
+			/* id是唯一的，class可以重复使用 */
+			/* 同一个页面只有一个 */
+			#duanluo{
+				color: blue;
+			}
+			
+			/* 4 通配符选择器 */
+			/* 选中当前页面上的所有的元素 */
+			*{
+				color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 类名 给你的元素起一个组名 能够多次使用 -->
+	    <div class="box1">我是div</div>
+	    <div>我是div</div>
+	    <p id="duanluo">我是段落</p>
+	    <ul>
+			<!-- 通过类名的方式，可以给同一组的元素样式 -->
+	        <li class="box1">我是ul里面小li哦</li>
+	    </ul>
+	    <ol>
+	        <li>我是ol里面小li哦</li>
+	    </ol>
+	</body>
+	
+<!-- 	- 我想把div里面的文字改为红色？
+	- 我想把第一个div里面的文字改为红色？
+	- 我想把ul里面的li文字改为红色？ -->
+</html>

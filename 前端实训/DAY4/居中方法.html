@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>居中方法</title>
+		
+		<style>
+			#box{
+				width: 100px;
+				height: 100px;
+				
+				background-color: aqua;
+				
+				/* margin: 0px auto; */
+				
+				/* 使用定位后，需要使用定位的方式进行居中 */
+				position: absolute;
+				/* 首先移动百分之50 */
+				/* left: 50%; */
+				/* 回百分之50大小 */
+				/* margin-left: -50px; */
+				
+				/* 使用一行能够更方便 */
+				left: calc(50% - 50px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

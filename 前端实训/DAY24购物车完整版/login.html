@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<link rel="stylesheet" href="./css/login.css" />
+		<link rel="stylesheet" href="./plus/font-awesome-4.7.0/css/font-awesome.min.css" />
+	</head>
+	<body>
+		<!-- 整个的登陆框体 -->
+		<div class="login-container">
+
+			<!-- 左框体 显示装饰文本等内容 -->
+			<div class="left-panel">
+				<h2>欢迎回来</h2>
+				<p>登录您的账户继续访问</p>
+
+				<div class="feature">
+					<div class="feature-icon">
+						<i class="fa fa-lock"></i>
+					</div>
+					<div>
+						<h3>安全保障</h3>
+						<p>高级加密保护您的账户</p>
+					</div>
+				</div>
+
+				<div class="feature">
+					<div class="feature-icon">
+						<i class="fa fa-comments"></i>
+					</div>
+					<div>
+						<h3>24/7 支持</h3>
+						<p>全天候客户支持</p>
+					</div>
+				</div>
+
+				<div class="feature">
+					<div class="feature-icon">
+						<i class="fa fa-bolt"></i>
+					</div>
+					<div>
+						<h3>快速访问</h3>
+						<p>一键登录，无需等待</p>
+					</div>
+				</div>
+			</div>
+			<!-- 右框体  登陆表单-->
+			<div class="right-panel">
+				<!-- 让整个元素移动 -->
+				<div class="loginFrame show">
+					<h1>登录</h1>
+					<div class="input-group">
+						<label>账户</label>
+						<input type="text" class="loginForm" name="username" placeholder="请输入你的账户">
+					</div>
+					<div class="input-group">
+						<label>密码</label>
+						<input type="password" class="loginForm" name="password" placeholder="输入您的密码">
+					</div>
+					<div class="input-group">
+						<label>记住账户密码</label>
+						<input type="checkbox" name="" id="" />
+					</div>
+					<button>登录</button>
+
+					<div class="social-login">
+						<div class="social-icon">
+							<i class="fa fa-google"></i>
+						</div>
+						<div class="social-icon">
+							<i class="fa fa-facebook"></i>
+						</div>
+						<div class="social-icon">
+							<i class="fa fa-twitter"></i>
+						</div>
+					</div>
+
+					<p>没有账户？<a href="#">立即注册</a></p>
+				</div>
+				<!-- 内部框体切换 -->
+				<div class="registerFrame">
+					<h1>注册</h1>
+					<div class="input-group">
+						<label>账户:</label>
+						<input type="text" placeholder="请输入你的账户">
+					</div>
+					<div class="input-group">
+						<label>密码:</label>
+						<input type="text" placeholder="请输入你的密码">
+					</div>
+					<div class="input-group">
+						<label>地址:</label>
+						<input type="text" placeholder="请输入你的住址">
+					</div>
+					<div class="input-group">
+						<label>email:</label>
+						<input type="text" placeholder="请输入你的邮箱">
+					</div>
+					<button>注册</button>
+					<p>已有账户？<a href="#">立即登陆</a></p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 加入背景 -->
+		<canvas id="frame"></canvas>
+
+		<!-- 导入axiox插件 -->
+		<script src="plus/axios.js"></script>
+		<!-- 加入背景插件 -->
+		<script src="plus/random.js"></script>
+		<script src="plus/canvasBG.js"></script>
+		<!--  假如一个插件依赖另一个插件运行，就需要按需按顺序导入 -->
+
+		<!-- 使用外部导入方式，导入js文件 -->
+		<script src="js/login.js"></script>
+	</body>
+</html>

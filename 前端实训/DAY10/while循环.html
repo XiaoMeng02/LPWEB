@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>while循环</title>
+	</head>
+	<body>
+		<script>
+			// 先从语法学起
+			// while(循环条件){
+			// 	循环体
+			// }
+
+
+			// 使用while循环完成之前一样的要求
+			// 在控制台上输出10个*号
+
+			// 初始化表达式  一开始执行一次即可
+			// 循环对比的表达式  循环条件 满足条件可继续循环
+			// 值变化的表达式 用让让比较条件发生变化
+
+			var i = 0;
+			var str = "";
+			while (i < 10) {
+				str += '☆'
+				i++;
+			}
+			console.log(str);
+
+			// for 和 while循环难道只是格式不同?
+			// for 适合在执行次数固定的时候使用
+			// 比如例子中,要求打印十个⭐,那么使用for更合适
+
+			// while循环 循环次数不固定的情况下使用
+			// 这种情况,循环的次数不固定
+			var age = 60;
+			while (age < 50) {
+				// 获取用户输入
+				age = prompt("请输入您的年龄");
+			}
+			
+			// while循环是否至少会执行一次?
+			// 和for循环一样,while可能执行0次
+			
+			// 有没有至少执行一次的循环?
+			// do while至少会执行一次 先执行一次循环体,再判断条件
+			var age = 0;
+			do{
+				age = prompt("请输入您的年龄");
+			}while(age < 50);
+		</script>
+	</body>
+</html>

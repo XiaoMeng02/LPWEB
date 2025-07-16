@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 这里的num是否可以输出 -->
+		<!-- 行内的js代码,也属于scrpit代码片段中 -->
+		<button onclick="alert('num的值为:'+num)">点击</button>
+
+		<script>
+			// 全局作用域
+			// 在整个script代码片段中起效果
+			var num = 0;
+
+
+			function get() {
+				// 函数作用域,只在函数中生效
+				var str = "函数作用域";
+
+				// 这里的值是否可以获取?
+				// 可以获取,因为在同一个函数作用域中
+				function set() {
+					console.log('str的值为:', str);
+				}
+				set();
+
+				console.log('num的值为:', num);
+			}
+
+			// 块级作用域
+			for (let i = 0; i < 10; i++) {
+				console.log(i);
+			}
+						
+			// js中原本没有块级作用域,i值在循环中使用完成后,依然存在
+			// es6定义了一个变量的声明方法let,使用该声明声明出来的值,是块级的
+			// let 是 var 强化plus版本,只要能够用var 的地方, let都可以平替,甚至做的更好
+		</script>
+	</body>
+</html>

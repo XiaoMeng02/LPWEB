@@ -1,0 +1,96 @@
+{
+	"books":[
+		{
+			"id": 1,
+			"bookName": "天龙八部",
+			"price": 18.34,
+			"publish": "天津出版社",
+			"publishDate": "2021-12-02",
+			"author": "金庸",
+			"number": 80
+		},
+		{
+			"id": 2,
+			"bookName": "雪山飞狐",
+			"price": 68.98,
+			"publish": "河北出版社",
+			"publishDate": "2021-12-03",
+			"author": "金庸",
+			"number": 100
+		},
+		{
+			"id": 3,
+			"bookName": "鹿鼎记",
+			"price": 30,
+			"publish": "河南出版社",
+			"publishDate": "2021-11-03",
+			"author": "金庸",
+			"number": 40
+		},
+		{
+			"id": 4,
+			"bookName": "Java从入门到放弃",
+			"price": 80.88,
+			"publish": "四川出版社",
+			"publishDate": "2021-12-03",
+			"author": "张三丰",
+			"number": 20
+		},
+		{
+			"id": 5,
+			"bookName": "CSS从入门到精通",
+			"price": 70,
+			"publish": "湖北出版社",
+			"publishDate": "2021-12-03",
+			"author": "周芷若",
+			"number": 84
+		},
+		{
+			"id": 6,
+			"bookName": "JavaScript设计艺术",
+			"price": 130,
+			"publish": "重庆出版社",
+			"publishDate": "2021-12-03",
+			"author": "金毛狮王",
+			"number": 30
+		}
+	],
+	"persons": [
+		{
+			"id": 1,
+			"username": "张三",
+			"age": 30,
+			"sex": "男",
+			"address": "河南省",
+			"hobbys": ["唱歌","跳舞","睡觉"],
+			"relation": {
+				"mother": "张小三",
+				"father": "张小小三"
+			}
+		},
+		{
+			"id": 2,
+			"username": "李四",
+			"age": 40,
+			"sex": "女",
+			"address": "黑龙江省",
+			"hobbys": ["吃饭","跳舞","打豆豆"],
+			"relation": {
+				"mother": "李小四",
+				"father": "李小小四"
+			}
+		},
+		{
+			"id": 3,
+			"username": "王五",
+			"age": 20,
+			"sex": "男",
+			"address": "湖北省",
+			"hobbys": ["吃饭","跳舞","游泳"],
+			"relation": {
+				"mother": "王小五",
+				"father": "王小小五"
+			}
+		}	
+	]
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数字类型包含小数和整数
+			var x = 10;
+			var y = 3.14;
+
+			// 使用数学对象,找到js值的最大值and最小值
+			// 通过增加最大值的方式,可以得到正无穷和负无穷
+			console.log(Number.MAX_VALUE * 2);
+			console.log(Number.MIN_VALUE * 2);
+
+			// NaN 可以是任何一个结果,但不可能为数值
+			console.log("hello" * 12);
+			// 字符串乘以数值
+			console.log("111" * 10);
+			// 这里发生了隐式转换
+			console.log(10 + "hello");
+
+			// 获取用户输入
+			var age = null;
+			age = prompt("你的年龄是?");
+			
+			// 判断用户输入是否为数值
+			// isNaN 只有当结果为NaN的时候返回真
+			if ( isNaN(age) ) {
+				// 如果为真,执行这个代码
+				alert("错误,请输入数值类型");
+			} else{
+				// 如果为假,执行这个代码
+				alert("你两倍的年龄为" + age * 2);
+			}
+			
+			// 这个时候程序就出错了
+			// 我们需要增加代码的(健壮性)
+			// 无论用户如何操作,代码都有额外的处理,处理用户的行为
+		</script>
+	</body>
+</html>

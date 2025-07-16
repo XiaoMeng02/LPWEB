@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let getUser = new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					let v = Math.random();
+
+					// 模拟网络请求
+					if (v > 0.4) {
+						resolve("用户数据请求成功");
+					} else {
+						reject("用户数据请求失败，请检查网络");
+					}
+				}, 2 * 1000)
+			});
+
+			// 再获取用户的好友列表
+			let getFriend = new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					let v = Math.random();
+					// 同样模拟网络请求
+					if (v > 0.7) {
+						resolve("好友列表请求成功");
+					} else {
+						reject("好友列表请求失败");
+					}
+				}, 2 * 1000)
+			})
+
+			// 为了解决回调地狱的情况，
+			// Promise对象提供给我们一个all方法，解决问题
+			// all方法接收一个数组参数，里面由需要异步执行的容器组成
+			// 会按照顺序执行异步代码
+			Promise.all([getUser, getFriend]).then(function(rlsList) {
+				// 当全部执行成功的情况下，会以数组的形式，
+				// 返回执行成功的结果
+				console.log("请求全部执行成功", rlsList);
+			}).catch(function(error) {
+				// 一般执行失败以后，后面的代码就需要执行了
+				// 这里的参数，会将执行失败时，调用的rejcet函数的参数返回
+				console.log("请求执行失败", error);
+			});
+
+			// 前后端交互技术
+			// ajax axios
+			// ajax会和promise配合使用
+		</script>
+	</body>
+</html>

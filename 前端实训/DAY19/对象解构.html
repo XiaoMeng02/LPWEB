@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 后端传递的登陆数据
+			let User = {
+				username: "xiaoli",
+				password: "123456",
+				age: "18",
+				address: '深圳'
+			}
+
+			// 我们需要从这个对象中获取到username值和password值
+			// es6以前的写法 获取账户和密码值
+			let username = User.username;
+			let password = User.password;
+			// 在这里,我们可以使用解构的写法完成
+			// 可以直接使用和对象中键值对的键相同的名称直接获取
+			//对应的值
+			// let {
+			// 	username,
+			// 	password
+			// } = User;
+
+			// 如果获取值以后,不想使用原本键作为名称
+			// 我们可以 {指定别名} {指的是给某些值指定一个另外名称,用来代指这个值}
+			let {
+				username: loginUsername,
+				password: loginPassword,
+			} = User;
+			// 这种行为我们称之为起别名,格式就是键值对的格式
+
+
+			// 我们需要通过这个值进行登陆判断,是否能够登陆成功
+			if (loginUsername == "xiaoli" && loginPassword == "123456") {
+				console.log("登陆成功");
+			} else {
+				console.log("登陆失败");
+			}
+			
+			// 当以后遇到需要从数组中,或者对象中批量拿值,并且使用时
+			// 尽量使用解构方法完成
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// function fn(){
+			//  函数体
+			// }
+
+			// es6的箭头函数
+			// 这里就声明了一个叫做fn1的函数，接收一个username作为参数
+			// 这里的关键字被=>替换了
+			let fn1 = username => {
+				console.log("账户为:", username);
+			}
+			// 有多个参数的时候，需要使用括号包裹
+			let fn2 = (username, password) => {
+				console.log("账户为:", username);
+				console.log("密码为:", password);
+			}
+			// 没有参数的情况下，需要给一个空的括号
+			let fn3 = () => {
+				console.log("没有参数的箭头函数");
+			}
+
+			// 需要一个匿名箭头函数？
+			// () => {}
+
+			// 箭头函数在大部分情况下，和普通函数都一样
+			// 除了写起来更方便以外
+
+			// 最简单的箭头函数
+			// 只有一条语句，可以省略花括号
+			// 还可以省略返回值，代码会自动将这行代码的计算结果返回
+			let sum = () => this; //也是window
+			// 这是因为这个箭头函数定义在全局作用域中
+			// 全局作用域中的this 指向的是window
+			// 箭头函数没有this指向，会跟随外部的this指向
+			// 全局作用域指向window,箭头函数也指向window
+			// 普通函数写法
+			function sum1() {
+				return this; //window
+				//这里会返回window，是因为调用的时候
+				// 实际上调用的方式是window.sum1()
+				// 普通函数谁调用，指向谁，所以这里指向window
+			}
+
+
+			// 箭头函数的this指向问题
+		</script>
+	</body>
+</html>

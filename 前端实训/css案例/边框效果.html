@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>可移植的流水灯边框</title>
+    <style>
+        :root {
+            /* 定义 CSS 变量 */
+            --box-padding-x: 20px;
+            --box-padding-y: 20px;
+            --box-color: #ffaa7f;
+            --box-font-size: 20px;
+            --pseudo-inset: 5px;
+            --box-border-radius: 10px;
+            --pseudo-border-radius: 10px;
+        }
+
+        /* 定义主要内容盒子的样式 */
+        .box {
+            /* 设置内边距，使用视口单位vmin，使元素在不同屏幕尺寸下自适应 */
+            padding: var(--box-padding-y) var(--box-padding-x);
+            /* 设置背景颜色为白色 */
+            background-color: #fff;
+            /* 设置边框圆角，使盒子边缘变圆润 */
+            border-radius: var(--box-border-radius);
+            /* 设置文字颜色为淡蓝色 */
+            color: var(--box-color);
+            /* 设置文字大小，使用视口单位vmin，使文字在不同屏幕尺寸下自适应 */
+            font-size: var(--box-font-size);
+            /* 设置为相对定位，为伪元素的绝对定位提供参考 */
+            position: relative;
+            /* 隐藏溢出的内容，确保伪元素超出部分不显示 */
+            overflow: hidden;
+            /* 开启层级开关，使内部子元素可以使用z-index属性 */
+            z-index: 0;
+            /* 将盒子转换为行内块元素，使其可以与其他元素并排显示 */
+            display: inline-block;
+        }
+
+        /* 定义盒子的伪元素before，用于创建旋转的渐变背景 */
+        .box::before {
+            /* 伪元素必须设置content属性，这里为空 */
+            content: '';
+            /* 设置宽度为盒子宽度的2倍 */
+            width: 300%;
+            /* 设置高度为盒子高度的2倍 */
+            height: 300%;
+            /* 设置背景颜色为深灰色 */
+            background-color: #22292f;
+            /* 设置为绝对定位，相对于.box元素定位 */
+            position: absolute;
+            /* 将元素向左偏移自身宽度的一半 */
+            left: -100%;
+            /* 将元素向上偏移自身高度的一半 */
+            top: -100%;
+            /* 设置背景图像为圆锥渐变，包含透明、淡蓝色和透明部分 */
+            background-image: conic-gradient(transparent, var(--box-color), transparent 30%);
+            /* 设置层级为-2，使其在.box元素和.box::after元素之下 */
+            z-index: -2;
+            /* 应用名为rotate的动画，持续时间为5秒，线性播放，无限循环 */
+            animation: rotate 5s linear infinite;
+        }
+
+        /* 定义旋转动画 */
+        @keyframes rotate {
+            /* 动画结束时，元素旋转360度 */
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 定义盒子的伪元素after，用于创建内部的黑色背景 */
+        .box::after {
+            /* 伪元素必须设置content属性，这里为空 */
+            content: '';
+            /* 设置为绝对定位，相对于.box元素定位 */
+            position: absolute;
+            /* 设置元素的内边距为1vmin，即距离.box元素的四个边都是1vmin */
+            inset: var(--pseudo-inset);
+            /* 设置背景颜色为黑色 */
+            background-color: #000;
+            /* 设置边框圆角，使内部背景边缘变圆润 */
+            border-radius: var(--pseudo-border-radius);
+            /* 设置层级为-1，使其在.box::before元素之上，但在.box元素之下 */
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 创建一个带有流水灯边框效果的盒子 -->
+    <div class="box">流水灯边框</div>
+</body>
+
+</html>

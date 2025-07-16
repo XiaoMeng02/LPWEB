@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- 设置文档的字符编码为 UTF-8 -->
+  <meta charset="UTF-8">
+  <!-- 设置视口，确保页面在不同设备上正确显示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 设置网页标题 -->
+  <title>流畅动画搜索框</title>
+  <!-- 引入 Font Awesome 图标库，用于显示搜索图标 -->
+  <script src="https://kit.fontawesome.com/76b8b9a205.js" crossorigin="anonymous"></script>
+  <style>
+    /* 定义全局 CSS 变量，方便后续使用和修改 */
+    :root {
+      /* 主色调，用于背景颜色等 */
+      --primary-color: #e84118;
+      /* 次色调，用于搜索框等元素的背景颜色 */
+      --secondary-color: #2f3640;
+      /* 动画过渡时间，单位为秒 */
+      --transition-time: 10s;
+      /* 定义一个缓动函数，使动画有更好的视觉效果 */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body {
+      /* 去除默认的外边距和内边距 */
+      margin: 0;
+      padding: 0;
+      /* 使用 Flexbox 布局，将内容水平和垂直居中 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* 设置最小高度为视口高度，确保内容在垂直方向上居中 */
+      min-height: 100vh;
+      /* 设置背景颜色为主色调 */
+      background-color: var(--primary-color);
+      /* 设置字体 */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* 搜索框容器，用于定位子元素 */
+    .search-container {
+      position: relative;
+    }
+
+    /* 搜索表单，包含输入框和搜索按钮 */
+    .search-form {
+      /* 使用 Flexbox 布局，使子元素水平排列并垂直居中 */
+      display: flex;
+      align-items: center;
+      /* 设置搜索框的背景颜色为次色调 */
+      background-color: var(--secondary-color);
+      /* 设置搜索框的高度 */
+      height: 60px;
+      /* 设置搜索框的圆角 */
+      border-radius: 30px;
+      /* 设置内边距 */
+      padding: 5px;
+      /* 添加阴影效果，增强立体感 */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      /* 定义宽度和内边距的过渡动画，使用之前定义的过渡时间和缓动函数 */
+      transition: width var(--transition-time) var(--ease-out-expo),
+                  padding var(--transition-time) var(--ease-out-expo);
+      /* 初始宽度为 60px */
+      width: 60px;
+    }
+
+    /* 搜索输入框 */
+    .search-input {
+      /* 让输入框自动填充剩余空间 */
+      flex-grow: 1;
+      /* 设置输入框的高度为 100% */
+      height: 100%;
+      /* 去除边框 */
+      border: none;
+      /* 去除背景 */
+      background: none;
+      /* 去除聚焦时的轮廓 */
+      outline: none;
+      /* 设置内边距 */
+      padding: 0 20px;
+      /* 设置文字颜色为白色 */
+      color: white;
+      /* 设置字体大小 */
+      font-size: 18px;
+      /* 初始时输入框不可见 */
+      opacity: 0;
+      /* 初始时输入框向右偏移 10px */
+      transform: translateX(10px);
+      /* 定义宽度、透明度和位置的过渡动画，使用之前定义的过渡时间和缓动函数 */
+      transition: width var(--transition-time) var(--ease-out-expo),
+                  opacity var(--transition-time) var(--ease-out-expo),
+                  transform var(--transition-time) var(--ease-out-expo);
+      /* 初始宽度为 0 */
+      width: 0;
+    }
+
+    /* 搜索按钮 */
+    .search-button {
+      /* 设置按钮的宽度和高度 */
+      width: 50px;
+      height: 50px;
+      /* 设置按钮为圆形 */
+      border-radius: 50%;
+      /* 设置按钮的背景颜色为次色调 */
+      background-color: var(--secondary-color);
+      /* 设置按钮内图标的颜色为主色调 */
+      color: var(--primary-color);
+      /* 使用 Flexbox 布局，将图标水平和垂直居中 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* 设置鼠标指针为手型，表示可点击 */
+      cursor: pointer;
+      /* 定义背景颜色和旋转的过渡动画，使用之前定义的过渡时间和缓动函数 */
+      transition: background-color var(--transition-time) var(--ease-out-expo),
+                  transform var(--transition-time) var(--ease-out-expo);
+      /* 防止按钮在收缩时缩小 */
+      flex-shrink: 0;
+    }
+
+    /* 当鼠标悬停在搜索框容器上时，改变搜索表单的样式 */
+    .search-container:hover .search-form {
+      /* 搜索表单的宽度变为 350px */
+      width: 350px;
+    }
+
+    /* 当鼠标悬停在搜索框容器上时，改变搜索输入框的样式 */
+    .search-container:hover .search-input {
+      /* 输入框的宽度变为 100% */
+      width: 100%;
+      /* 输入框变为可见 */
+      opacity: 1;
+      /* 输入框回到初始位置 */
+      transform: translateX(0);
+    }
+
+    /* 当鼠标悬停在搜索框容器上时，改变搜索按钮的样式 */
+    .search-container:hover .search-button {
+      /* 按钮的背景颜色变为白色 */
+      background-color: white;
+      /* 按钮旋转 360 度 */
+      transform: rotate(360deg);
+    }
+
+    /* 设置输入框占位符的颜色 */
+    .search-input::placeholder {
+      color: #a0a0a0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 搜索框容器 -->
+  <div class="search-container">
+    <!-- 搜索表单，action 属性指定表单提交的地址，method 属性指定提交方式 -->
+    <form class="search-form" action="#" method="GET">
+      <!-- 搜索输入框，设置类型为文本，添加占位符和无障碍标签 -->
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="输入关键词搜索..."
+        aria-label="搜索框"
+      >
+      <!-- 搜索按钮，设置类型为提交，添加无障碍标签 -->
+      <button type="submit" class="search-button" aria-label="搜索按钮">
+        <!-- 使用 Font Awesome 图标显示搜索图标 -->
+        <i class="fas fa-search text-xl"></i>
+      </button>
+    </form>
+  </div>
+</body>
+</html>

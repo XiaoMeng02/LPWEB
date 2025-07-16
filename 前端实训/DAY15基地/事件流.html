@@ -1,0 +1,119 @@
+<head>
+	<style>
+		div {
+			color: aliceblue;
+		}
+
+		#div0 {
+			width: 400px;
+			height: 400px;
+			background-color: #aaaa7f;
+		}
+
+
+		#div1 {
+			width: 300px;
+			height: 300px;
+			background-color: red;
+		}
+
+		#div2 {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+
+		#div3 {
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+		}
+
+		#div4 {
+			width: 50px;
+			height: 50px;
+			background-color: #ffaa00;
+		}
+	</style>
+</head>
+<body>
+	<div id="div0">
+		超大
+		<div id="div1">
+			大
+			<div id="div2">
+				中
+				<div id="div3">
+					小
+					<div id="div4">
+						超小
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// 使用传统注册方法的默认情况下，执行的顺序被称之为冒泡，也只能执行冒泡
+		// 为什么叫冒泡？因为和水泡一样，事件会从最底层执行到最上层
+		// 1. 获取div1
+		// var div1 = document.querySelector("#div1");
+		// div1.onclick = function() {
+		// 	alert('大');
+		// }
+		// // 2. 获取div2
+		// var div2 = document.querySelector("#div2");
+		// div2.onclick = function() {
+		// 	alert('中');
+		// }
+		// // 3. 获取div3
+		// var div3 = document.querySelector("#div3");
+		// div3.onclick = function() {
+		// 	alert('小');
+		// }
+
+
+		// 使用监听的注册方法
+		// 默认情况下，监听方法也是从底层执行到最上层，也就是冒泡
+		// 如果反过来执行，那么被称之为捕获
+		var div0 = document.querySelector("#div0");
+		div0.addEventListener('click', function() {
+			alert("监听超大");
+		});
+		var div1 = document.querySelector("#div1");
+		div1.addEventListener('click', function() {
+			alert("监听大");
+		});
+		// 从冒泡变成捕获了
+		// 冒泡顺序 超小 - 小 - 中 -  大- 超大
+		// 执行顺序 中 - 超小 - 小 - 大- 超大
+
+		// dom 查找元素的时候，也需要从根节点开始找
+		// 一层一层的往下查找，直到找到触发的元素
+		// 这个一层一层往下查找的过程我们称之为捕获
+		// 为什么设置这个 中元素 为捕获，点击的时候就先执行了中？
+		// 因为dom在查找指定元素的过程中，顺手把设置为捕获的元素的事件执行了
+		// 找到需要执行事件的元素，开始执行冒泡，返回根节点
+		// 所以捕获总是比冒泡先执行
+		var div2 = document.querySelector("#div2");
+		div2.addEventListener('click', function() {
+			alert("监听中");
+		}, true);
+
+		var div3 = document.querySelector("#div3");
+		div3.addEventListener('click', function() {
+			alert("监听小");
+		});
+		var div4 = document.querySelector("#div4");
+		div4.addEventListener('click', function(event) {
+			alert("监听超小");
+
+			// 只想让被点击的元素触发事件，不让后面的冒泡事件执行
+			// 阻止元素事件的冒泡行为
+			event.stopPropagation()
+		});
+
+
+		// 执行的顺序相反
+	</script>
+</body>

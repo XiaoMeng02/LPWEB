@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+
+			//三元运算符
+			//条件？代码1：代码2
+			// console.log(3 > 5 ? 3 : 5)
+			//if(3 < 5){
+			//	alert('真的')
+			//}else (
+			//	alert('假的')
+			//}Ⅰ
+			//3 < 5 ? alert('真的') : alert('假的')
+			// let sum = 3 < 5 ? 3 : 5
+			// console.log(sum)
+
+			//需求：用户输入2个数，控制台输出最大的值
+			// 分析：
+			// ①：用户输入2个数
+			// ②：利用三元运算符输出最大值
+			//1.用户输入
+			let num1 = prompt('请输入第一个数：')
+			let num2 = prompt('请输入第二个数：')
+			// 2.判断输出-三元运算符
+			num1 > num2 ? alert(`最大值是:${num1}`) : alert(`最大值是:${num2}`)
+        </script>
+	</body>
+</html>

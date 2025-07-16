@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		username:<input type="text" /><br>
+		password:<input type="password" /><br>
+		<button>登陆</button>
+		<button>注册</button>
+
+		<script>
+			// 自己封装ajax函数
+
+			let ajax = {
+				get(url, obj, callback) {
+					let xhr = new XMLHttpRequest();
+					// 将请求路径，使用形参替代
+
+					// 处理请求的参数
+					let params = '?'
+					for (let key in obj) {
+						params += `${key}=${obj[key]}&`
+					}
+					// 移除末尾多余的&
+					params = params.replace(/&$/, '');
+
+					// 将路径，和拼接好的请求参数结合
+					xhr.open("get", url + params);
+					xhr.send();
+
+					xhr.addEventListener("readystatechange", () => {
+						// 传输完成
+						if (xhr.readyState == 4) {
+							// 判断是否传输成功
+							if (xhr.status == 200) {
+								//成功以后的代码
+								// 难道说每一次的函数调用，运行成功后的要执行的代码，都是一样的吗？很明显不一样
+								// 1.将得到的xhr结果返回
+								// return xhr.responseText;
+
+								// 这里要执行某些代码，我们会使用callback
+								// 也就是回调函数，在这里调用传入的函数
+								// callback();
+								// 尽管使用回调函数，在代码执行成功以后，成功执行了后面的代码
+								// 产生的数据如何传递给这个callback回调函数？
+								// 调用这个回调函数的同时，将要传递的值给这个函数
+						
+								let rls = JSON.parse(xhr.responseText);
+								// 将处理好的数据，返回给回调函数
+								callback(rls);
+							}else {
+                            console.error('请求失败，状态码：', xhr.status);
+							}
+						}
+					});
+				},
+				
+				//封装post类型的请求
+				post(url, obj, callback) {
+					let xhr = new XMLHttpRequest();
+					xhr.open("post", url);
+					// 设置请求头，指定请求体格式为JSON
+					xhr.setRequestHeader('Content-Type', 'application/json');
+					
+					// 将对象转换为JSON字符串
+					let jsonData = JSON.stringify(obj);
+					
+					xhr.send(jsonData);
+					xhr.addEventListener("readystatechange", () => {
+						// 传输完成
+						if (xhr.readyState == 4) {
+							// 判断是否传输成功
+							if (xhr.status == 200) {
+								try {
+									let rls = JSON.parse(xhr.responseText);
+									callback(rls);
+								} catch (e) {
+									console.error('解析响应数据失败：', e);
+									callback(xhr.responseText);
+								}
+							} else {
+								console.error('请求失败，状态码：', xhr.status);
+							}
+						}
+					});
+				}
+			}
+				
+
+			let loginBtn = document.getElementById("loginBtn");
+			let registerBtn = document.getElementById("registerBtn");
+
+
+			loginBtn.addEventListener("click", () => {
+				// 获取用户输入的账户密码信息
+				let username = document.getElementById("username").value;
+				let password = document.getElementById("password").value;
+
+				// 如果是正式的代码，应该还要有个数据验证
+				// 简单的数据验证
+				if (!username || !password) {
+				    alert("用户名和密码不能为空");
+				    return;
+				}
+				// 通过ajax对象调用
+				// 为什么这里无法获取到返回值？
+				// 这里完成的是登陆效果
+				// 发送登录请求
+				ajax.post("http://localhost:3000/login", {
+					username: username,
+					password: password
+				}, (result) => {
+					console.log("登录请求响应：", result);
+					if (result.success) {
+						alert("登陆成功");
+						// 登录成功后的操作，如跳转页面
+						// window.location.href = 'home.html';
+					} else {
+						alert(result.message || "登陆失败，账户或者密码错误");
+					}
+					});
+				});
+		
+				registerBtn.addEventListener("click", () => {
+					// 获取用户输入的账户密码信息
+					let username = document.getElementById("username").value;
+					let password = document.getElementById("password").value;
+		
+					// 简单的数据验证
+					if (!username || !password) {
+						alert("用户名和密码不能为空");
+						return;
+					}
+		
+					// 发送注册请求
+					ajax.post("http://localhost:3000/register", {
+						username: username,
+						password: password
+					}, (result) => {
+						console.log("注册请求响应：", result);
+						if (result.success) {
+							alert("注册成功，请登录");
+							// 可以自动填充用户名，方便用户登录
+							// document.getElementById("password").value = '';
+						} else {
+							alert(result.message || "注册失败，请重试");
+						}
+					});
+				});
+		
+
+
+			//课堂作业
+			//在这里的代码基础上，完成post类型的封装
+			//封装post类型的请求
+			
+
+			// 作业
+			// 实现登陆注册页面，并且使用原生的ajax完成登陆注册效果
+		</script>
+	</body>
+</html>

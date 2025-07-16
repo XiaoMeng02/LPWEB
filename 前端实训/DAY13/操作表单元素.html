@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		密码<input type="password" />
+		<button>👀</button>
+
+		<script>
+			// 实现点击按钮，切换密码的显示方式
+			let input = document.querySelector("input");
+			let button = document.querySelector("button");
+
+			// 切换
+			let flag = true;
+
+			// 绑定事件
+			button.onclick = function() {
+				if (flag) {
+					// 把密码变成显示的状态
+					input.type = "text";
+				} else {
+					// 把密码变成隐藏的状态
+					input.type = "password";
+				}
+
+				flag = !flag;
+			}
+		</script>
+	</body>
+</html>

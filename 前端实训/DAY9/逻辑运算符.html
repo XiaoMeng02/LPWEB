@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 用户的年龄是否大于16小于60?
+			// 这种条件复杂的情况,需要使用逻辑运算符
+			var age = prompt("请输入你的年龄");
+			
+			// 在对数值对比之前,最好进行转换,保证对比的数值
+			age = parseInt(age);
+			
+			// 分支语句
+			// 这样的写法是没有用的 age > 18 < 60
+			if (age > 16 && age < 60 ) {
+				// 当结果为真
+				alert("你的年龄属于区间")
+			}else{
+				// 当结果为假
+				alert("你的年龄不属于区间")
+			}
+			
+			// 与符号
+			console.log(true && true); //结果为真
+			console.log(false && true); //为假
+			console.log(true && false); //为假
+			// 当且仅当两端的值都为真的时候,结果为真
+			
+			// 或符号
+			console.log(true || true); //结果为真
+			console.log(false || true); //结果为真
+			console.log(true || false); //结果为真
+			console.log(false || false); //结果为假
+			// 当且仅当两端的值都为假的时候为假
+			
+			
+			// 非符号
+			console.log(!true); //假
+			console.log(!false); //真
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

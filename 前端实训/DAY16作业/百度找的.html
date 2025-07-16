@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* { 
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				width: 960px;
+				margin: 20px auto;
+			}
+			#cart {
+				margin: 0 auto;
+				width: 850px;
+			}
+			#cart-header {
+				height: 40px;
+				background-color: lightgray;
+				margin-bottom: 20px;
+			}
+			#cart-header div {
+				line-height: 40px;
+			}
+			.left {
+				float: left;
+			}
+			.right {
+				float: right;
+			}
+			.w110 {
+				width: 100px;
+			}
+			.ml10 {
+				margin-left: 10px;
+			}
+			.w120 {
+				width: 120px;
+			}
+			.w250 {
+				width: 250px;
+			}
+			.center {
+				text-align: center;
+			}
+			.w20 {
+				width: 20px;
+			}
+			.w90 {
+				width: 90px;
+			}
+			.clear {
+				clear: both;
+			}
+			#cart-items>div {
+				height: 100px;
+			}
+			#cart-items>div>div {
+				line-height: 100px;
+			}
+			.w250 span {
+				display: inline-block;
+				font-size: 12px;
+				line-height: 16px !important;
+			}
+			.single-item {
+				border-bottom: 1px solid gray;
+			}
+			.small-button {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border: none;
+			}
+			.big-button {
+				color: white;
+				background-color: red;
+				display: inline-block;
+				width: 120px;
+				height: 40px;
+				border: none;
+				font-size: 22px;
+			}
+			#totalCount, #totalPrice {
+				color: red;
+			}
+			#totalPrice {
+				font: bolder 20px Arial;
+				display: inline-block;
+				width: 150px;
+			}
+			#cart a {
+				text-decoration: none;
+			}
+			#cart a:link, #cart a:visited, #cart a:active {
+				color: gray;
+			}
+			img{
+				width: 80px;
+				height: 95px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cart">
+			<div id="cart-header">
+				<div class="left w110 ml10">
+					<input id="selectAll" type="checkbox">
+					<label for="selectAll">全选</label>
+				</div>
+				<div class="left w250">商品</div>
+				<div class="left w120 center">单价</div>
+				<div class="left w120 center">数量</div>
+				<div class="left w120 center">小计</div>
+				<div class="left w120 center">操作</div>
+			</div>
+			<div id="cart-items">
+				<div class="clear single-item">
+					<div class="left w20 ml10">
+						<input name="selectOne" type="checkbox">
+					</div>
+					<div class="left w90">
+						<a href="">
+							<img src="../购物车样式(1)/img/img1.jpg">
+						</a>
+					</div>
+					<div class="left w250">
+						<span>
+						海澜之家/Heilan Home春装商务白衬衫男修身HNCAD3A067Y 漂白(69) 漂
+						</span>
+					</div>
+					<div class="left w120 center">&yen;<span class="price">138.00</span></div>
+					<div class="left w120 center">
+						<button class="small-button">-</button>
+						<input class="center count" type="text" size="2" value="1">
+						<button class="small-button">+</button>
+					</div>
+					<div class="left w120 center">&yen;<span class="priceCount">138.00</span></div>
+					<div class="left w120 center">
+						<a href="javascript:void(0);">删除</a>
+					</div>
+				</div>
+				<div class="clear single-item">
+					<div class="left w20 ml10">
+						<input name="selectOne" type="checkbox">
+					</div>
+					<div class="left w90">
+						<a href="">
+							<img src="../购物车样式(1)/img/img2.jpg">
+						</a>
+					</div>
+					<div class="left w250">
+						<span>
+						HLA海澜之家长袖衬衫男牛津纺休闲干净透气HNEAJ1E048A浅灰
+						</span>
+					</div>
+					<div class="left w120 center">&yen;<span class="price">128.00</span></div>
+					<div class="left w120 center">
+						<button class="small-button">-</button>
+						<input class="center count" type="text" size="2" value="1">
+						<button class="small-button">+</button>
+					</div>
+					<div class="left w120 center">&yen;<span class="priceCount">128.00</span></div>
+					<div class="left w120 center">
+						<a href="javascript:void(0);">删除</a>
+					</div>
+				</div>
+				<div class="clear single-item">
+					<div class="left w20 ml10">
+						<input name="selectOne" type="checkbox">
+					</div>
+					<div class="left w90">
+						<a href="">
+							<img src="../购物车样式(1)/img/img3.jpeg">
+						</a>
+					</div>
+					<div class="left w250">
+						<span>
+						HLA海澜之家牛津纺清新休闲衬衫2018春季新品质感柔软长袖衬衫男
+						</span>
+					</div>
+					<div class="left w120 center">&yen;<span class="price">99.00</span></div>
+					<div class="left w120 center">
+						<button class="small-button">-</button>
+						<input class="center count" type="text" size="2" value="1">
+						<button class="small-button">+</button>
+					</div>
+					<div class="left w120 center">&yen;<span class="priceCount">99.00</span></div>    <!--这里原文没有span标签，应该属于老师调皮-->
+					<div class="left w120 center">
+						<a href="javascript:void(0);">删除</a>
+					</div>
+				</div>
+			</div>
+			<div id="cart-footer">
+				<div class="clear left">
+					<a id="clearSelected" href="javascript:void(0);">删除选中商品</a>
+				</div>
+				<div class="right">
+					<span>总共选中了<span id="totalCount">0</span>件商品</span>
+					<span>总计: <span id="totalPrice">&yen;0.00</span></span>
+					<button id="pay" class="big-button">去结算</button>
+				</div>
+			</div>
+		</div>
+		<script>
+		    //删除所选全部物品的函数
+		    function removeDivs(){
+		        if(window.confirm('这将删除所选物品，是否继续？')){
+		            var divs = document.querySelectorAll('#cart-items>div');     //设为局部变量
+		            var checkBoxs = document.querySelectorAll('#cart-items>div input[type=checkbox]');
+		            for(var i = 0;i < divs.length;i++){
+		                if(checkBoxs[i].checked){
+		                    document.querySelector('#cart-items').removeChild(divs[i]);
+		                }
+		            }
+		        }
+		        sumCount();
+		    }
+		    //删除单样物品的函数
+		    function removeThing(evt){
+		        if(window.confirm('这将删除这件物品，是否继续？')){
+		            var divs = document.querySelectorAll('#cart-items>div');    //设为局部变量
+		            var thing = evt.target||evt.srcElement;
+		            document.querySelector('#cart-items').removeChild(thing.parentNode.parentNode);
+		        }
+		        sumCount();
+		    }
+		    //调数量加减的函数
+		    function changeCount(evt){
+		        var operator = evt.target||evt.srcElement;
+		        
+		        if(operator.textContent == '+'){
+		            
+		            if(operator.previousElementSibling.value <= 999){
+		                operator.previousElementSibling.value = parseInt(operator.previousElementSibling.value) + 1;
+		            }
+		     //     console.log(operator.previousElementSibling);
+		        }else{
+		            if(operator.nextElementSibling.value >= 2){
+		                operator.nextElementSibling.value = parseInt(operator.nextElementSibling.value) - 1;
+		            }
+		    //      console.log(operator.nextElementSibling.value);
+		        }
+		        
+		        var price = operator.parentElement.parentElement.querySelector('.price');
+		        var countIput = operator.parentElement.querySelector('input').value;
+		        if(countIput > 999||countIput<1){
+		            window.alert('请输入有效数字！')
+		            return ;
+		        }
+		        var newPrice = parseInt(price.textContent) * parseFloat(countIput);
+		
+		        operator.parentElement.nextElementSibling.querySelector('span').innerHTML = newPrice.toFixed(2);  //toFixed函数保留两位小数
+		        
+		        sumCount();
+		    }
+		    //总数和总价格函数刷新
+		    function sumCount(){
+		        var divs = document.querySelectorAll('#cart-items>div'); 
+		        var count = 0;   //总的数量
+		        var sumPrice  = 0; //总价
+		        for(var i = 0;i < divs.length;i++){
+		            if(divs[i].querySelector('input[type=checkbox]').checked){
+		                count += parseInt(divs[i].querySelector('input[type=text]').value);
+		                sumPrice += parseInt(divs[i].querySelector('.priceCount').innerHTML);
+		            }
+		        }
+		        
+		        document.querySelector('#totalCount').innerHTML = parseInt(count);    //总数成功改变
+		        document.querySelector('#totalPrice').innerHTML = '￥' + sumPrice.toFixed(2);   //总的价格改变 
+		        
+		    }
+		    
+		    //全选
+		    function allIn(){
+		   //   var allBtn = evt.target||evt.srcElement;
+		        var checkBoxs = document.querySelectorAll('#cart-items>div input[type=checkbox]');
+		        if(qxButton.checked){   //如果全选按钮没按
+		            for(var i = 0;i < checkBoxs.length;i++){
+		                if(!checkBoxs[i].checked){
+		                    checkBoxs[i].checked = true;   //
+		                }
+		            }
+		        }else{   //如果不是全选，就变为全选
+		            for(var i = 0;i < checkBoxs.length;i++){
+		                if(checkBoxs[i].checked){
+		                    checkBoxs[i].checked = false;  
+		                }
+		            }
+		        }    
+		        sumCount();
+		    }
+		    
+		    //**************************************************FZX-楠木cral*************************************************************//
+		    //删除所选物品
+		    var removeDiv = document.getElementById('clearSelected');
+		    removeDiv.addEventListener('click', removeDivs);
+		    //删除单个指定物品
+		    var removeThings = document.querySelectorAll('#cart-items>div .center>a');
+		    for(var i = 0;i < removeThings.length;i++){
+		        removeThings[i].addEventListener('click',removeThing);
+		    }
+		    //数量加减按钮  数量变化导致价格变化
+		    var countButtons = document.querySelectorAll('#cart-items>div .small-button');
+		    for(var i= 0;i < countButtons.length;i++){
+		        countButtons[i].addEventListener('click',changeCount);
+		    }
+		    //数量输入框自己输入
+		    var inputBorders = document.querySelectorAll('#cart-items>div>div input[type=text]');
+		    for(var i= 0;i < inputBorders.length;i++){
+		        inputBorders[i].addEventListener('focusout', changeCount);
+		    }
+		    
+		    //总数量以及总计价格功能
+		    var checkBoxs = document.querySelectorAll('#cart-items>div input[type=checkbox]');
+		    for(var i = 0;i < checkBoxs.length;i++){
+		        checkBoxs[i].addEventListener('click', sumCount);
+		    }
+		    //全选按钮
+		    var qxButton = document.getElementById('selectAll');
+		    qxButton.addEventListener('click', allIn);
+		</script>
+	</body>
+</html>

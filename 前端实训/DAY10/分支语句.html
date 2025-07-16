@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// switch分支语句的语法
+			// 这里放置的不是条件表达式
+			// switch (匹配条件){
+			// 	case 匹配的值1:
+			// 		break;
+			// 	case 匹配的值2:
+			// 		break;
+			// 	default:默认执行的代码
+			// 		break;
+			// }
+			
+			// 账户匹配
+			var username = prompt("请输入你的账户");
+			var password = "123456";
+			
+			// 匹配用户的账户
+			// 匹配的时候，是 === 全等匹配
+			switch (username){
+				case "xiaoli":
+					console.log("小李登陆账户");
+					// 退出分支语句
+					// 如果删除这个退出，则一直执行，直到全部执行完成或者遇到break
+					break;
+				// 匹配条件一般只能给字面量
+				case "xiaowang":
+					console.log("小王登陆账户");
+					break;
+				//多个条件匹配代码 
+				case "admin":
+				case "guanliyuan":
+					console.log("管理员登陆");
+					// 有时也会故意删除break
+					break;
+				default:
+					console.log("没有这个账户，登陆失败");
+					break;
+			}
+			
+			
+			// 1~69为不及格 70~80良好，81~90是优秀，91~100开挂
+			// 要根据成绩匹配结果，使用那个分支语句更加合适？
+		
+			var chengji = prompt("请输入你的成绩");
+			// switch分支语句适合匹配固定值的时候使用，而非一个范围
+			// switch (chengji){
+			// 	case 1:
+			// 	case 2:
+			// 	case 3:
+			// 	case 4:
+			// 	case 5:
+			// 	console.log("成绩不合格");
+			// 		break;
+			// 	default:
+			// 		break;
+			// }
+			
+			// if else适合匹配一个范围
+			if(chengji<69){
+				console.log("成绩不合格");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h6>留言板</h6>
+		<textarea name="" id="content" placeholder="请输入您的留言" cols="10" rows="4"></textarea>
+		<button id="send">发布</button>
+		<ul id="list">
+			<!-- 这是一个模板 -->
+			<li style="display: none;">
+				<span></span>
+				<button>删除</button>
+			</li>
+		</ul>
+
+		<script>
+			// 赋值类型这样赋值是没有用的
+			// let dom1 = document.createElement('div');
+			// let dom2 = dom1;
+
+			// 这种情况下,我们想复制节点,就需要使用到克隆
+			let list = document.getElementById("list");
+
+			// 深拷贝 和 浅拷贝
+			// 深拷贝 会拷贝指定元素,以及该元素的子元素
+			// 浅拷贝 只拷贝当前元素
+			// let list2 = list.cloneNode(true);
+			// document.body.append(list2);
+
+			let content = document.getElementById("content");
+			let send = document.getElementById("send");
+
+			// 保存模板
+			let muban = list.lastElementChild;
+			// 保存模板的删除事件
+			// 这个事件不会被克隆,克隆的是html结构
+			// muban.onclick = function() {
+			// 	list.removeChild(this);
+			// }
+
+			send.onclick = function() {
+				// 拷贝模板 得到一个模板的副本
+				let li = list.lastElementChild.cloneNode(true);
+				li.style.display = "block";
+				li.firstElementChild.innerText = content.value;
+				// 克隆完成,依旧需要添加事件
+				li.lastElementChild.onclick = function() {
+					list.removeChild(this);
+				}
+
+				// 通过事件的委派,可以解决这个问题
+
+				list.appendChild(li);
+			}
+		</script>
+	</body>
+</html>

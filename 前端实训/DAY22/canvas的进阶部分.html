@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="300" height="300">
+		</canvas>
+		<script>
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			// 创建路径的方法
+			ctx.beginPath();
+			// 画一个线条
+			// 1-把画笔移动到指定位置
+			ctx.moveTo(50, 50);
+			// 2-移动画笔，绘制线条
+			ctx.lineTo(50, 100);
+			// 3-确定绘制完成，闭合路径，开始绘制
+			ctx.closePath();
+			// 4-实心绘制，或者轮廓绘制
+			// ctx.stroke();
+
+
+			// 画一个三角形
+			// 打开一个路径
+			ctx.beginPath();
+			// 移动，绘画
+			ctx.moveTo(150, 100);
+			// 移动画笔
+			ctx.lineTo(100, 100);
+			ctx.lineTo(100, 50);
+			// 尽管只绘制了两条边，但是闭合的方法，会将开始位置和结束位置连接起来，称之为闭合
+			// 闭合路径 会将线条头尾相连，得到形状
+			ctx.closePath();
+			// 当画一条线，并且试图闭合的时候，图像无法显示
+			// ctx.fill();
+
+			// 这些直线方法可以创建一些简单的图形，但是无法创建带弧度的图形
+
+			// 做圆的参数非常多
+			ctx.beginPath();
+			// 前两个参数是圆心的位置
+			// 第三个值为半径
+			// 第四，第五值分别为圆形的开始和结束位置
+			// 第五个值为绘画的顺序
+			// 下半圆
+			ctx.arc(150, 150, 50, 0, Math.PI, false);
+			ctx.closePath();
+			// ctx.stroke();
+
+
+			// 创建一个新的圆（上半圆）
+			ctx.beginPath();
+			ctx.arc(200, 200, 50, 0, -Math.PI, true);
+			ctx.closePath();
+			// ctx.stroke();
+
+
+			ctx.beginPath();
+			ctx.moveTo(50, 50);
+			//参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数4：圆弧半径
+			ctx.arcTo(200, 50, 200, 200, 100);
+			ctx.lineTo(200, 200)
+			ctx.stroke();
+
+			//上述代码得到都是一个标准的半圆
+			// 如果需要得到一个非标准的弧度，需要使用贝塞斯曲线
+			ctx.beginPath();
+			ctx.rect(50, 50, 10, 10);
+			ctx.rect(200, 50, 10, 10)
+			ctx.rect(200, 200, 10, 10)
+			ctx.fill();
+		</script>
+	</body>
+</html>

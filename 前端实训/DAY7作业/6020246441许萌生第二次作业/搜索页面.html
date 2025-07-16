@@ -1,0 +1,1026 @@
+<!-- 搜索页面 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../CSS/search.css">
+		<title>搜索列表页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.home {
+				width: 1500px;
+				height: 3330px;
+				margin: 0 auto;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.title {
+				width: 1500px;
+				height: 258px;
+			}
+
+			.title_0 {
+				width: 1500px;
+				height: 60px;
+				background-color: gainsboro;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.title_0 div:nth-child(1) {
+				margin-left: 20px;
+				color: #757575;
+			}
+
+			.title_0 div:nth-child(2) {
+				margin-right: 50px;
+			}
+
+			.title_img {
+				vertical-align: middle;
+			}
+
+			table tr td {
+				padding-left: 5px;
+			}
+
+			.f_line {
+				margin: 0 10px;
+			}
+
+			.zc {
+				color: orange;
+			}
+
+			tbody tr td a,
+			tbody tr td span {
+				color: #757575;
+			}
+
+			.title_1,
+			.title_1_search,
+			.title_1_car {
+				margin-top: 30px;
+				display: flex;
+			}
+
+			.title_1_img {
+				margin-left: 20px;
+			}
+
+			.title_1_ss {
+				margin: 0 auto;
+				margin-left: 86px;
+			}
+
+			.title_1_search input {
+				width: 500px;
+				height: 35px;
+				text-indent: 1em;
+				border: 2px solid red;
+			}
+
+			.title_1_search div:nth-child(2) {
+				width: 100px;
+				height: 39px;
+				text-align: center;
+				color: white;
+				background-color: red;
+			}
+
+			.title_1_search div:nth-child(2) p {
+				margin-top: 10px;
+			}
+
+			.title_1_search_ul ul li {
+				line-height: 30px;
+				color: rgb(99, 99, 99);
+				margin: 0 10px;
+				display: inline;
+			}
+
+			.title_1_car {
+				width: 130px;
+				height: 40px;
+				margin-right: 250px;
+				align-items: center;
+				background-color: gainsboro;
+				border: 1px solid #ccc;
+			}
+
+			.title_1_car div {
+				margin-left: 20px;
+			}
+
+			.title_2 {
+				display: flex;
+				margin-top: 20px;
+				align-items: center;
+				width: 1430px;
+				height: 47px;
+				margin-left: 60px;
+				border-bottom: 3px solid orangered;
+			}
+
+			.title_2 div:nth-child(1) {
+				width: 230px;
+				height: 50px;
+				text-align: center;
+				background-color: red;
+			}
+
+			.title_2 div:nth-child(1) a {
+				color: white;
+				line-height: 50px;
+				margin-right: 55px;
+			}
+
+			.title_2 div:nth-child(2) {
+				margin: 0 auto;
+				margin-left: 2px;
+			}
+
+			.title_2 div:nth-child(2) li {
+				display: inline;
+				margin: 0 25px;
+			}
+
+			.title_2 div:nth-child(2) a {
+				color: black;
+			}
+
+			.title_2 div:nth-child(2) li:nth-child(1) a,
+			.title_2 div:nth-child(2) li:nth-child(2) a {
+				color: red;
+			}
+
+			.title_2 div:nth-child(3) {
+				margin-right: 60px;
+			}
+
+			/* 页面内容 */
+			.content {
+				width: 1430px;
+				height: 2530px;
+			}
+
+			.content1 {
+				width: 1430px;
+				height: 60px;
+				margin-left: 60px;
+				display: flex;
+				align-items: center;
+			}
+
+			.content1_1 ul li {
+				display: inline;
+				margin: 0 5px;
+			}
+
+			.content1_1 ul li a {
+				color: gray;
+			}
+
+			.span1 {
+				color: gray;
+			}
+
+			.content1_2 {
+				width: 120px;
+				height: 25px;
+				margin-left: 10px;
+				border: 1px dashed orangered;
+			}
+
+			.content1_2 ul li {
+				display: inline;
+				font-size: 14px;
+			}
+
+			.content1_2 ul li a {
+				color: orangered;
+			}
+
+			/* 表单区域 */
+			.content2 {
+				width: 1430px;
+				margin-left: 60px;
+				border: 1px solid grey;
+			}
+
+			.content2 div {
+				width: 1430px;
+				height: 75px;
+			}
+
+			.content2 div table tr td:nth-child(1) {
+				width: 95px;
+				height: 70px;
+				vertical-align: middle;
+			}
+
+			.content2 div table tr td:nth-child(1) p {
+				margin-left: 10px;
+			}
+
+			.content2 div table tr td:nth-child(2) {
+				width: 1250px;
+				height: 70px;
+				vertical-align: middle;
+			}
+
+			.content2 div table tr td ul li {
+				display: inline;
+				line-height: 30px;
+			}
+
+			.content2 div table tr td ul li a {
+				margin: 0 10px;
+			}
+
+			.hr_1 {
+				border: none;
+				border-top: 1px solid #656565;
+			}
+
+			.content2 div table tr td p {
+				color: gray;
+			}
+
+			.li_1 a {
+				color: orangered;
+			}
+
+			.content2 div table tr td ul li:not(.li_1) a {
+				color: gray;
+			}
+
+			.content3 {
+				width: 1430px;
+				height: 60px;
+				margin-left: 60px;
+				margin-top: 20px;
+				border-bottom: 1px solid grey;
+				display: flex;
+			}
+
+			.content3_1 {
+				width: 220px;
+				height: 60px;
+				border: 1px solid gray;
+				text-align: center;
+			}
+
+			.content3_1 table tr td {
+				width: 100px;
+				height: 55px;
+				align-items: center;
+			}
+
+			.content3_1 table tr td img,
+			.content3_1 table tr td a {
+				vertical-align: middle;
+			}
+
+			.td_0 a {
+				color: orangered;
+			}
+
+			.td_1 a {
+				margin-left: 50px;
+				color: grey;
+			}
+
+			.content3_2 {
+				width: 1200px;
+				height: 60px;
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.content3_2a {
+				border: 1px solid grey;
+			}
+
+			.content3_2a table tr td {
+				width: 65px;
+				height: 25px;
+			}
+
+			.td2,
+			.td3,
+			.td4 {
+				border-left: 1px solid grey;
+			}
+
+			.td1 a {
+				color: white;
+			}
+
+			.td1 {
+				background-color: orangered;
+			}
+
+			.td_div {
+				display: flex;
+				align-items: center;
+			}
+
+			.td_img img {
+				display: flex;
+				width: 6px;
+				height: 4px;
+				margin-bottom: 5px;
+			}
+
+			.td_img {
+				margin-top: 5px;
+				margin-left: 15px;
+			}
+
+			.content3_2b span {
+				color: grey;
+			}
+
+			.content4 {
+				width: 1430px;
+				height: 2000px;
+				margin-left: 60px;
+				display: flex;
+			}
+
+			.content4_left {
+				width: 220px;
+				height: 1330px;
+				border: 1px solid gray;
+				text-align: center;
+			}
+
+			.content4_left img {
+				margin-top: 10px;
+				margin-right: 40px;
+			}
+
+			.content4_left p {
+				line-height: 35px;
+				color: grey;
+			}
+
+			.content4_left p span {
+				color: orangered;
+			}
+
+			.con4_right {
+				width: 1185px;
+				height: 1960px;
+				margin-left: 20px;
+			}
+
+			.content4_right {
+				width: 1185px;
+				height: 385px;
+			}
+
+			.content4_right1 {
+				display: flex;
+				margin-top: 20px;
+			}
+
+			.right1_a {
+				width: 293px;
+				height: 235px;
+				text-align: center;
+			}
+
+			.right1_a p {
+				margin-top: 10px;
+				color: grey;
+			}
+
+			.right1_a p span {
+				color: orangered;
+			}
+
+			.tda {
+				display: flex;
+				margin-top: 15px;
+				margin-left: 20px;
+				align-items: center;
+			}
+
+			.td_a,
+			.td_a1 {
+				height: 30px;
+				border: 1px solid grey;
+				line-height: 32px;
+				display: flex;
+				align-items: center;
+			}
+
+			.td_a {
+				width: 90px;
+			}
+
+			.td_a1 {
+				width: 180px;
+			}
+
+			.td_a img,
+			.td_a1 img {
+				margin-left: 20px;
+			}
+
+			.td_a a,
+			.td_a1 a {
+				margin-left: 10px;
+				color: grey;
+			}
+
+			.td_a a span,
+			.td_a1 a span {
+				margin-left: 25px;
+				color: orangered;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<!-- 页面头部 -->
+			<div class="title">
+				<div class="title_0">
+					<div>
+						<p>送货至：四川</p>
+					</div>
+					<div class="title_0a">
+						<table>
+							<tr>
+								<td><a href="./登录页面.html">你好!请登录</a></td>
+								<td>
+									<a href="./注册页面.html" class="zc">免费注册</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">我的订单</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">收藏夹</a>
+									<img src="image/t_arrow.gif"" class=" title_img">
+								</td>
+								<td>
+									<a href="#">客户服务</a>
+									<img src="image/t_arrow.gif" alt="" class="title_img">
+								</td>
+								<td>
+									<a href="#">网站导航</a>
+									<img src="image/t_arrow.gif" alt="" class="title_img">
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">关注我们：</a>
+									<img src="image/sh1.png" alt="">
+									<img src="image/sh2.png" alt="">
+									<span>|</span>
+								</td>
+								<td>
+									<a href="#">手机版</a>
+									<img src="image/i_tel.png" alt="" class="title_img">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="title_1">
+					<div class="title_1_img">
+						<img src="image/logo.png" alt="">
+					</div>
+					<div class="title_1_ss">
+						<div class="title_1_search">
+							<div>
+								<input type="text" placeholder="请输入关键字">
+							</div>
+							<div>
+								<p>搜索</p>
+							</div>
+						</div>
+						<div class="title_1_search_ul">
+							<ul>
+								<li>咖啡</li>
+								<li>iPhone 6S</li>
+								<li>新鲜美食</li>
+								<li>蛋糕</li>
+								<li>日用品</li>
+								<li>连衣裙</li>
+							</ul>
+						</div>
+					</div>
+					<div class="title_1_car">
+						<div>
+							<img src="image/car.png" alt="">
+						</div>
+						<div>
+							<p>购物车</p>
+						</div>
+					</div>
+				</div>
+				<div class="title_2">
+					<div>
+						<a href="#">全部商品分类</a>
+					</div>
+					<div>
+						<ul>
+							<li><a href="#">首页</a></li>
+							<li><a href="#">自营超市</a></li>
+							<li><a href="#">1号团</a></li>
+							<li><a href="#">1号超市</a></li>
+							<li><a href="#">女妆</a></li>
+							<li><a href="#">美妆</a></li>
+							<li><a href="#">1号海购</a></li>
+							<li><a href="#">团购</a></li>
+						</ul>
+					</div>
+					<div>
+						<img src="image/phone.png" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- 内容区域 -->
+			<div class="content">
+				<div class="content1">
+					<div class="content1_1">
+						<ul>
+							<li><a href="#">全部</a></li>
+							<span class="span1">></span>
+							<li><a href="#">珠宝饰品</a></li>
+							<span class="span1">></span>
+							<li><a href="#">珍珠项链</a></li>
+							<span class="span1">></span>
+						</ul>
+					</div>
+					<div class="content1_2">
+						<ul>
+							<li><span>品牌：</span></li>
+							<li><a href="#">珠韵首饰</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- 表单区域 -->
+				<div class="content2">
+					<div>
+						<table>
+							<tr>
+								<td>
+									<p>品牌：</p>
+								</td>
+								<td>
+									<ul>
+										<li class="li_1"><a href="#">珠韵首饰/ZHUYUN JEWELLERY</a></li>
+										<li><a href="#">施华洛世奇/Swarovski</a></li>
+										<li><a href="#">海瞳</a></li>
+										<li><a href="#">周大福/CHOW TAI FOOK</a></li>
+										<li><a href="#">京润珍珠</a></li>
+										<li><a href="#">佰色传情 /BRI.R</a></li>
+										<li><a href="#">迈姿/Maizi</a></li>
+										<li><a href="#">Ginasy Jewelry</a></li>
+										<li><a href="#">心鑫圆</a></li>
+										<li><a href="#">银斯妮/yin si ni silver</a></li>
+										<li><a href="#">迈姿/Maizi</a></li>
+										<li><a href="#">Ginasy Jewelry</a></li>
+										<li><a href="#">蛟蓓</a></li>
+										<li><a href="#">芭比/Barbie</a></li>
+										<li><a href="#">珍福祥</a></li>
+										<li><a href="#">珍福祥</a></li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+						<hr class="hr1">
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>
+									<p>价格：</p>
+								</td>
+								<td>
+									<ul>
+										<li><a href="#">0-199</a></li>
+										<li class="li_1"><a href="#">200-399</a></li>
+										<li><a href="#">400-599</a></li>
+										<li><a href="#">600-899</a></li>
+										<li><a href="#">900-1299</a></li>
+										<li><a href="#">1300-1399</a></li>
+										<li><a href="#">1400以上</a></li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+						<hr class="hr1">
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>
+									<p>珍珠颜色：</p>
+								</td>
+								<td>
+									<ul>
+										<li><a href="#">混彩</a></li>
+										<li><a href="#">黑色系</a></li>
+										<li><a href="#">粉色系</a></li>
+										<li><a href="#">白色系</a></li>
+										<li><a href="#">金色系</a></li>
+										<li><a href="#">紫色系</a></li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+						<hr class="hr1">
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>
+									<p>珍珠分类：</p>
+								</td>
+								<td>
+									<ul>
+										<li><a href="#">天然海水珍珠</a></li>
+										<li><a href="#">养殖海水珍珠</a></li>
+										<li><a href="#">养殖淡水珍珠</a></li>
+										<li><a href="#">天然淡水珍珠</a></li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- 浏览历史 -->
+				<div class="content3">
+					<div class="content3_1">
+						<table>
+							<tr>
+								<td class="td_0">
+									<img src="image/h_t.gif" alt="">
+									<a href="#">浏览历史</a>
+								</td>
+								<td class="td_1">
+									<a href="#">清空</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="content3_2">
+						<div class="content3_2a">
+							<table>
+								<tr>
+									<td class="td1">
+										<a href="#">默认</a>
+									</td>
+									<td class="td2">
+										<div class="td_div">
+											<a href="#">销量</a>
+											<div class="td_img">
+												<img src="image/i_up.gif" alt="">
+												<img src="image/i_up.gif" alt="">
+											</div>
+										</div>
+
+									</td>
+									<td class="td3">
+										<div class="td_div">
+											<a href="#">价格</a>
+											<div class="td_img">
+												<img src="image/i_up.gif" alt="">
+												<img src="image/i_down.gif" alt="">
+											</div>
+										</div>
+									</td>
+									<td class="td4">
+										<a href="#">新品</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="content3_2b">
+							<span>共发现120件</span>
+						</div>
+					</div>
+				</div>
+				<!-- 图片区域 -->
+				<div class="content4">
+					<div class="content4_left">
+						<div>
+							<img src="image/per_1.jpg" alt="" width="200px">
+							<p>Dior/迪奥香水2件套装</p>
+							<p><span>￥368.00</span></p>
+							<hr>
+						</div>
+
+						<div>
+							<img src="image/per_2.jpg" alt="" width="200px">
+							<p>Dior/迪奥香水2件套装</p>
+							<p><span>￥768.00</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/per_3.jpg" alt="" width="200px">
+							<p>Dior/迪奥香水2件套装</p>
+							<p><span>￥680.00</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/per_4.jpg" alt="" width="200px">
+							<p>Dior/迪奥香水2件套装</p>
+							<p><span>￥368.00</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/per_5.jpg" alt="" width="100px">
+							<p>Dior/迪奥香水2件套装</p>
+							<p><span>￥368.00</span></p>
+						</div>
+					</div>
+					<div class="con4_right">
+						<div class="content4_right">
+							<div class="content4_right1">
+								<div class="right1_a">
+									<img src="image/per_1.jpg" alt="" width="150px">
+									<p><span>￥198.00</span></p>
+									<p>海瞳7-8mm水滴形天然珍珠项链</p>
+									<div class="tda">
+										<div class="td_a">
+											<img src="image/heart.png" alt="">
+											<a>收藏</a>
+										</div>
+										<div class="td_a1">
+											<img src="image/car.png">
+											<a><span>加入购物车</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="right1_a">
+									<img src="image/per_2.jpg" alt="" width="150px">
+									<p><span>￥598.00</span></p>
+									<p>佰色传情淡水珍珠项链园8-9mm</p>
+									<div class="tda">
+										<div class="td_a">
+											<img src="image/heart.png" alt="">
+											<a>收藏</a>
+										</div>
+										<div class="td_a1">
+											<img src="image/car.png" alt="">
+											<a><span>加入购物车</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="right1_a">
+									<img src="image/per_3.jpg" alt="" width="150px">
+									<p><span>￥440.00</span></p>
+									<p>京润 【魅惑】海水珍珠项链</p>
+									<div class="tda">
+										<div class="td_a">
+											<img src="image/heart.png" alt="">
+											<a>收藏</a>
+										</div>
+										<div class="td_a1">
+											<img src="image/car.png" alt="">
+											<a><span>加入购物车</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="right1_a">
+									<img src="image/per_4.jpg" alt="" width="150px">
+									<p><span>￥680.00</span></p>
+									<p>心盡圜 天然珍珠项链淡水套装</p>
+									<div class="tda">
+										<div class="td_a">
+											<img src="image/heart.png" alt="">
+											<a>收藏</a>
+										</div>
+										<div class="td_a1">
+											<img src="image/car.png" alt="">
+											<a><span>加入购物车</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 图一 -->
+						<div class="con4_right">
+							<div class="content4_right">
+								<div class="content4_right1">
+									<div class="right1_a">
+										<img src="image/per_1.jpg" alt="" width="150px">
+										<p><span>￥198.00</span></p>
+										<p>海瞳7-8mm水滴形天然珍珠项链</p>
+										<div class="tda">
+											<div class="td_a">
+												<img src="image/heart.png" alt="">
+												<a>收藏</a>
+											</div>
+											<div class="td_a1">
+												<img src="image/car.png">
+												<a><span>加入购物车</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="right1_a">
+										<img src="image/per_2.jpg" alt="" width="150px">
+										<p><span>￥598.00</span></p>
+										<p>佰色传情淡水珍珠项链园8-9mm</p>
+										<div class="tda">
+											<div class="td_a">
+												<img src="image/heart.png" alt="">
+												<a>收藏</a>
+											</div>
+											<div class="td_a1">
+												<img src="image/car.png" alt="">
+												<a><span>加入购物车</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="right1_a">
+										<img src="image/per_3.jpg" alt="" width="150px">
+										<p><span>￥440.00</span></p>
+										<p>京润 【魅惑】海水珍珠项链</p>
+										<div class="tda">
+											<div class="td_a">
+												<img src="image/heart.png" alt="">
+												<a>收藏</a>
+											</div>
+											<div class="td_a1">
+												<img src="image/car.png" alt="">
+												<a><span>加入购物车</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="right1_a">
+										<img src="image/per_4.jpg" alt="" width="150px">
+										<p><span>￥680.00</span></p>
+										<p>心盡圜 天然珍珠项链淡水套装</p>
+										<div class="tda">
+											<div class="td_a">
+												<img src="image/heart.png" alt="">
+												<a>收藏</a>
+											</div>
+											<div class="td_a1">
+												<img src="image/car.png" alt="">
+												<a><span>加入购物车</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 图三 -->
+							<div class="con4_right">
+								<div class="content4_right">
+									<div class="content4_right1">
+										<div class="right1_a">
+											<img src="image/per_1.jpg" alt="" width="150px">
+											<p><span>￥198.00</span></p>
+											<p>海瞳7-8mm水滴形天然珍珠项链</p>
+											<div class="tda">
+												<div class="td_a">
+													<img src="image/heart.png" alt="">
+													<a>收藏</a>
+												</div>
+												<div class="td_a1">
+													<img src="image/car.png">
+													<a><span>加入购物车</span></a>
+												</div>
+											</div>
+										</div>
+										<div class="right1_a">
+											<img src="image/per_2.jpg" alt="" width="150px">
+											<p><span>￥598.00</span></p>
+											<p>佰色传情淡水珍珠项链园8-9mm</p>
+											<div class="tda">
+												<div class="td_a">
+													<img src="image/heart.png" alt="">
+													<a>收藏</a>
+												</div>
+												<div class="td_a1">
+													<img src="image/car.png" alt="">
+													<a><span>加入购物车</span></a>
+												</div>
+											</div>
+										</div>
+										<div class="right1_a">
+											<img src="image/per_3.jpg" alt="" width="150px">
+											<p><span>￥440.00</span></p>
+											<p>京润 【魅惑】海水珍珠项链</p>
+											<div class="tda">
+												<div class="td_a">
+													<img src="image/heart.png" alt="">
+													<a>收藏</a>
+												</div>
+												<div class="td_a1">
+													<img src="image/car.png" alt="">
+													<a><span>加入购物车</span></a>
+												</div>
+											</div>
+										</div>
+										<div class="right1_a">
+											<img src="image/per_4.jpg" alt="" width="150px">
+											<p><span>￥680.00</span></p>
+											<p>心盡圜 天然珍珠项链淡水套装</p>
+											<div class="tda">
+												<div class="td_a">
+													<img src="image/heart.png" alt="">
+													<a>收藏</a>
+												</div>
+												<div class="td_a1">
+													<img src="image/car.png" alt="">
+													<a><span>加入购物车</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 图四 -->
+								<div class="con4_right">
+									<div class="content4_right">
+										<div class="content4_right1">
+											<div class="right1_a">
+												<img src="image/per_1.jpg" alt="" width="150px">
+												<p><span>￥198.00</span></p>
+												<p>海瞳7-8mm水滴形天然珍珠项链</p>
+												<div class="tda">
+													<div class="td_a">
+														<img src="image/heart.png" alt="">
+														<a>收藏</a>
+													</div>
+													<div class="td_a1">
+														<img src="image/car.png">
+														<a><span>加入购物车</span></a>
+													</div>
+												</div>
+											</div>
+											<div class="right1_a">
+												<img src="image/per_2.jpg" alt="" width="150px">
+												<p><span>￥598.00</span></p>
+												<p>佰色传情淡水珍珠项链园8-9mm</p>
+												<div class="tda">
+													<div class="td_a">
+														<img src="image/heart.png" alt="">
+														<a>收藏</a>
+													</div>
+													<div class="td_a1">
+														<img src="image/car.png" alt="">
+														<a><span>加入购物车</span></a>
+													</div>
+												</div>
+											</div>
+											<div class="right1_a">
+												<img src="image/per_3.jpg" alt="" width="150px">
+												<p><span>￥440.00</span></p>
+												<p>京润 【魅惑】海水珍珠项链</p>
+												<div class="tda">
+													<div class="td_a">
+														<img src="image/heart.png" alt="">
+														<a>收藏</a>
+													</div>
+													<div class="td_a1">
+														<img src="image/car.png" alt="">
+														<a><span>加入购物车</span></a>
+													</div>
+												</div>
+											</div>
+											<div class="right1_a">
+												<img src="image/per_4.jpg" alt="" width="150px">
+												<p><span>￥680.00</span></p>
+												<p>心盡圜 天然珍珠项链淡水套装</p>
+												<div class="tda">
+													<div class="td_a">
+														<img src="image/heart.png" alt="">
+														<a>收藏</a>
+													</div>
+													<div class="td_a1">
+														<img src="image/car.png" alt="">
+														<a><span>加入购物车</span></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+	</body>
+</html>

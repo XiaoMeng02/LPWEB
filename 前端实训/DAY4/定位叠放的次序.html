@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				
+				/* z-index属性只对定位的元素起效果 */
+				/* z-index: 100; */
+				
+				/* 将该元素也改成定位的元素 */
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+			
+			#box2{
+				width: 80px;
+				height: 80px;
+				background-color: #55ff00;
+				
+				/* 定位的元素总是在其他元素上 */
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 如果优先级相同，那么按照书写顺序来，先来的在底下 -->
+		
+		<!-- 流布局 -->
+		<div id="box1"></div>
+		<!-- 绝对定位的元素 -->
+		<div id="box2"></div>
+	</body>
+</html>

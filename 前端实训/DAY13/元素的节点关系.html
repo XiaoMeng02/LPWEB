@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="bigBox">
+			<div id="minBox">
+
+			</div>
+		</div>
+
+		<script>
+			// 通过子元素找到父元素
+			// 通过这样的方法,去找元素,逻辑结构不清晰
+			let bigBox = document.getElementById("bigBox");
+			let minBox = document.getElementById("minBox");
+
+			// 所以,在代码中,一般会使用父元素作为一个锚定点,获取其中的子元素
+			// 比如下面的例子中,使用.的方式访问元素的父节点
+			minBox.parentNode
+			// 找父元素的父元素?
+			bigBox.parentNode
+			// 链式调用 从左开始执行,得到的结构用于下一次执行
+			minBox.parentNode.parentNode
+		</script>
+	</body>
+</html>

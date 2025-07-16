@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="300" height="300">
+		</canvas>
+		<script>
+			// 将控制点和鼠标绑定
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+			ctx.beginPath();
+			ctx.moveTo(50, 50);
+			//参数1、2：控制点1坐标   参数3、4：控制点2 坐标  参数5：圆弧半径
+			ctx.arcTo(200, 50, 200, 200, 100);
+			ctx.lineTo(200, 200)
+			ctx.stroke();
+
+			//上述代码得到都是一个标准的半圆
+			// 如果需要得到一个非标准的弧度，需要使用贝塞斯曲线
+			ctx.beginPath();
+			ctx.rect(50, 50, 10, 10);
+			ctx.rect(200, 50, 10, 10)
+			ctx.rect(200, 200, 10, 10)
+			ctx.fill();
+
+			// 将鼠标和控制点绑定
+			canvas.addEventListener("mousemove", (event) => {
+				// 获取鼠标元素的位置
+				console.log("x", event.offsetX);
+				console.log("y", event.offsetY);
+
+				// 清除画布
+				ctx.clearRect(0, 0, 300, 300);
+				//  显示新的画布内容
+				// 画曲线的方法
+				ctx.beginPath();
+				ctx.moveTo(50, 50);
+				// 修改第一控制点的位置,随着鼠标移动
+				ctx.arcTo(event.offsetX, event.offsetY, 200, 200, 100);
+				ctx.lineTo(200, 200)
+				// 将生成的图案闭合
+				ctx.closePath();
+				// 实心填充
+				// 使用颜色方法填充
+				ctx.fillStyle = "#833AB4";
+				// 把图形画出来
+				ctx.fill();
+
+				// 画控制点的方法
+				ctx.beginPath();
+				ctx.rect(50 - 5, 50 - 5, 10, 10);
+				// 控制点跟随鼠标移动
+				ctx.rect(event.offsetX - 5, event.offsetY - 5, 10, 10)
+				ctx.rect(200 - 5, 200 - 5, 10, 10)
+				// 设置画笔颜色为红色
+				ctx.fillStyle = "#ff0000";
+				// 画出来
+				ctx.fill();
+			})
+
+
+
+			// 2 使用canvas生成验证码
+		</script>
+	</body>
+</html>

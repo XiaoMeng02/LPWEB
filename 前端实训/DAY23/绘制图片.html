@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>/title>
+        <style>
+            canvas {
+                border: 1px solid black;
+            }
+        </style>
+</head>
+
+<body>
+    <script>
+        let ctx = canvas.getContent('2d')
+        //前提步骤加载图片
+        // 新建一个图片的标签对象
+        var IMG = new Image()
+        //通过这样的方式，可以通过js后面端请求图像数据
+        IMG.SRC ="../ img/1.png"
+        //为保证图片资源添加完成以后，再去制作，需要使用添加事件
+        IMG.addEventHandler("加载" ,() => {
+            //使用画布图像方法，加载图片
+            ctx.drawImage(IMG,0,0)
+        }
+        )
+//除了自己创建的IMG对象之外，其他的IMG对象也可以实现画布的
+    </script>
+
+</body>
+
+</html>

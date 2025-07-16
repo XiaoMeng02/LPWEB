@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				/* 背景透明 */
+				/* background: rgba(0, 0, 0, 0.1); */
+				
+				background-color: #ececec;
+				
+				/* 修改显示模式，显示模式为不显示 */
+				/* 直接从代码中消失 */
+				/* display: none; */
+				
+				/* 设置元素的可见性 */
+				/* 看不见了，但是占据原本的位置 */
+				/* visibility: hidden; */
+				
+				/* 整个元素包括子元素的透明 */
+				opacity: 0;
+				
+				/* 设置多余内容的处理的方式 */
+				/* 常见处理方法，不超出内容不显示滚动条 */
+				overflow: scroll;
+				
+				transition: all 3s ease;
+			}
+			
+			#box:hover{
+				opacity: 1;
+				cursor: wait;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p ">这是一个文本</p>
+		</div>
+		
+		<b>这是一个文本</b>
+	</body>
+</html>

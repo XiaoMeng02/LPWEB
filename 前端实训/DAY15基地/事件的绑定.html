@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>这是一个按钮</button>
+		<input type="button" value="第二个按钮" />
+
+		<script>
+			// 传统的绑定方法
+			let btn = document.querySelector("button");
+			// 这里通过赋值的行为，将事件赋值进去
+			btn.onclick = function() {
+				alert("这是一个按钮");
+			}
+
+			// 不能重复赋值
+			// 重复赋值的后果是，值被覆盖了
+			btn.onclick = function() {
+				alert("这是一个按钮的第二个事件");
+			}
+			// 就如同对变量进行重复赋值
+			// 前一个会被后一个覆盖
+			// let val = 100;
+			// val = 50;
+
+			// 传统方法如何删除事件？
+			// 直接将事件置为空即可
+			btn.onclick = null;
+
+
+			// 使用监听方法绑定事件
+			let input = document.querySelector("input");
+			// 绑定监听事件
+			// 使用增加一个事件到列表中
+			// 第一参数 是事件的类型  在参数中添加事件的时候不需要加on前缀
+			// 第二个参数 把函数作为事件传入
+			input.addEventListener("click", function() {
+				alert("事件1");
+			});
+
+			// 可以添加多个监听事件
+			input.addEventListener("click", event);
+			// 匿名事件无法单独删除，需要使用命名函数
+			function event2() {
+				alert("事件2");
+			}
+
+			input.addEventListener("click", event3);
+
+			function event3() {
+				alert("事件3");
+			}
+
+			// 注册的事件会按照顺序执行（默认情况）
+			// 注册事件删除比较麻烦，比如需要删除第二个事件
+			// 1指定删除类型
+			// 2指定删除函数
+			// 这样就可以删除指定的事件了
+			input.removeEventListener("click", [event2, event3])
+		</script>
+	</body>
+</html>

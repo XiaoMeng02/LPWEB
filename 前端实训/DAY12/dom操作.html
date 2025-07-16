@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		跳舞: <input type="checkbox" name="hobby">
+		唱歌: <input type="checkbox" name="hobby">
+		学习: <input type="checkbox" name="hobby">
+
+		<button id="btn">点击我</button>
+		<!-- 这里尽管也是id为 btn 但是无法被绑定事件 -->
+		<!-- <button id="btn">点击他</button> -->
+
+		<!-- html 和 css分离，css和js分离 ，html和js分离 -->
+		<script>
+			// 为了让按钮有用，我们需要将按钮和js代码绑定
+			// 想要操作元素，我们需要先获取元素
+			// 使用id获取元素,获取到的是对象类型，也就是复杂类型
+			let element = document.getElementById("btn");
+			//dom对象中，有各种各样的事件，可以通过绑定事件，实现点击效果 
+			element.onclick = function() {
+				alert("又被你点击啦")
+			}
+
+			// 通过标签名称获取
+			// document.get Element By Id
+			let btn_list = document.getElementsByTagName("button");
+			// 页面上的标签名称，肯定会有重复，这个方法获取的是多个元素
+			// 保存的形式为伪数组
+
+			// 通过name获取
+			let input_List = document.getElementsByName("hobby");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 修改了ID为captchaCanvas，增加了宽度 -->
+	<canvas id="captchaCanvas" width="150" height="50"></canvas>
+	<button id="refreshBtn">刷新验证码</button>
+
+	<form id="verifyForm">
+		<input type="text" id="captchaInput" placeholder="输入验证码" required>
+		<button type="submit">验证</button>
+	</form>
+	<script>
+		// let canvas = document.getElementById("frame");
+		// let ctx = canvas.getContext("2d");
+
+
+		// 设置字体样式
+		// ctx.font = "50px sans-serif"
+
+		// 文本绘制
+		// 第一参数是要绘制的文本
+		// 2,3参数是轴的位置
+		// 参数4 最大宽度 可选 
+		// ctx.fillText("验证码", 100, 100);
+		// ctx.strokeText("验证码", 100, 150);
+
+		// 实现验证码
+		// 1- 随机生成一个四个字符
+		// 2- 通过绘制文字方法,添加文字到画布中
+		// 3- 添加干扰线和干扰点
+		// 4- 随机生成干扰线条和点的颜色
+
+		// 生成指定范围内的随机整数
+		function getRandom(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		// 随机生成颜色
+		function getRandomColor() {
+			const r = getRandom(0, 150);
+			const g = getRandom(0, 150);
+			const b = getRandom(0, 150);
+			return `rgb(${r}, ${g}, ${b})`;
+		}
+
+		// 绘制验证码到画布
+		function drawCode(canvasId) {
+			const canvas = document.getElementById(canvasId);
+			const ctx = canvas.getContext('2d');
+			const width = canvas.width;
+			const height = canvas.height;
+
+			// 清空画布
+			ctx.clearRect(0, 0, width, height);
+			ctx.fillStyle = '#f0f0f0';
+			ctx.fillRect(0, 0, width, height);
+
+			// 生成验证码
+			const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			let code = '';
+			for (let i = 0; i < 4; i++) {
+				code += chars.charAt(getRandom(0, chars.length - 1));
+			}
+			sessionStorage.setItem('captchaCode', code);
+
+			// 绘制验证码字符
+			const fontSize = height * 0.6;
+			ctx.font = `${fontSize}px Arial`;
+
+			for (let i = 0; i < code.length; i++) {
+				const char = code.charAt(i);
+				ctx.fillStyle = getRandomColor();
+
+				const angle = getRandom(-20, 20) * Math.PI / 180;
+				ctx.save();
+				ctx.translate(width * (0.2 + 0.2 * i), height * 0.7);
+				ctx.rotate(angle);
+				ctx.fillText(char, 0, 0);
+				ctx.restore();
+			}
+
+			// 添加干扰元素
+			for (let i = 0; i < 5; i++) {
+				ctx.beginPath();
+				ctx.moveTo(getRandom(0, width), getRandom(0, height));
+				ctx.lineTo(getRandom(0, width), getRandom(0, height));
+				ctx.strokeStyle = getRandomColor();
+				ctx.lineWidth = 1;
+				ctx.stroke();
+			}
+
+			for (let i = 0; i < 30; i++) {
+				ctx.beginPath();
+				ctx.arc(getRandom(0, width), getRandom(0, height), 1, 0, 2 * Math.PI);
+				ctx.fillStyle = getRandomColor();
+				ctx.fill();
+			}
+		}
+
+		// 验证用户输入
+		function verifyCode(userInput) {
+			return userInput.toUpperCase() === sessionStorage.getItem('captchaCode');
+		}
+
+		// 初始化
+		document.addEventListener('DOMContentLoaded', function () {
+			drawCode('captchaCanvas'); // 初始化验证码
+
+			// 绑定刷新事件
+			document.getElementById('refreshBtn').addEventListener('click', function () {
+				drawCode('captchaCanvas');
+			});
+
+			// 表单验证
+			document.getElementById('verifyForm').addEventListener('submit', function (e) {
+				e.preventDefault();
+				const input = document.getElementById('captchaInput').value;
+
+				if (verifyCode(input)) {
+					alert('验证码正确！');
+				} else {
+					alert('验证码错误！');
+					drawCode('captchaCanvas');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

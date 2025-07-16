@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="shopcar.css">
+	</head>
+
+	<body>
+		<!-- 整体框架 -->
+		<div id="frame">
+			<!-- list是商品列表 -->
+			<div id="list">
+				<!-- 单个元素样式案例 -->
+				<!-- 使用页面上模板的元素，创建新的元素 -->
+				<div class="unit" id="muban">
+					<img src="./img/img1.jpg" alt="">
+					<!-- 文字介绍 -->
+					<div>
+						<p>名称:<b>鲜花</b></p>
+						<p>单价:<b class="jiage">10</b>元</p>
+						<p>简介:<b>平平无奇的一朵鲜花</b></p>
+					</div>
+					<!-- 按钮盒子 -->
+					<div>
+						<div class="add">+</div>
+						<!-- 点击数字变成输入框，输入完成失去焦点后，变回文本 -->
+						<!-- 总价要更新 -->
+						<div class="geshu" data-geshu="0">0</div>
+						<div class="sub">-</div>
+						<div class="delete">del</div>
+					</div>
+				</div>
+			</div>
+			<div id="set">
+				名称:<input type="text" class="message">
+				单价:<input type="text" class="message">
+				描述:<input type="text" class="message">
+				<input id="tijiao" type="button" value="新增">
+				<p>
+				<h1>总价:<b id="sum">0</b></h1>
+				</p>
+			</div>
+		</div>
+
+	</body>
+	<script src="shopcar.js"></script>
+</html>

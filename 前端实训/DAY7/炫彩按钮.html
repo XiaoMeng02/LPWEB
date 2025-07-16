@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			/* 炫彩按钮 */
+			.show-btn{
+				/* border: 1px solid black	; */
+				
+				/* 使用内边距完成元素的宽高 */
+				/* 好处是元素的大小会随着内容变化 */
+				padding: 5px 15px;
+				
+				
+				/* 清除a标签的样式（下划线）*/
+				text-decoration: none;
+				
+				/* 按钮设置圆角 */
+				border-radius: 5px;
+				
+				
+				/* 设置背景颜色 */
+				background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+				
+				/* 设置背景的大小 */
+				background-size: 400%;
+				
+				/* 字体颜色 */
+				color: white;
+				
+				/* 设置元素为行内块 */
+				display: inline-block;
+				
+				/* 设置元素的定位 */
+				position: relative;
+				
+				/* 添加动画内容 */
+				animation-name: animate;
+				animation-duration: 4s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				
+				
+				z-index: 0;
+			}
+			
+			/* 背景流动的动画 */
+			@keyframes animate {
+				0%{
+					background-position: 0%;
+				}
+				100%{
+					background-position: 400%;
+				}
+			}
+			
+			
+			/* 添加滤镜的蒙版 */
+			.show-btn::before{
+				content: "";
+				
+				/* 使用绝对定位 */
+				position: absolute;
+				/* 使用上下左右的定位,让元素有宽高 */
+				/* 设置-5px,让伪元素比按钮大 */
+				inset: -5px;
+				
+				
+				/* 设置元素透明 */
+				opacity: 0;
+				
+				background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+				
+				z-index: -1;
+			}
+			
+			/* 当伪元素被hover的时候,添加样式 */
+			/* .show-btn::before:hover{} */
+			
+			/* 当元素本身被hover的时候,伪元素添加样式 */
+			.show-btn:hover::before{
+				opacity: 1;
+				filter: blur(20px);
+			}
+			
+			/* 文字的阴影效果 */
+			.show-btn:hover{
+				text-shadow: 0 0 10px rgb(255, 255, 255);
+			}
+			
+			/* 能不能把模糊效果直接加到元素上 */
+			/* 过滤的效果会将元素和元素里的子元素都使用滤镜过滤 */
+			/* .show-btn:hover{
+				filter: grayscale(100%);
+			} */
+		</style>
+	</head>
+	<body>
+		<!-- 炫彩按钮 -->
+		<a class="show-btn" href="">
+			炫彩按钮
+		</a>
+	</body>
+</html>

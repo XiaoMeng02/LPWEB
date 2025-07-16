@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>逻辑短路</title>
+	</head>
+	<body>
+		<script>
+			// 逻辑短路
+			// 与和或的计算优先级是相同的
+			// 先进行数学运算,再进行逻辑运算
+			// console.log(true && false || true);
+			// 上面这个就不会发生逻辑短路
+			// console.log(true && false && true);
+			// 这个就叫逻辑短路,当结果确定的时候,会(偷懒),不去计算结果	
+			
+			// 使用逻辑短路,可以完成一些操作
+			var num_1 = null;
+			var num_2 = 30;
+			var num_3 = 100;
+			
+			// 当我们需要从三个值中,找到不为空的值进行赋值的时候
+			var get = num_1 || num_2 || num_3;
+			
+			// 短路 当后面的计算结果不影响整个算式,那么计算结束
+			// 常常用来做兼容处理
+			// null || 30 && 100;
+			
+			
+		</script>
+	</body>
+</html>

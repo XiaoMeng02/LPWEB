@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* E[att]  选择格式 */
+			/* 选择所有带type属性的input元素 */
+			/* input[type]{
+				color: red;
+			} */
+			
+			/* 选择所有type等于email 的input元素 */
+			/* input[type="email"]{
+				color: red;
+			} */
+			
+			/* 使用属性选择器,选择id */
+			/* 选择id开头为input的元素 */
+			/* input[id^="input"]{
+				color: red;
+			} */
+			/* id以submit结尾的input元素 */
+			input[id$="submit"]{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="#" method="get">
+			选择颜色:<input type="color" name="color" id="input-color"/><br>
+			<!-- 这类表单不会限制用户的输入，而是提交以后检查内容 -->
+			输入邮件:<input type="email" name="email" id="input-email"/><br>
+			<input type="submit" value="提交" id="input-submit"/>
+		</form>
+	</body>
+</html>

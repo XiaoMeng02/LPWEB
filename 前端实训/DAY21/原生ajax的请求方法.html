@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>请求图书信息</button>
+		<script>
+			let btn = document.querySelector("button");
+
+			btn.addEventListener("click", function() {
+
+				// 使用ajxa请求获取图书信息
+
+				// 1.建立https请求
+				let xhr = new XMLHttpRequest();
+
+				// 2.ajax请求也需要提供给请求的类型和请求的路径
+				// xhr.open("get", "http://localhost:3000/users");
+				// 如果要带参数请求，原生的ajax方法是把参数写在url
+				// 比如，这里要查询id为1的信息,在?后面写id=1 键值对的形式
+				// xhr.open("get", "http://localhost:3000/users?id=1");
+				// 带多个参数的写法 假如现在在实现登陆效果
+				// 如果有多个参数，中间使用&符号相连接
+				// xhr.open("get", `http://localhost:3000/users?id=1&username=xiaoli&password=123456`)
+				// 我们在传输数据的时候，经常会需要传递中文，如果是老版本的浏览器，就会出问题
+				xhr.open("get", `http://localhost:3000/users?id=小李`)
+				// 通过这样的方法，我们可以手动的进行转码
+				// xhr.open("get", `http://localhost:3000/users?id=${encodeURI("小李")}`)
+				// 中文的传输需要解码和编码来进行，现代浏览器会帮我们完成这个过程
+
+				// 3.发送请求
+				xhr.send();
+
+				// 4.获取响应
+				// 等待响应的过程，并不是可预测的，
+				// 是否可以请求成功？要花多少时间？
+				// 因为这两个都无法预测，所以要使用回调函数处理
+
+				// 使用onload时间，当某个东西加载完成后，运行
+				xhr.addEventListener("load", function() {
+					// 输出服务器响应的文本
+					console.log(xhr.responseText);
+					// 通过这样的方法，我们从服务器获取了图书信息
+					// 传来的数据是string类型的json格式的数据
+				})
+			})
+		</script>
+	</body>
+</html>

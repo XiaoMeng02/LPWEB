@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="300" height="300"> </canvas>
+		<script>
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			// 两个元素重叠的情况
+			function draw() {
+				ctx.fillStyle = "blue";
+				ctx.fillRect(0, 0, 200, 200);
+
+				//全局合成操作 
+				// 默认情况，覆盖操作
+				// ctx.globalCompositeOperation = "source-over"; 
+				// 只显示 老的图形和新的图像交汇的部分
+				// ctx.globalCompositeOperation = 'source-in';
+				// 只显示 新图像的未覆盖部分
+				// ctx.globalCompositeOperation = "source-out";
+				// 只显示老的图形以及新的图形交汇的部分
+				ctx.globalCompositeOperation = "source-atop";
+				// 像这种情况，全部记住效果是不现实
+				// 我们就记住有这个工具，当遇到了需要处理的情况，能够想起来有这个工具可以使用
+
+
+				ctx.fillStyle = "red";
+				ctx.fillRect(100, 100, 200, 200);
+			}
+			draw();
+		</script>
+	</body>
+</html>

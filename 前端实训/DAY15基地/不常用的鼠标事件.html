@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>我是一段文字</div>
+		<script>
+			// 禁用右键菜单，阻止用户复制等行为
+			// 这个事件本身是打开右键菜单时触发
+			document.addEventListener('contextmenu', function(event) {
+				console.log("显示了右键菜单");
+				// 页面上的菜单显示也是默认事件的一种
+				// 所以可以使用阻止默认事件的方法阻止
+				// event.preventDefault();
+			})
+
+
+			// 阻止页面选中
+			document.addEventListener('selectstart', function(event) {
+				alert("注册会员后可复制");
+				// 同样的页面选中也是一个默认的事件
+				// event.preventDefault();
+			})
+		</script>
+	</body>
+</html>

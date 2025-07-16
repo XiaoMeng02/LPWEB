@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 之前的写法，使用html默认事件，完成请求 -->
+		<!-- 假如我们是想获取书本信息，放到当前的页面上 -->
+		<!-- 默认的请求方法无法完成，因为每一次请求都会刷新页面 -->
+		<form action="http://localhost:3000/users" method="get">
+			<input type="submit" value="获取图书信息" /><br />
+		</form>
+		<form action="http://localhost:3000/persons" method="get">
+			<input type="submit" value="获取作者信息" /><br />
+		</form>
+	</body>
+</html>

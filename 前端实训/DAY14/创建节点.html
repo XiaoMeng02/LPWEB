@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<p>这是原本的内容</p>
+		</div>
+		<script>
+			// 往id叫做box的元素中创建新的元素
+			let box = document.getElementById("box");
+
+			// 通过内容注入的方式，也可以创建新的元素
+			box.innerHTML = `<p>这是新建的元素</p>`;
+
+			// 1 使用创建元素的方式创建元素
+			// 通过这样的方法，创建的元素，是一个空白的dom元素
+			let dom = document.createElement("div");
+
+			// 2 往创造好的dom中添加内容，样式
+			dom.style.width = "100px";
+			dom.style.height = "100px";
+			dom.style.backgroundColor = "#55ff00";
+
+			// 3 把元素添加到某个元素的子元素的最后面
+			box.appendChild(dom);
+			// 某个元素的前面
+			box.insertBefore(dom, box.childNodes[0]);
+			
+			// 添加了两次相同的元素，页面上会重复出现吗？
+			// 原因是dom是一个独立的元素对象
+			// 当这个对象被重复添加到页面上时，事实上是这个元素对象换了个位置
+			//因此，如果需要重复添加某个元素，一种方法是每次添加元素都重复创建
+			// 第二种方法，是克隆元素，再将克隆出的元素添加到页面上
+		</script>
+	</body>
+</html>

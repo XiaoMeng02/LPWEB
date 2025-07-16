@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../CSS/product.css">
+		<title>商品详情页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.home {
+				width: 1500px;
+				margin: 0 auto;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.title {
+				width: 1500px;
+				height: 258px;
+			}
+
+			.title_0 {
+				width: 1500px;
+				height: 60px;
+				background-color: gainsboro;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.title_0 div:nth-child(1) {
+				margin-left: 20px;
+			}
+
+			.title_0 div:nth-child(2) {
+				margin-right: 50px;
+			}
+
+			.title_img {
+				vertical-align: middle;
+			}
+
+			table tr td {
+				padding-left: 5px;
+			}
+
+			.f_line {
+				margin: 0 10px;
+			}
+
+			tbody tr td a,
+			tbody tr td span {
+				color: #757575;
+			}
+
+			.a_1 {
+				color: orange;
+			}
+
+			.title_1,
+			.title_1_search,
+			.title_1_car {
+				margin-top: 30px;
+				display: flex;
+			}
+
+			.title_1_img {
+				margin-left: 20px;
+			}
+
+			.title_1_ss {
+				margin: 0 auto;
+				margin-left: 86px;
+			}
+
+			.title_1_search input {
+				width: 500px;
+				height: 35px;
+				text-indent: 1em;
+				border: 2px solid red;
+			}
+
+			.title_1_search div:nth-child(2) {
+				width: 100px;
+				height: 39px;
+				text-align: center;
+				color: white;
+				background-color: red;
+			}
+
+			.title_1_search div:nth-child(2) p {
+				margin-top: 10px;
+			}
+
+			.title_1_search_ul ul li {
+				line-height: 30px;
+				color: rgb(99, 99, 99);
+				margin: 0 10px;
+				display: inline;
+			}
+
+			.title_1_car {
+				width: 130px;
+				height: 40px;
+				margin-right: 250px;
+				align-items: center;
+				background-color: gainsboro;
+				border: 1px solid #ccc;
+			}
+
+			.title_1_car div {
+				margin-left: 20px;
+			}
+
+			.title_2 {
+				display: flex;
+				margin-top: 20px;
+				align-items: center;
+				width: 1430px;
+				height: 47px;
+				margin-left: 60px;
+				border-bottom: 3px solid orangered;
+			}
+
+			.title_2 div:nth-child(1) {
+				width: 230px;
+				height: 50px;
+				text-align: center;
+				background-color: red;
+			}
+
+			.title_2 div:nth-child(1) a {
+				color: white;
+				line-height: 50px;
+				margin-right: 55px;
+			}
+
+			.title_2 div:nth-child(2) {
+				margin: 0 auto;
+				margin-left: 2px;
+			}
+
+			.title_2 div:nth-child(2) li {
+				display: inline;
+				margin: 0 25px;
+			}
+
+			.title_2 div:nth-child(2) a {
+				color: black;
+			}
+
+			.title_2 div:nth-child(2) li:nth-child(1) a,
+			.title_2 div:nth-child(2) li:nth-child(2) a {
+				color: red;
+			}
+
+			.title_2 div:nth-child(3) {
+				margin-right: 60px;
+			}
+
+			/* 内容区域 */
+			.content {
+				width: 1430px;
+				height: 5715px;
+			}
+
+			.content1 {
+				width: 1430px;
+				height: 60px;
+				margin-left: 60px;
+				display: flex;
+				align-items: center;
+			}
+
+			.content1_1 ul li {
+				display: inline;
+				margin: 0 5px;
+			}
+
+			.content1_1 ul li a {
+				color: gray;
+			}
+
+			.span1 {
+				color: gray;
+			}
+
+			.content2 {
+				width: 1430px;
+				height: 600px;
+				margin-left: 60px;
+				display: flex;
+			}
+
+			.content2_left {
+				width: 450px;
+				height: 600px;
+			}
+
+			.r_head {
+				width: 450px;
+				height: 450px;
+			}
+
+			.r_bottom {
+				width: 450px;
+				height: 100px;
+				margin-top: 20px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.r_middle {
+				width: 400px;
+				height: 100px;
+			}
+
+			.r_middle img {
+				width: 90px;
+				height: 90px;
+				margin: 0 3px;
+			}
+
+			.content2_middle {
+				width: 600px;
+				height: 600px;
+				margin-left: 40px;
+			}
+
+			.middle_a {
+				line-height: 40px;
+			}
+
+			.middle_a p {
+				color: grey;
+			}
+
+			.middle_a span {
+				color: orangered;
+			}
+
+			.middle_b {
+				margin-top: 20px;
+			}
+
+			.middle_b,
+			.td_a {
+				display: flex;
+				align-items: center;
+			}
+
+			.td_a {
+				justify-content: space-between;
+			}
+
+			.middle_b table tr td {
+				width: 60px;
+				height: 30px;
+				text-align: center;
+			}
+
+			.middle_b table tr td:not([class="ti"]) {
+				border: 1px solid grey;
+			}
+
+			.ti {
+				border: 2px solid orangered;
+
+			}
+
+			.td_a div {
+				width: 18px;
+				height: 25px;
+			}
+
+			.td_a div img {
+				margin-top: 10px;
+			}
+
+			.middle_c {
+				width: 340px;
+				height: 70px;
+				margin-top: 20px;
+				border: 2px solid orangered;
+				display: flex;
+			}
+
+			.c_a {
+				display: flex;
+				align-items: center;
+				margin: 0 20px;
+			}
+
+			.c_a p {
+				margin-left: 5px;
+			}
+
+			.middle_d {
+				width: 400px;
+				height: 100px;
+				margin: 20px 20px;
+			}
+
+			.middle_d table tr td:nth-child(1) {
+				width: 80px;
+				height: 45px;
+				text-align: center;
+				border: 1px solid grey;
+			}
+
+			.cd1 {
+				display: flex;
+				align-items: center;
+			}
+
+			.cd1_p {
+				width: 60px;
+				height: 40px;
+				line-height: 45px;
+				margin: 0 auto;
+			}
+
+			.cd1_1 {
+				width: 20px;
+				height: 47px;
+				border: 1px solid grey;
+			}
+
+			.cd1_1 p:nth-child(1) {
+				border-bottom: 1px solid grey;
+			}
+
+			.cd1_1 p {
+				height: 23px;
+				background-color: #f0efef
+			}
+
+			.content2_right {
+				width: 300px;
+				height: 600px;
+				margin-left: 20px;
+			}
+
+			.rig_a {
+				width: 282px;
+				height: 280px;
+				border: 1px solid grey;
+				margin: 0 auto;
+			}
+
+			.rig_a1 {
+				height: 82px;
+				text-align: center;
+				background-color: #e4e3e3;
+				border-top: 1px solid grey;
+			}
+
+			.rig_a1 p {
+				line-height: 80px;
+				font-size: 20px;
+				color: gray;
+			}
+
+			.content3 {
+				width: 1435px;
+				height: 4320px;
+				margin-top: 20px;
+				margin-left: 60px;
+				display: flex;
+			}
+
+			.content3_left {
+				width: 220px;
+				height: 14px;
+				border: 1px solid gray;
+				text-align: center;
+			}
+
+			.content3_left img {
+				margin-top: 10px;
+				margin-right: 40px;
+			}
+
+			.content3_left p {
+				line-height: 35px;
+				font-size: 15px;
+				color: grey;
+			}
+
+			.content3_left p span {
+				color: orangered;
+			}
+
+			.content3_right {
+				width: 1212px;
+				height: 5040px;
+			}
+
+			/* 右内容1 */
+			.right_1 {
+				width: 1212px;
+				height: 260px;
+				border: 2px solid #ccc;
+			}
+
+			.right_1a {
+				width: 1212px;
+				height: 35px;
+				background-color: rgb(240, 240, 240);
+			}
+
+			.right_1a p {
+				width: 150px;
+				height: 35px;
+				text-align: center;
+				line-height: 38px;
+				border-top: 2px solid orangered;
+				background-color: white;
+			}
+
+			.right_1b {
+				width: 1212px;
+				height: 200px;
+				margin-top: 30px;
+				display: flex;
+			}
+
+			.ri2 {
+				width: 75px;
+				height: 200px;
+				text-align: center;
+			}
+
+			.ri2 p {
+				font-size: 46px;
+				line-height: 200px;
+				color: rgb(224, 222, 222);
+			}
+
+			.ri1,
+			.ri3 {
+				width: 230px;
+				height: 200px;
+			}
+
+			.ri1 {
+				text-align: center;
+			}
+
+			.ri1 p {
+				font-size: 14px;
+				margin-top: 20px;
+				color: grey;
+			}
+
+			.ri1 input {
+				margin-top: 15px;
+			}
+
+			.ri1 label {
+				margin-left: 50px;
+				color: grey;
+			}
+
+			.ri3 ul {
+				margin-top: 30px;
+			}
+
+			.ri3 ul li {
+				font-size: 18px;
+				color: orangered;
+				line-height: 45px;
+			}
+
+			.quantity {
+				width: 65px;
+				height: 25px;
+				text-align: center;
+				border: 1px solid #ccc;
+			}
+
+			.ri3_p {
+				width: 160px;
+				height: 40px;
+				font-size: 18px;
+				margin-top: 10px;
+				color: white;
+				text-align: center;
+				background-color: orangered;
+			}
+
+			/* 右内容2 */
+			.right_2 {
+				width: 1212px;
+				height: 285px;
+				margin-top: 20px;
+				border: 2px solid #ccc;
+			}
+
+			.right_2a {
+				width: 1212px;
+				height: 35px;
+				display: flex;
+				background-color: rgb(240, 240, 240);
+			}
+
+			.right_2a p {
+				width: 150px;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+			}
+
+			.a2_p {
+				background-color: white;
+				border-top: 2px solid orangered;
+			}
+
+			.right_2a p:not([class="a2_p"]):hover {
+				background-color: white;
+				border-top: 2px solid orangered;
+			}
+
+			.right_2b {
+				width: 1185px;
+				height: 200px;
+				margin-left: 25px;
+				margin-top: 30px;
+				display: flex;
+			}
+
+			.r2_1 {
+				width: 260px;
+				height: 200px;
+			}
+
+			.r2_2 {
+				width: 300px;
+				height: 200px;
+			}
+
+			.r2_1 p,
+			.r2_2 p {
+				font-size: 20px;
+				margin-top: 25px;
+				color: grey;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<!-- 页面头部 -->
+			<div class="title">
+				<div class="title_0">
+					<div>
+						<p>送货至：四川</p>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td><a href="./登录页面.html">你好!请登录</a></td>
+								<td>
+									<a href="./注册页面.html" class="a_1">免费注册</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">我的订单</a>
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">收藏夹</a>
+									<img src="../img/all/t_arrow.gif" alt="" class="title_img">
+								</td>
+								<td>
+									<a href="#">客户服务</a>
+									<img src="../img/all/t_arrow.gif" alt="" class="title_img">
+								</td>
+								<td>
+									<a href="#">网站导航</a>
+									<img src="../img/all/t_arrow.gif" alt="" class="title_img">
+									<span class="f_line">|</span>
+								</td>
+								<td>
+									<a href="#">关注我们：</a>
+									<img src="image/sh1.png" alt="">
+									<img src="image/sh2.png" alt="">
+									<span>|</span>
+								</td>
+								<td>
+									<a href="#">手机版</a>
+									<img src="image/i_tel.png" alt="" class="title_img">
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="title_1">
+					<div class="title_1_img">
+						<img src="image/logo.png" alt="">
+					</div>
+					<div class="title_1_ss">
+						<div class="title_1_search">
+							<div>
+								<input type="text" placeholder="请输入关键字">
+							</div>
+							<div>
+								<p>搜索</p>
+							</div>
+						</div>
+						<div class="title_1_search_ul">
+							<ul>
+								<li>咖啡</li>
+								<li>iPhone 6S</li>
+								<li>新鲜美食</li>
+								<li>蛋糕</li>
+								<li>日用品</li>
+								<li>连衣裙</li>
+							</ul>
+						</div>
+					</div>
+					<div class="title_1_car">
+						<div>
+							<img src="image/car.png" alt="">
+						</div>
+						<div>
+							<p>购物车</p>
+						</div>
+					</div>
+				</div>
+				<div class="title_2">
+					<div>
+						<a href="#">全部商品分类</a>
+					</div>
+					<div>
+						<ul>
+							<li><a href="../HTML/home.html">首页</a></li>
+							<li><a href="#">自营超市</a></li>
+							<li><a href="#">1号团</a></li>
+							<li><a href="#">1号超市</a></li>
+							<li><a href="#">女妆</a></li>
+							<li><a href="#">美妆</a></li>
+							<li><a href="#">1号海购</a></li>
+							<li><a href="#">团购</a></li>
+						</ul>
+					</div>
+					<div>
+						<img src="image/phone.png" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- 内容区域 -->
+			<div class="content">
+				<div class="content1">
+					<div class="content1_1">
+						<ul>
+							<li><a href="#">所有团购</a></li>
+							<span class="span1">></span>
+							<li><a href="#">包饰</a></li>
+							<span class="span1">></span>
+							<li><a href="#">珠韵首饰</a></li>
+							<span class="span1">></span>
+							<li><a href="#" style="color: orangered;">冰韵 天然白色正园5925银打珍珠项链</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="content2">
+					<div class="content2_left">
+						<div class="r_head">
+							<img src="image/p_big.jpg" alt="">
+						</div>
+						<div class="r_bottom">
+							<div class="r_left">
+								<img src="image/r_left.png" alt="">
+							</div>
+							<div class="r_middle">
+								<img src="image/per_1.jpg" alt="">
+								<img src="image/per_2.jpg" alt="">
+								<img src="image/per_3.jpg" alt="">
+								<img src="image/per_4.jpg" alt="">
+							</div>
+							<div class="r_right">
+								<img src="image/r_right.png" alt="">
+							</div>
+						</div>
+
+					</div>
+					<div class="content2_middle">
+						<div class="middle_a">
+							<h3>珠韵首饰 冰韵 天然白色正圆S925银扣珍珠项链</h3>
+							<p>全国包邮 送妈妈，正圆级淡水珍珠，白色S925银链扣，使用方便，尊贵礼物。</p>
+							<p>本店价格：<span>￥1786</span></p>
+							<p>参考价：￥3886</p>
+						</div>
+						<div class="middle_b">
+							<p>尺码：</p>
+							<table>
+								<tr>
+									<td class="ti">
+										<div class="td_a">
+											<p>43cm</p>
+											<div>
+												<img src="image/ch.png" alt="">
+											</div>
+										</div>
+									</td>
+									<td>
+										<p>45cm</p>
+									</td>
+									<td>
+										<p>50cm</p>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="middle_b">
+							<p>颜色选择：</p>
+							<table>
+								<tr>
+									<td>
+										<p>粉色</p>
+									</td>
+									<td class="ti">
+										<div class="td_a">
+											<p>白色</p>
+											<div>
+												<img src="image/ch.png" alt="">
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="middle_c">
+							<div class="c_a">
+								<img src="image/sh.png"">
+								<p>分享</p>
+							</div>
+							<div class=" c_a">
+								<img src="image/care.png" alt="">
+								<p>关注商品</p>
+							</div>
+						</div>
+						<div class="middle_d">
+							<table>
+								<tr>
+									<td>
+										<div class="cd1">
+											<p class="cd1_p">1</p>
+											<div class="cd1_1">
+												<p>+</p>
+												<p>-</p>
+											</div>
+										</div>
+									</td>
+									<td><img src="image/j_car.png" alt=""></td>
+								</tr>
+							</table>
+						</div>
+
+
+					</div>
+					<div class="content2_right">
+						<div class="rig_a">
+							<img src="image/sbrand.jpg" alt="">
+							<div class="rig_a1">
+								<p>进入品牌专区</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="content3">
+					<div class="content3_left">
+						<div>
+							<img src="image/p_big.jpg" width="200px">
+							<p>珠韵首饰 新品18K黄金珍珠耳钉</p>
+							<p><span>￥599</span></p>
+							<hr>
+						</div>
+
+						<div>
+							<img src="image/p_big.jpg" width="200px">
+							<p>珠韵首饰 新品18K黄金珍珠耳钉</p>
+							<p><span>￥79</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/p_big.jpg" width="200px">
+							<p>珠韵首饰 新品18K黄金珍珠耳钉</p>
+							<p><span>￥339</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/p_big.jpg" width="200px">
+							<p>珠韵首饰 新品18K黄金珍珠耳钉</p>
+							<p><span>￥1860</span></p>
+							<hr>
+						</div>
+						<div>
+							<img src="image/p_big.jpg" width="200px">
+							<p>珠韵首饰 新品18K黄金珍珠耳钉</p>
+							<p><span>￥758</span></p>
+						</div>
+					</div>
+					<div class="content3_right">
+						<!-- 右内容1 -->
+						<div class="right_1">
+							<div class="right_1a">
+								<p>推荐搭配</p>
+							</div>
+							<div class="right_1b">
+								<div class="ri1">
+									<img src="image/per_5.jpg" alt="" width="120px">
+									<p>粤通国际珠宝 999足金</p>
+									<input type="checkbox" id="reading" value="￥76">
+									<label for="reading">￥76</label>
+								</div>
+								<div class="ri2">
+									<p>+</p>
+								</div>
+								<div class="ri1">
+									<img src="image/per_5.jpg" alt="" width="120px">
+									<p>粤通国际珠宝 999足金</p>
+									<input type="checkbox" id="reading" value="￥76">
+									<label for="reading">￥1890</label>
+								</div>
+								<div class="ri2">
+									<p>+</p>
+								</div>
+								<div class="ri1">
+									<img src="image/per_5.jpg" alt="" width="120px">
+									<p>粤通国际珠宝 999足金</p>
+									<input type="checkbox" id="reading" value="￥76">
+									<label for="reading">￥232</label>
+								</div>
+								<div class="ri2">
+									<p>=</p>
+								</div>
+								<div class="ri3">
+									<ul>
+										<li>套餐价：￥2000</li>
+										<li>
+											<input type="number" value="1" class="quantity">
+										</li>
+										<li>
+											<p class="ri3_p">组合购买</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- 右内容2 -->
+						<div class="right_2">
+							<div class="right_2a">
+								<p class="a2_p">商品属性</p>
+								<p>商品详情</p>
+								<p>商品评论</p>
+							</div>
+							<div class="right_2b">
+								<div class="r2_1">
+									<p>商品名称：天然淡水珍珠</p>
+									<p>商品毛重：160.00g</p>
+									<p>镶嵌材质：纯银</p>
+								</div>
+								<div class="r2_1">
+									<p>商品名称：天然淡水珍珠</p>
+									<p>商品毛重：160.00g</p>
+									<p>镶嵌材质：纯银</p>
+								</div>
+								<div class="r2_1">
+									<p>商品名称：天然淡水珍珠</p>
+									<p>商品毛重：160.00g</p>
+									<p>镶嵌材质：纯银</p>
+								</div>
+
+							</div>
+						</div>
+						<!-- 右内容3 -->
+						<div class="right_3">
+							<div class="right_3a">
+								<p>商品详情</p>
+							</div>
+							<div class="right_3b">
+								<div class="r3_1">
+									<img src="image/de2.jpg" alt="">
+								</div>
+								<div class="r3_2">
+									<img src="image/de3.jpg" alt="">
+								</div>
+								<div class="r3_3">
+									<img src="image/de4.jpg" alt="">
+								</div>
+								<div class="r3_3">
+									<img src="image/de5.jpg" alt="">
+								</div>
+								<div class="r3_3">
+									<img src="image/de6.jpg" alt="">
+								</div>
+								<div class="r3_3">
+									<img src="image/de7.jpg" alt="">
+								</div>
+								<div class="r3_3">
+									<img src="image/de8.jpg" alt="">
+								</div>
+							</div>
+						</div>
+
+	</body>
+</html>

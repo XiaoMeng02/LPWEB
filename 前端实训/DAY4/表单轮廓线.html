@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			input{
+				outline: none;
+				border: none;
+				border-bottom: 1px solid black;
+			}
+			
+			/* 当元素获取到焦点的时候触发 */
+			input:focus{
+				border: 1px solid black;
+			}
+			
+			textarea{
+				/* 设置文本域不允许拖拽 */
+				resize: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" />
+		<textarea cols="10" rows="3"></textarea>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 把难的少的问题,变成简单的多的问题 -->
+		<!-- 先解决一个流星的样式and动画效果 -->
+		<style type="text/css">
+			/* 所有动画的容器 */
+			#container {
+				width: 100vw;
+				height: 100vh;
+
+				/* 弹性布局的属性 */
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				/* 背景 */
+				background-color: black;
+			}
+
+			/* 流星元素 */
+			.line {
+				/* 给一个大小 */
+				height: 3px;
+				width: 200px;
+
+				/* 圆角边框 */
+				border-radius: 3px;
+				/* 错误示范 */
+				/* background-color: linear-gradient(to right, #f04826 , #d9d9d9, transparent); */
+				/* 正确设置 */
+				background-image: linear-gradient(to right, #f04826, #ffffff50, transparent);
+				overflow: hidden;
+
+				animation-name: move;
+				animation-duration: 3s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+			}
+
+			/* 使用伪元素添加效果 */
+			.line::before,
+			.line::after {
+				/* 给元素添加内容属性 */
+				content: "";
+
+				/* 继承属性需要依赖定位 */
+				position: absolute;
+
+				/* 继承父元素的属性 */
+				width: inherit;
+				height: inherit;
+				background-color: inherit;
+			}
+
+
+			/* 给元素一个模糊的滤镜 */
+			.line::before {
+				filter: blur(5px);
+			}
+
+			.line::after {
+				filter: blur(10px);
+			}
+
+
+			/* 让一个元素先有动画效果 */
+			@keyframes move {
+				0% {
+					/* 初始位置，通过变量--z控制垂直，旋转-45度，通过变量--x控制水平偏移 */
+					transform:  rotate(-45deg) translateX(300px) translateY(180px) ;
+				}
+
+				100% {
+					/* 结束位置，与初始位置类似，但水平偏移方向相反 */
+					transform:  rotate(-45deg) translateX(-300px) translateY(180px)  ;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="line"></div>
+		</div>
+	</body>
+</html>

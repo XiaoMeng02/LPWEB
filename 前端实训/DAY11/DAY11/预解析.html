@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// js会在执行代码之前,完成预解析
+
+			// 使用值
+			console.log(num);
+			// 初始化变量
+			let num = 0;
+
+			// 声明函数
+			// 命名函数
+			function func_1() {
+
+			}
+			// 匿名函数
+			let func_2 = function() {
+
+			}
+
+
+			// 上述代码真正执行的顺序是
+			// 变量的声明会被提前
+			let str = "字符串";
+			let num;
+			let func_2;
+			// 函数的声明也会被提前
+			function func_1() {
+
+			}
+			
+			// 这个时候,func_2还等于undefined,所以会报错
+			func_2();
+			// 赋值的行为会被留在原地
+			num = 0;
+			func_2 = function() {
+			
+			}
+			// 这也是为什么,我们使用命名函数的时候,可以先使用,再声明,而匿名函数不可以
+			
+			// 尽量保持好习惯,把变量的声明写在代码的最前面,尽量初始化变量
+		</script>
+	</body>
+</html>

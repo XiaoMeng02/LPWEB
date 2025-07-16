@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 注册表单 -->
+		<form id="register">
+			<h5>注册页面</h5>
+			<!-- 表单内，要形成键值对，需要name作为键 value作为值 -->
+			username<input type="text" name="username" value="xiaowang" /><br />
+			password<input type="text" name="password" value="123456" /><br />
+			age<input type="text" name="age" value="24" /><br />
+			gender<input type="text" name="gender" value="男" /><br />
+			address<input type="text" name="address" value="深圳" /><br />
+			phone<input type="text" name="phone" value="138xxxxxxxx" /><br />
+			email<input type="text" name="email" value="135144151@qq.com" /><br />
+			<!-- 注册按钮 -->
+			<input type="submit" value="注册" />
+		</form>
+
+		<!-- 导入jq，使用jq -->
+		<!-- 这里使用jq的ajax需要把整个jq导入 -->
+		<script src="jquery-3.6.0.min.js"></script>
+		<script>
+			// 框架使用的时候，需要先去看框架的手册
+			// 等价于jQuery.get();
+			// 第一个参数 为请求路径
+			// 第二个参数 data 除了传给后端的值以外，这里还包含了别的值
+			// 第三个参数 回调函数
+			// $.get("http://localhost:3000/users", {
+			// 	username: "qianqi",
+			// 	password: "zxcvbn"
+			// }, (rls) => {
+			// 	// 这里返回的也是一个处理好的响应结果
+			// 	console.log("jq请求的返回值", rls);
+
+			// 	if(rls.length > 0){
+			// 		alert("登陆成功");
+			// 	}else{
+			// 		alert("登陆失败");
+			// 	}
+			// });
+
+
+			// let btn = document.querySelector("input[type=submit]");
+			// post请求的使用方式
+			// 这里发生数据的格式，不符合jsonserver的要求
+			// username=xiaojun&password=123456
+			// 如果是自己写的服务器，只要保证前后端数据格式相同即可
+			// btn.addEventListener("click", () => {
+			// 	// 之前获取所有表单内容的方法
+			// 	let inputList = document.querySelectorAll("input");
+			// 	// 大部分的前后端交互的框架，都会提供一个收集表单的方法
+			// 	$.post("http://localhost:3000/users", JSON.stringify({
+			// 		username: "xiaojun",
+			// 		password: "123456",
+			// 		age: 28,
+			// 		gender: "男",
+			// 		address: "南昌市",
+			// 		phone: "138xxxxxxxxx",
+			// 		email: "xiaoli@example.com"
+			// 	}), (rls) => {
+			// 		console.log("返回值", rls);
+			// 	});
+			// });
+
+			// 使用jq获取了jq元素的方法
+			// 当这个jq触发提交事件的时候
+			$("#register").submit(function(event) {
+				// 终止表单的默认提交行为
+				event.preventDefault();
+				// 收集表单数据
+				// 使用获取到的表单元素（form） 获取表单的键值对
+				// 其他的前后端交互的框架，也会提供一个类似的方法，收集所有的表单
+				let param = $(this).serialize();
+				console.log("表单内容:", param);
+			})
+
+			// ajax方法
+			$.ajax({
+				url: "",
+				type: "",
+				data: {
+
+				},
+				success() {
+
+				}
+			})
+			
+			// 后面我们也会稍微讲一下jq，主要是为了让同学们体验一下框架和原生的js的区别
+			// 以及框架的结构和概念，jq作为一个入门的框架，非常适合用来讲解
+		</script>
+	</body>
+</html>

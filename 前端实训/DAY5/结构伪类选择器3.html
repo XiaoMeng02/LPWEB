@@ -1,0 +1,45 @@
+<head>
+    <style>
+		/* 这里的写法是错误的,结构上无法选中 */
+        div div:nth-child(1) {
+            background-color: red;
+        }
+		
+		/* 选择父元素下的某个指定类型的子元素 */
+		/* 选择所有div下的div标签,选中其中的第一个 */
+		/* 这里是先找到所有的div下的div,再选中其中第一个 */
+		div div:nth-of-type(1){
+			background-color: red;
+		}
+		
+		/* 伪元素 */
+		#box::before{
+			/* 伪元素,必须要有一个content属性 */
+			content: "";
+		}
+		
+		/* 同一个元素只能头部一个,尾部一个伪元素 */
+		#box::after{
+			content: "1";
+		}
+		#box::after{
+			content: "2";
+		}
+		
+		/* 伪元素可以使得,当某些元素需要添加特殊内容的时候 */
+		/* 我们可以使用css添加,而不是每个元素都用html去写在页面上 */
+		div::after{
+			display: block;
+			width: 100px;
+			height: 100px;
+			content: "这是一个盒子";
+		}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>光头强</p>
+        <div>熊大</div>
+        <div>熊二</div>
+    </div>
+</body>

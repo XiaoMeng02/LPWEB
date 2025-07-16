@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 和对象的继承一样,在es6以前,默认参数需要模拟实现
+			// 默认参数 {当没有指定参数值的时候,给参数一个默认值}
+			function fn1(MAX, MIN) {
+				// 之前默认参数的实现方式,使用逻辑短路的方式,实现默认参数
+				// 当MIN为undefined时,MIN为假,需要计算后面的结果
+				// 那么就会使用50这个值作为计算参数
+				MIN = MIN || 50;
+
+				console.log(MAX + MIN);
+			}
+
+			// 调用的时候,忽略了一个参数
+			// 这个时候往往得到一个错误的结果
+			fn1(100);
+
+
+			// es6以后,默认参数的写法非常的简单
+			// 设置默认参数为50
+			function fn2(MAX, MIN = 50) {
+				console.log(MAX + MIN);
+			}
+			// 默认参数必须从右往左给,和形参赋值的顺序相反
+			function fn2(MAX = 50, MIN) {
+				console.log(MAX + MIN);
+			}
+			// 因为默认参数是一个萝卜一个坑,当实参给形参赋值的时候
+			// 会从左到右开始赋值,所以尽管只有一个值,但是还是给了MAX
+		</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 模拟一个网络请求
+			// 现在需要向后端请求两次数据
+			// 当A数据请求完成以后
+			// 根据请求的结果，决定是否请求B数据
+			// 比如向后端请求用户的信息
+			// 先获取用户的基本信息 A
+			// 再获取用户的好友信息 B
+
+			// 先获取用户的基本信息
+			let getUser = new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					let v = Math.random();
+
+					// 模拟网络请求
+					if (v > 0.5) {
+						resolve("用户数据请求成功");
+					} else {
+						reject("用户数据请求失败，请检查网络");
+					}
+				}, 2 * 1000)
+			});
+
+
+			// 再获取用户的好友列表
+			let getFriend = new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					let v = Math.random();
+					// 同样模拟网络请求
+					if (v > 0.5) {
+						resolve("好友列表请求成功");
+					} else {
+						reject("好友列表请求失败");
+					}
+				}, 2 * 1000)
+			})
+
+			// 执行成功和执行失败的处理
+			// 这种回调函数之间互相嵌套，并且嵌套很多层的情况
+			// 我们称之为回调地狱
+			getUser.then(function(rlt) {
+				// 执行成功
+				console.log(rlt);
+				// 执行成功的情况下，我们继续获取用户的好友列表
+				getFriend.then(function(rlt) {
+					// 好友列表获取成功的情况
+					console.log(rlt);
+					console.log("所有数据都已成功请求");
+					getFriend.then(function(rlt) {
+						// 好友列表获取成功的情况
+						console.log(rlt);
+						console.log("所有数据都已成功请求");
+						getFriend.then(function(rlt) {
+							// 好友列表获取成功的情况
+							console.log(rlt);
+							console.log("所有数据都已成功请求");
+							getFriend.then(function(rlt) {
+								// 好友列表获取成功的情况
+								console.log(rlt);
+								console.log("所有数据都已成功请求");
+							}).catch(function(rlt) {
+								// 好友列表获取失败的情况
+								console.log(rlt);
+								console.log("试图重新进行网络连接");
+							});
+						}).catch(function(rlt) {
+							// 好友列表获取失败的情况
+							console.log(rlt);
+							console.log("试图重新进行网络连接");
+						});
+					}).catch(function(rlt) {
+						// 好友列表获取失败的情况
+						console.log(rlt);
+						console.log("试图重新进行网络连接");
+					});
+				}).catch(function(rlt) {
+					// 好友列表获取失败的情况
+					console.log(rlt);
+					console.log("试图重新进行网络连接");
+				});
+				// 这种异步容器互相嵌套的写法，可以这样使用，但是最好不要
+			}).catch(function(rlt) {
+				// 执行失败
+				console.log(rlt);
+				console.log("试图重新进行网络连接");
+			});
+		</script>
+	</body>
+</html>

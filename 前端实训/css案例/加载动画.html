@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>加载动画</title>
+
+		<style>
+			body {
+				background-color: black;
+			}
+
+			.loading {
+				background-color: black;
+
+				width: 100vh;
+				height: 100vw;
+				
+				/* 拉高父元素的对比度 */
+				filter: contrast(15);
+			}
+
+			.loading span {
+				width: 30px;
+				height: 30px;
+
+				background: #ffffff;
+				border-radius: 50%;
+				/* 使用定位让元素重叠 */
+				position: absolute;
+				left: 40%;
+				top:20%;
+
+				/* 旋转元素 */
+				/* 偏移圆心 x轴正一百 */
+				transform-origin: 100px center;
+				transform: rotate(calc(360deg / 8 *var(--i)));
+
+				animation: show 5000ms ease infinite;
+
+				/* 使用模糊加对比度的滤镜效果，实现粘连 */
+				/* 模糊效果的目的，是为了让元素之间的边界没有那么清晰 */
+				filter: blur(10px);
+			}
+
+			/*  */
+			@keyframes show {
+				0% {
+					/* 移动x轴 */
+					/* 所有的元素，归位到原本位置 */
+					transform: rotate(0deg) translateX(80px);
+				}
+
+				/* 一次性写两个帧 */
+				50% {
+					transform: rotate(calc(360deg / 8 *var(--i)));
+				}
+
+				100% {
+					transform: rotate(360deg) translateX(80px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="loading">
+			<span style="--i:0"></span>
+			<span style="--i:1"></span>
+			<span style="--i:2"></span>
+			<span style="--i:3"></span>
+			<span style="--i:4"></span>
+			<span style="--i:5"></span>
+			<span style="--i:6"></span>
+			<span style="--i:7"></span>
+		</div>
+	</body>
+</html>

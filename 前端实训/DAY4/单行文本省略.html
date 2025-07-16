@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				
+				border: 1px solid black;
+				
+				/* 1 设置不允许自动换行 */
+				white-space: nowrap;
+				
+				/* 2 设置多余内容的溢出处理 */
+				overflow: hidden;
+				
+				/* 3 设置文本的溢出处理 */
+				text-overflow: "？？？";
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			这是一段很长很长的文本
+		</div>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+			}
+			
+			#bigbox{
+				width: 700px;
+				height: 385px;
+				border: 1px solid black;
+				overflow: auto;
+				color: white;
+				text-align: center;
+				font-size: 15px; 
+				font-weight: bold; 
+				background-color: #ffffff;
+			}
+			#top {
+			    display: flex;
+			}
+			
+			.box1-5 {
+			    flex: 1;
+			    background-color: green;
+			    line-height: 70px; 
+
+			}
+			#left{
+				float: left;
+				width: 60%;	
+			}
+			#right {
+			    float: left;
+			    width: 40%; 
+			}
+
+			.box6{
+				background-color: yellow;
+				line-height: 70px;
+			}
+			.box8 {
+			    float: left;
+			    width: 50%;
+			    background-color: #e6e6e6;
+			    line-height: 105px; /* 调整行高控制高度 */
+			}
+			.box9 {
+			    float: left;
+			    width: 50%;
+			    background-color: black;
+			    line-height: 105px;
+			}
+			.box11{
+				float: left;
+				width: 100%;
+				background-color: red;
+				line-height: 70px;
+			}
+			.box7{
+				width: 100%;
+				background-color:  #54cb33;
+				line-height: 140px;
+			}
+			.box10{
+				width: 100%;
+				background-color: #04fcf4;
+				line-height: 105px;
+			}
+			#box12{
+				float: left;
+				width: 100%;
+				background-color: blue;
+				line-height: 68px;
+			}
+			.box1-5:hover,.box6:hover,.box7:hover,.box8:hover,.box9:hover,.box10:hover,.box11:hover,#box12:hover
+			{
+				transform: scale(0.9, 0.9)
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bigbox">
+			<div id="top">
+				<div class="box1-5">1</div>
+				<div class="box1-5">2</div>
+				<div class="box1-5">3</div>
+				<div class="box1-5">4</div>
+				<div class="box1-5">5</div>
+			</div>
+			<div id="left">
+				<div class="box6">6</div>
+				<div class="box8">8</div>
+				<div class="box9">9</div>
+				<div class="box11">11</div>
+			</div>
+			<div id="right">
+				<div class="box7">7</div>
+				<div class="box10">10</div>
+			</div>
+			<div id="box12">12</div>
+		</div>
+	</body>
+</html>

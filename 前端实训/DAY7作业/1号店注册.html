@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1号店注册</title>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+			}
+			.window{
+				width: 1200px;
+				height: 700px;
+				/* border: 1px solid black; */
+				margin: auto;
+				position: relative;
+			}
+			.header{
+				width: 1200px;
+				height: 100px;
+				/* border: 1px solid #c6c6c6; */
+				position: relative;
+				left: 10px;
+				top:15px;
+			}
+			.header  #logo{
+				position: absolute;
+				left: 20px;
+			}
+			.header .login{
+				width: 300px;
+				height: 100px;
+				position: absolute;
+				right: 20px;
+				top: 0px;
+				color: #444444;
+			}
+			.login p{
+				margin-top:25px ;
+			}
+			.login button a{
+				text-decoration:none;
+				color: #0000ff;
+			}
+			.header .hellp{
+				position: absolute;
+				right: 0px;
+				top: 25px;
+				border: 1px solid #a5a5a5;
+			}
+			.hellp img{
+				float: left;
+				margin-top: 4px;
+			}
+			.registerForm{
+				margin: auto;
+				width: 500px;
+				height: 500px;
+				border-radius: 10%;
+				margin-top: 20px;
+				padding-top: 30px;
+				padding-left: 120px;
+				background-color: #ffa6ac;
+				line-height: 60px;
+				text-align: left;
+				position: relative;
+			}
+			h1{
+				font-size: 40px;
+				padding-bottom: 10px;
+				color: #fff;
+				
+			}
+			.yanzm #num{
+				width: 100px;
+				line-height: 40px;
+				border-radius: 5px;
+				padding-left: 8px;
+				background-color: #ff505c;
+				position: absolute;
+				right: 150px;
+				top: 173px;
+			}
+			#phone input{
+				width: 250px;
+				height: 40px;
+				border-radius: 5px;
+				padding-left: 10px;
+			}
+			.yanzm input{
+				width: 110px;
+				height: 40px;
+				border-radius: 5px;
+				padding-left: 10px;
+			}
+			.anmiu button{
+				height: 50px;
+				width: 100px;
+				border-radius: 10px;
+				margin:10px;
+				background-color: #aaffff;
+				font-size: 22px;
+			}
+			button a{
+				text-decoration: none;
+			}
+			footer{
+				margin-top: 35px;
+				width: 1200px;
+				height: 30px;
+				line-height: 20px;
+				text-align: center;
+				font-size: 12px;
+				color: #878787;
+				font-family: "仿宋";
+			}
+		</style>
+	</head>
+	<body>
+		<div class="window">
+			<div class="header">
+				<img id="logo" src="商城素材/image/logo.png" />
+				<div class="login">
+					<p>您好，欢迎光临1号店
+					<button><a href="./1号店登录.html">请登录</a></button></p>
+					<div class="hellp">
+						<img src="商城素材/image/runbun.png"/>帮助中心
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="registerForm">
+				<h1>一&nbsp;号&nbsp;店&nbsp;注&nbsp;册</h1>
+				<form action="#" method="get">
+					<span id="phone"> <input type="text" placeholder="手机号码"/><br /></span>
+					<div class="yanzm">
+						<input type="text" placeholder="验证码"/><br />
+						<span id="num">获取验证码</span>
+					</div>
+					<span id="phone"> <input type="text" placeholder="请输入密码"/></span><br />
+					<span id="phone"> <input type="text" placeholder="确认密码"/></span><br />
+					<div>
+						<label class="flex items-start">
+							<input type="checkbox" class="mt-1 text-primary focus:ring-primary h-4 w-4">
+							<span class="ml-2 text-sm text-gray-600">
+								我已阅读并同意<a href="#" class="text-primary hover:underline">服务条款</a>和<a href="#" class="text-primary hover:underline">隐私政策</a>
+							</span>
+						</label>
+					</div>
+					<div class="anmiu"">
+						<button>注册</button>
+						<button><a href="1号店登录.html">去登录</a></button>
+					</div>
+				</form>
+			</div>
+			<!-- 底部区域 -->
+		  <footer>
+			<p>沪ICP备10011278号 | 合字B1.B2-2010004 | 营业执照</p>
+			<p>Copyright © 1号店网上超市 2017-2036 All Right Reserved</p>
+		  </footer>
+		</div>
+	</body>
+</html>

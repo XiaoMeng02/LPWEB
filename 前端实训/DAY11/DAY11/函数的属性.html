@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 新建的数组
+			var arr = [];
+
+			// 创建函数
+			function sum(x, y, z) {
+				console.log("x+y=", x + y);
+
+				// 使用返回值返回结果
+				// 返回值只能返回一个值，不管是一个简单的变量，还是一个复杂类型
+				return x + y;
+			}
+
+
+			// 获取任意数量的值，并求出它们的平均值
+			// 1 使用数组去完成
+			// 2 使用函数中参数列表属性来完成
+			function get() {
+				// arguments 这个属性的类型叫做伪数组，不是纯粹的数组类型，不能使用数组的一些方法
+				console.log("参数列表", arguments);
+			}
+		</script>
+	</body>
+</html>

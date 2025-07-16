@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 内嵌式引入 -->
+		<style type="text/css">
+			div{
+				width: 200px;
+			}
+		</style>
+		
+		<!-- 外部样式表的引入 -->
+		<!-- 从指定的路径，引入指定的文件 -->
+		<!-- 定义文件的类型 -->
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<!-- 行内写在元素上的样式，所以不需要选择器，写在哪里，在哪里生效。优先级非常高 -->
+		<!-- 用键值对的形式，写样式 -->
+		<div style="width: 100px;height: 100px;background-color: red;">
+			这是一个盒子
+		</div>
+	</body>
+</html>

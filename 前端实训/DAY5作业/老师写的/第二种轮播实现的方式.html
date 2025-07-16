@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图</title>
+
+		<style>
+			/* 全局变量 */
+			/* :root {
+				--i: 1;
+			} */
+
+			/* 父盒子需要给一个宽高 */
+			#window {
+				top: calc(50% - 72px);
+				left:  calc(50% - 166px);
+				position: fixed;
+
+				width: 230px;
+				height: 140px;
+				
+				overflow: hidden;
+				border: 1px solid black;
+			}
+			
+			/* 将一个大的元素，变成一个一个小的元素移动 */
+			img {
+				width: 230px;
+				height: 140px;
+
+				/* 定位位置 */
+				/* 这里使用的是定位的方法移动元素 */
+				position: absolute;
+				top: 0px;
+				left: -230px;
+
+				animation-name: move;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+
+				/* 由于这里的轮播图的实现方式，是通过控制每个元素的动画开始时间实现的 */
+				/* 所以每张图片的动画开始时间需要不一样 */
+				/* 使用局部变量控制样式 */
+				/* 值从行内样式中获取 */
+				animation-delay: calc(var(--i) * 1s);
+			}
+
+			/* 当鼠标悬停时，图片停止动画 */
+			#window:hover>img {
+				animation-play-state: paused;
+			}
+
+			/* 动画效果 */
+			@keyframes move {
+				0% {
+					transform: translate(0px, 0px);
+				}
+
+				20% {
+					transform: translate(calc(230px * 1), 0px);
+				}
+
+				40% {
+					transform: translate(calc(230px * 2), 0px);
+				}
+
+				60% {
+					transform: translate(calc(230px * 3), 0px);
+				}
+
+				80% {
+					transform: translate(calc(230px * 4), 0px);
+				}
+
+				100% {
+					transform: translate(calc(230px * 5), 0px);
+				}
+			}
+		</style>
+
+	</head>
+	<body>
+		<!-- 加一行点击按钮，当点击对应按钮时，出现对应的图片 -->
+		<div id="window">
+			<!-- 局部变量 -->
+			<!-- 值存储在行内样式 -->
+			<!-- 命名方式，--变量名称:值 -->
+			<img style="--i: 0" src="../image/1.png" alt="" srcset="" />
+			<img style="--i: 1" src="../image/2.png" alt="" srcset="" />
+			<img style="--i: 2" src="../image/3.png" alt="" srcset="" />
+			<img style="--i: 3" src="../image/4.png" alt="" srcset="" />
+			<img style="--i: 4" src="../image/5.png" alt="" srcset="" />
+		</div>
+	</body>
+</html>

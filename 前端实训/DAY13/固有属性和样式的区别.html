@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style>
+			img {
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	<body>
+		<!-- src是固有属性  在标签中单独以键值对的形式显示的内容，就是固有属性-->
+		<img src="../img/1.png" alt="" />
+
+		<img src="../img/3.png" alt="" />
+		<img src="../img/4.png" alt="" />
+		<script>
+			// 替换img的图片
+			let imgs = document.querySelectorAll("img");
+
+
+			// 添加替换图片的事件 给多个图片
+			for (let i = 0; i < imgs.length; i++) {
+				imgs[i].onclick = function() {
+					// 替换图片
+					// imgs[i].style.src = "../img/2.png"
+					// 固有属性直接在dom对象中就有，所以不需要使用style
+					// imgs[i].src = "../img/2.png";
+					// 使用this代替值，在这里，谁调用了这个函数，这个this指向谁
+					// 在这个例子中，img[i]dom元素调用了这个函数，所以this指向img[i]
+					this.src = "../img/2.png";
+				}
+			}
+		</script>
+	</body>
+</html>

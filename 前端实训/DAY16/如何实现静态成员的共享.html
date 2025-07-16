@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 如果没有静态成员,那么有多少个实例对象,就相当于声明了多个方法
+			// function sing(){
+			// 	console.log("我会唱歌"); 
+			// }
+			// function sing(){
+			// 	console.log("我会唱歌"); 
+			// }
+			// x100
+
+
+			// 原型是什么？如何添加属性或方法到原型中？
+			function Person(username, password) {
+				// 实例成员 实例属性 和 实例方法
+				this.username = username;
+				this.password = password;
+				// 这里的方法是私有的，每创建一个对象，都会有一个方法被创建
+				// this.login = function() {
+				// 	console.log("用户完成了登陆行为");
+				// }
+			}
+
+			// 登陆方法既然是大家共有的，那么就让这个方法保存在原型上
+			// 这种保存在原型上的方法，只有一个，不会创建多个
+			Person.prototype.login = function() {
+				console.log("用户完成了登陆行为");
+			}
+
+
+			// 这就是静态成员的保存方法
+			// 接下来要去了解，为什么这样能够实现
+		</script>
+	</body>
+</html>

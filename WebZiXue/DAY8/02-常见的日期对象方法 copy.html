@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 40px;
+        border: 1px solid pink;
+        text-align: center;
+        line-height: 40px;
+    }
+</style>
+<body>
+    <div></div>
+    <script>
+        //1.得到当前事件
+        // const date = new Date()
+        // console.log(date.getFullYear())
+        // console.log(date.getMonth()+1)
+        // console.log(date.getDate())
+        // console.log(date.getDay())
+
+        //2.显示今日时间
+        const div = document.querySelector('div')
+        function getMyDate(){
+            const date = new Date()
+            let h = date.getHours()
+            let m = date.getMinutes()
+            let s = date.getSeconds()
+            h = h < 10 ? '0' + h : h
+            m = m < 10 ? '0' + m : m
+            s = s < 10 ? '0' + s : s
+            return `今天是：${date.getFullYear()}年${date.getMonth() + 1}月${date.getDay()}日 ${h}: ${m}:${s}`
+        }
+      
+        div.innerHTML = getMyDate()
+        setInterval(function(){
+            div.innerHTML = getMyDate()
+        },1000)
+    </script>
+</body>
+
+</html>

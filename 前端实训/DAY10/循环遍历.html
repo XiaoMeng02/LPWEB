@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var name_list = ["小明", "小李", "小王", "小刚", "小白"];
+
+			// 遍历数组元素的方法1
+			// 通过下标循环遍历
+			for (var i = 0; i < name_list.length; i++) {
+				console.log(`名单第${i}位的同学叫做${name_list[i]}`)
+			}
+
+			// 遍历数组元素的方法2
+			// 这里for in 会按照顺序，将值塞入变量容器key
+			// 循环输入键值对中的键
+			for (var key in name_list) {
+				console.log("键:", key, "值:", name_list[key]);
+				// 如果想修改数组，需要通过下标对数组本身进行修改
+				name_list[key] = null;
+			}
+
+			// 遍历数组元素的方法3
+			// 无论是for of 还是 for in，都是将数组中的值通过赋值的方式复制了一份，到临时声明的变量中
+			for (var val of name_list) {
+				console.log("值:", val);
+				// 通过遍历的方式，将值全部修改
+				// 这里的赋值行为没有效果
+				val = null;
+				console.log("val", val);
+			}
+		</script>
+	</body>
+</html>

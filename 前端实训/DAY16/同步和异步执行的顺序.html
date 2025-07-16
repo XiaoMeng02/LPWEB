@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 同步代码
+			console.log(1);
+
+			// 异步代码
+			setTimeout(function() {
+				console.log(2);
+
+				setTimeout(function() {
+					console.log(3);
+				}, 2000);
+			}, 1000);
+
+			// 同步代码
+			// 这里会等待前面的异步代码执行完再执行吗?
+			// 不会,同步代码会直接执行
+			console.log(4);
+
+			// 1 - 4 - 2 - 3
+
+			// 现在执行的延迟时间是 0 毫秒 执行顺序有变化吗?
+			// 不会有变化,会先执行同步代码,再执行异步代码
+
+
+			// 1 先执行已有的同步代码
+			// 2 执行完成后查看任务列队中,是否有待执行的任务
+			// 3 如果有待执行的任务,就将异步函数拆包
+			setTimeout(function() {
+				console.log(2);
+				setTimeout(function() {
+					console.log(3);
+				}, 2000);
+			}, 1000);
+			// 拆开后得到
+			console.log(2); //同步代码
+			setTimeout(function() {//异步代码
+				. //异步代码
+				console.log(3);
+			}, 2000);
+			// 将同步代码 放到执行栈中 将异步代码 放到任务列队中
+			setTimeout(function() {
+				. //异步代码
+				console.log(3);
+			}, 2000);
+			// 拆开得到同步代码和异步代码
+			console.log(3);
+		</script>
+	</body>
+</html>

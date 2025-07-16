@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box{
+				width: 400px;
+				height: 100px;
+				
+				font-size: 0px;
+				
+				border: 1px solid black;
+			}
+			
+			#box>div{
+				width: 25%;
+				height: 100px;
+				
+				border: 1px solid red;
+				
+				/* 设置元素为行内块 */
+				display: inline-block;
+				
+				/* 盒子的计算方式 */
+				/* 将盒子的宽高的计算方式,从原本的内容100px 边框2px 变成 内容 + 边框 = 宽度和高度*/
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>

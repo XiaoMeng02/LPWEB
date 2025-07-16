@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数基础</title>
+	</head>
+	<body>
+		<script>
+			// 函数的声明语法
+			// function 函数名称(参数){
+			// 	代码体
+			// }
+
+			// 1声明函数  移动函数
+			// 在js中，函数也是个对象
+			function move() {
+				console.log("人物进行了移动");
+			}
+
+			// 2调用函数 加括号，表示调用函数，想要得到结果
+			move();
+
+			// 3不加括号，表示使用函数对象本身
+			move;
+
+
+
+
+			// 获取10以上值的函数
+			// 1 函数过于死板，不能处理不同的值，这里就要使用到参数
+			// 函数括号中的被称之为形参，因为这里参数没有实际意义，起的是占位置的效果
+			function get(getArr, str) {
+				// 拿形参代替这个固定值
+				// var arr = [2, 0, 62, 1, 77, 0, 52, 0, 25, 7];
+				// 将形参传入arr
+				var arr = getArr;
+				// 放元素的空数组
+				var new_arr = [];
+
+				// 遍历老数组
+				for (var i = 0; i < arr.length; i++) {
+					// 进行判断，比对，当值大于等于10的时候，加入新数组
+					if (arr[i] >= 10) {
+						new_arr[new_arr.length] = arr[i];
+					}
+				}
+
+				console.log("新的数组为", new_arr);
+			}
+
+
+			// 有了形参以后，需要实参将值进行传入
+			// 在调用函数的时候，实际给与的参数，被称之为实参
+			get([55, 14, 2, 6, 8, 12, 62, 7], "数组");
+		</script>
+	</body>
+</html>

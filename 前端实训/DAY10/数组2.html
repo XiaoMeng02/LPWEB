@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var name_List = ["小明", "小李", "小王"];
+			// 增加元素
+			name_List[10] = "小张";
+
+			// 是否可以不使用数字的下标？
+			// 数组在js中也是一个特殊的对象
+			name_List["username"] = "账户";
+
+
+			// 使用遍历的方式
+			for (let key in name_List) {
+				console.log("遍历key:", key);
+			}
+
+			// 这种方式，无法使用for循环遍历
+			for (var i = 0; i < name_List.length; i++) {
+				console.log("遍历:", name_List[i]);
+			}
+		</script>
+	</body>
+</html>

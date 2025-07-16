@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style>
+			div {
+				border: 1px solid black;
+			}
+
+			.parent {
+				width: 300px;
+				height: 300px;
+				
+				/* 设置父元素为网格容器 */
+				display: grid;
+				
+				/* 将容器均分成四分，每个占一份 */
+				/* 这里给的参数，其实是每行或者每列占据的大小 */
+				/* 当设置自适应值的时候，自适应会自动的把剩下的长度或者宽度占满 */
+				grid-template-columns: 50px auto 50px 50px;
+				
+				grid-template-rows: repeat(4,1fr);
+				/* 通过这个固定值，让行和列的数量自适应 */
+				/* grid-template-rows:repeat(auto-fill,30px) ; */
+				
+				
+				/* 这里设置的是网格线的宽度 */
+				/* 设置横向网格线和纵向网格线的宽度 */
+				/* grid-column-gap: 5px;
+				grid-row-gap: 5px; */
+				
+				/* 默认情况下，项目是以横向排列 */
+				grid-auto-flow: column;
+				
+				
+				/* 设置网格内容的对齐方式 */
+				justify-items: center;
+				align-items: center;
+			}
+
+			.div1 {
+				/* 这里的1122到底指的是什么？ */
+				/* 每一个值都指的是第几条分割线*/
+				/* 前两个值，指的是单元格的起始线条，后两个值，指的是单元格的结束位置 */
+				grid-area: 2 / 2 / 4 / 4;
+			}
+
+			.div2 {
+				grid-area: 1 / 2 / 2 / 3;
+			}
+
+			.div3 {
+				grid-area: 1 / 3 / 2 / 4;
+			}
+
+			.div4 {
+				grid-area: 1 / 4 / 2 / 5;
+			}
+
+			.div5 {
+				grid-area: 2 / 1 / 3 / 2;
+			}
+
+			.div6 {
+				grid-area: 2 / 2 / 3 / 3;
+			}
+
+			.div7 {
+				grid-area: 2 / 3 / 3 / 4;
+			}
+
+			.div8 {
+				grid-area: 2 / 4 / 3 / 5;
+			}
+
+			.div9 {
+				grid-area: 3 / 1 / 4 / 2;
+			}
+
+			.div10 {
+				grid-area: 3 / 2 / 4 / 3;
+			}
+
+			.div11 {
+				grid-area: 3 / 3 / 4 / 4;
+			}
+
+			.div12 {
+				grid-area: 3 / 4 / 4 / 5;
+			}
+
+			.div13 {
+				grid-area: 4 / 1 / 5 / 2;
+			}
+
+			.div14 {
+				grid-area: 4 / 2 / 5 / 3;
+			}
+
+			.div15 {
+				grid-area: 4 / 3 / 5 / 4;
+			}
+
+			.div16 {
+				grid-area: 4 / 4 / 5 / 5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="div1">
+				盒子1
+			</div>
+			<!-- 
+			<div class="div2">
+				盒子2
+			</div>
+			<div class="div3">盒子3</div>
+			<div class="div4">盒子4 </div>
+			<div class="div5">盒子5 </div>
+			<div class="div6">盒子6 </div>
+			<div class="div7">盒子7 </div>
+			<div class="div8">盒子8 </div>
+			<div class="div9">盒子9 </div>
+			<div class="div10">盒子10 </div>
+			<div class="div11">盒子11 </div>
+			<div class="div12">盒子12 </div>
+			<div class="div13">盒子13 </div>
+			<div class="div14">盒子14 </div>
+			<div class="div15">盒子15 </div>
+			<div class="div16">盒子16</div> -->
+		</div>
+	</body>
+</html>

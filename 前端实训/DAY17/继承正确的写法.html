@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 父构造函数
+			function Father(username, password) {
+				this.username = username;
+				this.password = password;
+				this.register = function() {
+					console.log("用户", this.username, "完成了注册");
+				}
+			}
+			Father.prototype.login = function() {
+				console.log("用户", this.username, "完成了登陆");
+			}
+			// 静态属性
+			Father.prototype.age = 30;
+			// 子构造函数
+			function Child(username, password, yanzhengma) {
+				// （1） 要使用call方法实现基本的方法属性的继承
+				Father.call(this, username, password);
+				this.yanzhengma = yanzhengma;
+			}
+			Child.prototype.zhuxiao = function() {
+				console.log("用户", this.username, "注销了账户");
+			}
+
+			// （2）将new出来的父构造函数的实例对象 作为原型保存到子构造函数中
+			// 能够实现父构造函数和子构造函数的原型互不影响？
+			Child.prototype = new Father();
+			// 之前的赋值方法 会让两个构造函数公用一个原型
+			// 因此，子构造函数的原型的修改，事实上就是在修改父构造函数的原型
+			// Child.prototype = Father.prototype;
+
+			// （3） 将构造函数重新指向自己
+			Child.prototype.constructor = Child;
+
+			// 通过这三个步骤，我们实现了组合继承
+
+			// 实例化对象
+			let son = new Child("xiaoli", "123456", "1fw2");
+
+			// 现在对于原型的修改，不会影响到父构造函数的原型
+			son.__proto__.num = 100;
+			// Father.prototype.num  == nudefind
+		</script>
+	</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../CSS/login.css">
+		<title>登录页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.home {
+				width: 1500px;
+				margin: 0 auto;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.title,
+			.title2 {
+				display: flex;
+				text-align: center;
+				align-items: center;
+			}
+
+			.title1 img {
+				width: 145px;
+				height: 55px;
+				margin-left: 60px;
+				margin-top: 20px;
+			}
+
+			.title2 {
+				margin-left: auto;
+				margin-right: 20px;
+				margin-top: 20px;
+			}
+
+			.title2 p {
+				margin-right: 40px;
+				color: grey;
+			}
+
+			.title2_p {
+				color: dodgerblue;
+			}
+
+			.title2_p:hover {
+				color: orangered;
+			}
+
+			.title2 div {
+				border: 1px solid grey;
+				width: 120px;
+				height: 30px;
+			}
+
+			.title2 div a {
+				line-height: 30px;
+			}
+
+			.title2 div a img {
+				vertical-align: middle;
+				margin: 0 3px;
+			}
+
+			.hr1 {
+				border: none;
+				border-top: 1px solid grey;
+				margin: 10px 0;
+			}
+
+			.content {
+				width: 1500px;
+				height: 600px;
+				margin: 20px auto;
+				background-color: rgb(252, 252, 252);
+			}
+
+			.content1 {
+				display: flex;
+			}
+
+			.content_img {
+				float: left;
+				margin-top: 90px;
+				margin-left: 200px;
+			}
+
+			.content_img img {
+				width: 510px;
+				height: 359px;
+			}
+
+			.denlu {
+				padding: 80px;
+				width: 400px;
+				margin-left: 140px;
+			}
+
+			.denlu_1 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 20px;
+			}
+
+			.denlu_1 a {
+				color: #1E90FF;
+			}
+
+			.denlu_2 {
+				position: relative;
+				margin-bottom: 15px;
+			}
+
+			.denlu_2 input {
+				width: 320px;
+				height: 35px;
+				padding: 10px 10px 10px 70px;
+				border: 1px solid #ccc;
+			}
+
+			.denlu_2 img {
+				position: absolute;
+				left: 25px;
+				top: 30%;
+				transform: translate(-12%);
+				width: 25px;
+				height: 25px;
+			}
+
+			.denlu_3 {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 20px;
+			}
+
+			.denlu_3 label {
+				font-size: 12px;
+				color: #666;
+				display: flex;
+				gap: 5px;
+			}
+
+			.denlu_3 a {
+				font-size: 12px;
+				color: #666;
+			}
+
+			.denlu_4 {
+				text-align: center;
+				width: 368px;
+				padding: 16px;
+				background-color: #f63547;
+				color: white;
+				font-size: 16px;
+				border-radius: 3px;
+			}
+
+			.denlu_5 {
+				margin-top: 15px;
+				font-size: 13px;
+				color: #665;
+			}
+
+			.denlu_6 {
+				margin-top: 15px;
+				align-items: center;
+				justify-content: space-between;
+				display: flex;
+			}
+
+			.denlu_6_img {
+				display: flex;
+				position: relative;
+			}
+
+			.denlu_6_img img {
+				width: 40px;
+				height: 40px;
+				margin: 0 10px;
+
+			}
+
+			.denlu_6 p {
+				margin-left: auto;
+				display: flex;
+				align-items: center;
+			}
+
+			.denlu_6 p a {
+				margin-right: 10px;
+				color: #666;
+			}
+
+			.tail {
+				width: 1500px;
+				margin: 0 auto;
+				text-align: center;
+				margin-left: -20px;
+			}
+
+			.tail div {
+				margin-top: -7px;
+			}
+
+			.tail div a {
+				font-size: 13px;
+			}
+
+			.tail div span {
+				margin: 0 5px;
+			}
+
+			.tail p {
+				font-size: 13px;
+				margin-top: 13px;
+			}
+
+			.tail div a,
+			.tail div span,
+			.tail p {
+				color: gray;
+			}
+
+			.tail div a:hover {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<div class="title">
+				<div class="title1">
+					<img src="image/logo.png" alt="">
+				</div>
+				<div class="title2">
+					<p>您好，欢迎光临1号店！<a href="#" class="title2_p">请登录</a></p>
+					<div>
+						<a><img src="image/runbun.png" alt="">帮助中心<img src="image/turnb.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<hr class="hr1">
+			<div class="content">
+				<div class="content1">
+					<div class="content_img">
+						<img src="image/loadimg.jpg" alt="">
+					</div>
+					<div class="denlu">
+						<div class="denlu_1">
+							<p>1号店用户登录</p>
+							<a href="./注册页面.html">注册账号</a>
+						</div>
+						<div class="denlu_2">
+							<img src="image/userHead.png" alt="">
+							<input type="text" placeholder="邮箱/手机/用户名">
+						</div>
+						<div class="denlu_2">
+							<img src="image/lock.png" alt="">
+							<input type="password" placeholder="密码">
+						</div>
+						<div class="denlu_3">
+							<label><input type="checkbox">自动登录</label>
+							<a href="#">忘记密码？</a>
+						</div>
+						<div class="denlu_4">
+							<p>登录</p>
+						</div>
+						<div class="denlu_5">
+							<p>更多合作网站账号登录</p>
+						</div>
+						<div class="denlu_6">
+							<div class="denlu_6_img">
+								<img src="image/l_1_h.png" alt="">
+								<img src="image/l_2_h.png" alt="">
+								<img src="image/l_3_h.png" alt="">
+								<img src="image/l_4_h.png" alt="">
+							</div>
+							<p><a href="#">更多合作网站</a><img src="image/turnb.png" alt=""></p>
+						</div>
+					</div>
+				</div>
+				<div class="tail">
+					<div>
+						<a href="#">沪ICP备13044278号</a>
+						<span>|</span>
+						<a href="#">合字B1.B2-20130004</a>
+						<span>|</span>
+						<a href="#">营业执照</a>
+					</div>
+					<p>Copyright © 1号店网上超市 2007-2016，All Rights Reserved</p>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>

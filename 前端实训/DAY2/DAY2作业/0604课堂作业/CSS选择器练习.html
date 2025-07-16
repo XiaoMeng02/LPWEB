@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器练习</title>
+    <style>
+        /* 1. 将所有段落的文本颜色设为蓝色 */
+		P{
+			color: blue;
+		}
+        /* 2. 将id为"special"的元素背景设为黄色 */
+		#special{
+			background-color: yellow;
+		}
+        /* 3.将所有class包含"highlight"的元素文本加粗 */
+		.highlight{
+			font-weight:bold;
+		}
+        /* 4. 仅选择header的直接子元素h1，并将其字体大小设为36px */
+		header>h1{
+			font-size: 36px
+		}
+        /* 5. 选择article内的所有li元素，并将其字体倾斜*/
+		article,li{
+			font-style:italic;
+		}
+        /* 6. 将h2和h3元素的文本颜色设为绿色 */
+		h2, h3 {
+				color: green;
+			}
+        /* 7. 选择所有class为"important"的p元素，并将其文本颜色设为红色 */
+		 p.important {
+		        color: red;
+		    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS选择器练习</h1>
+        <nav>
+            <ul>
+                <li><a href="#" title="首页">首页</a></li>
+                <li><a href="#" title="关于">关于</a></li>
+                <li><a href="#" title="联系">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="special">
+            <h2 class="highlight">基础选择器</h2>
+            <p class="important">这是一个重要的段落，测试交集选择器。</p>
+            <p>这是一个普通段落。</p>
+            <div>
+                <p>这是嵌套在div中的段落。</p>
+            </div>
+        </section>
+        
+        <article>
+            <h3 class="highlight">后代与子代选择器</h3>
+            <ul>
+                <li>列表项1</li>
+                <li>列表项2</li>
+                <li>列表项3</li>
+            </ul>
+            <div>
+                <ul>
+                    <li>嵌套列表项1</li>
+                    <li>嵌套列表项2</li>
+                </ul>
+            </div>
+        </article>
+        
+        <section>
+            <h2>并集选择器</h2>
+            <p>这个段落测试相邻兄弟选择器。</p>
+            <p>这个段落测试通用兄弟选择器。</p>
+            <p title="属性选择器测试">这个段落测试属性选择器。</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 CSS选择器练习</p>
+    </footer>
+</body>
+</html>
+    

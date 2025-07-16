@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="300" height="300"> </canvas>
+		<script>
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			// 在画画之前，一般会保存一下画布元素状态，用来还原
+			ctx.save();
+
+			// 变形效果
+			// 在原点的位置上绘制了一个矩形
+			// 这个矩形,因为在变形之前绘制,所以不受到影响
+			ctx.fillStyle = "rgb(0, 170, 255)"
+			ctx.fillRect(0, 0, 40, 40);
+			// 将canvas绘图的原点进行位移,位移x轴100,y轴100的位置
+			ctx.translate(100, 100);
+			// 位移以后,再画一个图形
+			// 这个图形的位置发生了变化
+			ctx.fillStyle = "rgb(255, 0, 0)"
+			ctx.fillRect(0, 0, 40, 40);
+
+
+			// 让画布旋转45度
+			// 正数让画布顺时针旋转，负数让画布逆时针旋转
+			ctx.rotate(Math.PI / 180 * 15)
+			ctx.fillStyle = "rgb(119, 255, 88)"
+			ctx.fillRect(0, 0, 40, 40);
+
+
+			// 缩放画布
+			ctx.scale(2, 2)
+			ctx.fillStyle = "rgb(164, 41, 240)"
+			ctx.fillRect(40, 40, 40, 40);
+
+			// 想要正常的显示内容，我们需要将画布还原
+			// 如果每一次，都需要在修改之后，将画布还原，那么这个canvas用起来会非常麻烦
+			// ctx.fillStyle = "rgb(0, 0, 0)";
+			// ctx.scale(0.5, 0.5)
+			// ctx.rotate(-(Math.PI / 180 * 15))
+			// ctx.translate(-100, -100);
+			// 直接使用还原方法
+			ctx.restore();
+			// 为了保证之后的代码也有还原可以使用
+			ctx.save();
+
+
+			// 正常的输出一系列的文本
+			ctx.beginPath();
+			ctx.fillText("正常显示的文本", 0, 20);
+			ctx.closePath();
+			ctx.fill();
+		</script>
+	</body>
+</html>

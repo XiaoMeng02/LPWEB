@@ -1,0 +1,36 @@
+<head>
+	<style>
+		/* 使用奇,偶显示元素 (固定值) */
+		/* 奇数显示红色 */
+/* 		ul li:nth-child(odd){
+			background-color: #ebebeb;
+		} */
+		
+		/* 偶数显示黄色 */
+		/* ul li:nth-child(even){
+			background-color: #ffffff;
+		} */
+		
+		
+		/* 使用n作为参数 */
+		/* n代表选中所有的元素 */
+		/* 2n 每隔一个选择一个元素 */
+		/* 2n+1 每隔一个选择一个元素 (奇数版本) */
+		/* 加号代表从第几个元素开始排列 */
+		/* -6 -5 -4 -3 -2 -1 1 2 3 4 5 6 */
+		ul li:nth-child(-n + 2){
+			color: red;
+		}
+		
+	</style>
+</head>
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+    </ul>
+</body>

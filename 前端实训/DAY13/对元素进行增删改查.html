@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				border: 3px solid black;
+				/* css中有些属性使用 - 连接 */
+				font-size: 16px;
+				background-color: blueviolet;
+
+				color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+
+		</div>
+		<script>
+			// 实现元素的增删改查操作
+			// innerHTML 可以实现增删改
+			let element = document.getElementById("box");
+
+			// 增加的方法
+			element.innerHTML += "<b>新增</b>";
+			// 删除的方法（比如删除某个元素的子元素）
+			element.innerHTML = "";
+
+			// 变量的声明不能使用 - 连接
+			// let element-input;	
+			// 同理，dom中的属性也不能使用-连接
+			// element.background-color
+
+			// 当遇到这类属性的时候，将 - 变成驼峰命名法使用
+			element.onclick = function() {
+				// dom中会保存一些和css相关的属性，在element的style对象中
+				element.style.backgroundColor = "#55ff00";
+				// 在给值的时候一定要带单位
+				element.style.width = "50px";
+				element.style.height = "50px";
+				// 这里可以设置样式属性，是否可以获取属性？
+				// 这里可以获取到属性，但是需要先设置才能获取
+				// 为什么会这样？因为js实际上设置的是行内的样式，优先级很高，但是css代码中的样式不在 style属性中
+			}
+		</script>
+	</body>
+</html>

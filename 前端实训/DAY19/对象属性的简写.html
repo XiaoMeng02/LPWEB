@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 之前声明对象的方法
+			let person = {
+				username: "张三",
+				run: function(address) { // 属性：function函数
+					console.info(this.username + "在" + address + "跑步");
+				},
+				// 这里的简写方法，可以直接声明函数
+				// 后面都使用这样的写法
+				Say() {
+					console.log("他的名字叫" + this.username);
+				}
+			};
+
+			// 简写方法2
+			let name = "HelloWorld";
+			let age = 23;
+
+			// 把已有的变量保存到对象中
+			let person2 = {
+				// 键值对都是name
+				name: name,
+				age: age
+			};
+			// es6以后，有新的写法
+			// 当键值对的名称一致，就可以省略键的名称
+			// 这样写，js会将变量的名称作为键值对的键
+			// 把变量的值，作为键值对中的值使用
+			let person3 = {
+				name,
+				age
+			}
+		</script>
+	</body>
+</html>

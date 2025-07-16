@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>这是一个按钮</button>
+		<script>
+			// 普通的对象定义
+			let person = {
+				username: 'xiaoli',
+				// 这里面的this，是谁调用，指向谁
+				// 这里指向person对象
+				say: function() {
+					console.log("普通函数的this指向", this);
+				},
+				// 使用箭头函数时
+				// 这里的this指向window
+				run: () => {
+					console.log("箭头函数的this指向", this);
+				}
+			}
+
+			// 使用对象字面量的时候，
+			// 不要在其定义的方法里使用箭头函数
+			// 这属于箭头函数的禁忌，会导致this指向的问题
+
+			// 正常声明函数，可以使用箭头函数
+
+			// 绑定事件的时候，使用箭头函数
+			let btn = document.querySelector("button");
+
+			// 绑定事件的时候，也不太适合使用箭头函数
+			// 因为无法使用this关键字
+			// btn.addEventListener("click", () => {
+			// 	this.innerText = "点击过该按钮了"
+			// 	console.log("绑定的this:", this);
+			// })
+
+
+			// btn.addEventListener("click", function() {
+			// 	this.innerText = "点击过该按钮了"
+			// 	console.log("事件绑定的this:", this);
+
+			// 	// 保存外部的this值
+			// 	let _this = this;
+
+			// 	// 三秒以后，让按钮恢复正常
+			// 	window.setTimeout(function() {
+			// 		_this.innerText = "这是一个按钮"
+			// 		console.log("定时器绑定的this:", this);
+			// 	}, 3000)
+			// })
+
+			// 有了箭头函数以后，就不需要这样写
+			btn.addEventListener("click", function() {
+				this.innerText = "点击过该按钮了"
+				console.log("事件绑定的this:", this);
+
+				// 三秒以后，让按钮恢复正常
+				window.setTimeout(() => {
+					this.innerText = "这是一个按钮"
+					console.log("定时器绑定的this:", this);
+				}, 3000)
+			})
+			
+			
+			// 总结，箭头到底有什么样的作用？
+			// 1 可以减少代码数量，看起来更优雅
+			// 2 可以控制this的指向，在某些特殊场合，比普通的函数更有用
+			// 当需要this跟随外部的this指向，那么使用箭头函数
+		</script>
+	</body>
+</html>

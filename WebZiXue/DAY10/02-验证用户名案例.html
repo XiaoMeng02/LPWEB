@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 250px;
+            height: 30px;
+            vertical-align: middle;
+            line-height: 30px;
+            padding-left: 15px;
+        }
+
+        .error {
+            color: red;
+            background: url(./images/error1.png) no-repeat left center;
+        }
+
+        .right {
+            color: green;
+            background: url(./images/right.png) no-repeat left center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+    // 需求：用户名要求用户英文字母,数字,下划线或者短横线组成，并且用户名长度为6~16位
+    // 分析：
+    // ①：首先准备好这种正则表达式模式/^[a-zA-Z0-9-_][6,16}$/
+    // ②：当表单失去焦点就开始验证.
+    // ③：如果符合正则规范,则让后面的span标签添加right 类.
+    // ④：如果不符合正则规范,则让后面的span标签添加wrong类.
+
+        // 1. 准备正则
+        const reg = /^[a-zA-Z0-9-_]{6,16}$/
+        const input = document.querySelector('input')
+        const span = input.nextElementSibling
+        input.addEventListener('blur',function(){
+            // console.log(reg.test(this.value))
+            if(reg.test(this.value)){
+                span.innerHTML = '输入正确'
+                span.className.add('right')
+            }else{
+                span.innerHTML = '输入6-16位的英文数字下划线'
+                span.className.add('error')
+            }
+        })
+
+    
+    </script>
+</body>
+
+</html>

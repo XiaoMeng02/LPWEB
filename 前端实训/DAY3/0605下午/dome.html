@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位和相对定位</title>
+
+</head>
+<body>
+    <div class="f1">F1父级：有相对定位
+        <div class="item">
+            F1的子级有绝对定位
+            根据父级调整位置
+            上面距离父级顶部50px,
+            左侧距离父级左侧50px
+        </div>
+    </div>
+    <div class="f2">F2父级：没有相对定位
+        <div class="item">
+            F2的子级有绝对定位,但是父级没有相对定位
+            根据浏览器(body)调整位置
+            上面距离浏览器顶部200px,
+            左侧距离浏览器左侧200px
+        </div>
+    </div>
+    <div class="f3">F3祖级：有相对定位
+        <div class="item">
+            F3zi级级没有定位
+            <div class="item-item">F孙子级别有绝对定位
+                (根据最近一个上级是否有相对定位来决定位置,
+                如果一直找没找到就是默认相对浏览器（body）)
+                上面距离祖级顶部100px,
+                左侧距离祖级左侧100px
+            </div>
+        </div>
+    </div>
+</html>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .f1 ,.f2 , .f3 {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 100px;
+        }
+        .f1 , .f3 {
+            position: relative; /* f1有相对定位 */
+        }
+        .f1 .item{
+            width: 200px;
+            height: 200px;
+            background-color: #4CAF50;
+            position: absolute; /* 绝对定位 */
+            left: 50px; /* 距离父级左侧50px */
+            top: 50px; /* 距离父级顶部50px */
+        }
+        .f2 .item {
+            width: 200px;
+            height: 200px;
+            background-color: #2196F3;
+            position: absolute; /* 绝对定位 */
+            left: 200px; /* 距离浏览器(body)左侧200px */
+            top: 200px; /* 距离浏览器(body)顶部200px */
+        }  
+        .f3 .item {
+            width: 200px;
+            height: 200px;
+            background-color: #FF9800;
+        } 
+        .f3 .item .item-item {
+            width: 150px;
+            height: 150px;
+            background-color: #9C27B0;
+            position: absolute; /* 绝对定位 */
+            left: 100px; /* 距离祖级左侧50px */
+            top: 100px; /* 距离祖级顶部50px */
+        }
+    </style>

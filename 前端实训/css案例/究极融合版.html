@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>可移植的流水灯边框</title>
+    <style>
+        :root {
+            /* 定义 CSS 变量 */
+            --box-padding-x: 5px;
+            --box-padding-y: 5px;
+            --box-color: #ffaa7f;
+            --box-font-size: 20px;
+            --pseudo-inset: 5px;
+            --box-border-radius: 10px;
+            --pseudo-border-radius: 10px;
+        }
+
+        /* 定义主要内容盒子的样式 */
+        .box {
+            /* 设置内边距，使用视口单位vmin，使元素在不同屏幕尺寸下自适应 */
+            padding: var(--box-padding-y) var(--box-padding-x);
+            /* 设置背景颜色为白色 */
+            background-color: #fff;
+            /* 设置边框圆角，使盒子边缘变圆润 */
+            border-radius: var(--box-border-radius);
+            /* 设置文字颜色为淡蓝色 */
+            color: var(--box-color);
+            /* 设置文字大小，使用视口单位vmin，使文字在不同屏幕尺寸下自适应 */
+            font-size: var(--box-font-size);
+            /* 设置为相对定位，为伪元素的绝对定位提供参考 */
+            position: relative;
+            /* 隐藏溢出的内容，确保伪元素超出部分不显示 */
+            overflow: hidden;
+            /* 开启层级开关，使内部子元素可以使用z-index属性 */
+            z-index: 0;
+            /* 将盒子转换为行内块元素，使其可以与其他元素并排显示 */
+            display: inline-block;
+        }
+
+        /* 定义盒子的伪元素before，用于创建旋转的渐变背景 */
+        .box::before {
+            /* 伪元素必须设置content属性，这里为空 */
+            content: '';
+            /* 设置宽度为盒子宽度的2倍 */
+            width: 300%;
+            /* 设置高度为盒子高度的2倍 */
+            height: 300%;
+            /* 设置背景颜色为深灰色 */
+            background-color: #22292f;
+            /* 设置为绝对定位，相对于.box元素定位 */
+            position: absolute;
+            /* 将元素向左偏移自身宽度的一半 */
+            left: -100%;
+            /* 将元素向上偏移自身高度的一半 */
+            top: -100%;
+            /* 设置背景图像为圆锥渐变，包含透明、淡蓝色和透明部分 */
+            background-image: conic-gradient(transparent, var(--box-color), transparent 30%);
+            /* 设置层级为-2，使其在.box元素和.box::after元素之下 */
+            z-index: -2;
+            /* 应用名为rotate的动画，持续时间为5秒，线性播放，无限循环 */
+            animation: rotate 5s linear infinite;
+        }
+
+        /* 定义旋转动画 */
+        @keyframes rotate {
+            /* 动画结束时，元素旋转360度 */
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 定义盒子的伪元素after，用于创建内部的黑色背景 */
+        .box::after {
+            /* 伪元素必须设置content属性，这里为空 */
+            content: '';
+            /* 设置为绝对定位，相对于.box元素定位 */
+            position: absolute;
+            /* 设置元素的内边距为1vmin，即距离.box元素的四个边都是1vmin */
+            inset: var(--pseudo-inset);
+            /* 设置背景颜色为黑色 */
+            background-color: #000;
+            /* 设置边框圆角，使内部背景边缘变圆润 */
+            border-radius: var(--pseudo-border-radius);
+            /* 设置层级为-1，使其在.box::before元素之上，但在.box元素之下 */
+            z-index: -1;
+        }
+		
+		/* 全局样式，设置 a 标签的通用样式 */
+		a {
+		    /* 文本居中 */
+		    text-align: center;
+		    /* 设置行高，使文字垂直居中 */
+		    line-height: 60px;
+		    /* 文字颜色为白色 */
+		    color: #fff;
+		    /* 文字大小为 24px */
+		    font-size: 24px;
+		    /* 去除下划线 */
+		    text-decoration: none;
+		    /* 盒模型计算方式，包含内边距和边框 */
+		    box-sizing: border-box;
+		    /* 线性渐变背景，从左到右依次为蓝色、粉色、黄色、蓝色 */
+		    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+		    /* 背景大小设置为 400%，以便实现动画效果 */
+		    background-size: 400%;
+		    /* 按钮圆角为 30px */
+		    border-radius: var(--box-border-radius);
+		    /* 设置元素的堆叠顺序 */
+		    z-index: 1;
+		    /* 内边距，上下 10px，左右 40px */
+		    padding: 10px 40px;
+		    /* 定义动画，名称为 animate，持续时间 8 秒，线性变化，无限循环 */
+		    animation: animate 8s linear infinite;
+		    /* 显示为内联块元素 */
+		    display: inline-block;
+		    /* 相对定位，为伪元素的绝对定位提供参考 */
+		    position: relative;
+		    /* 过渡效果，使按钮在悬停时背景变化更平滑 */
+		    transition: all 0.3s ease;
+		}
+		
+		/* 鼠标悬停时的样式 */
+		a:hover {
+		    /* 悬停时文字阴影效果，增强视觉效果 */
+		    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+		}
+		
+		/* 定义动画，从背景位置 0% 到 400% 变化 */
+		@keyframes animate {
+		    from {
+		        background-position: 0%;
+		    }
+		
+		    to {
+		        background-position: 400%;
+		    }
+		}
+		
+		/* 按钮的伪元素，用于实现鼠标悬停时的发光效果 */
+		a::before {
+		    /* 伪元素内容为空 */
+		    content: '';
+		    /* 绝对定位，相对于父元素 a */
+		    position: absolute;
+		    /* 上下左右偏移 -5px，使伪元素比按钮稍大 */
+		    inset: -5px;
+		    /* 设置堆叠顺序，在按钮下方 */
+		    z-index: -1;
+		    /* 与按钮相同的线性渐变背景 */
+		    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+		    /* 背景大小设置为 400% */
+		    background-size: 400%;
+		    /* 伪元素圆角为 35px，比按钮稍大 */
+		    border-radius: 35px;
+		    /* 初始透明度为 0，即隐藏 */
+		    opacity: 0;
+		    /* 过渡效果，使发光效果显示更平滑 */
+		    transition: all 0.3s ease;
+		}
+		
+		/* 鼠标悬停时伪元素的样式 */
+		a:hover::before {
+		    /* 悬停时伪元素透明度变为 1，显示发光效果 */
+		    opacity: 1;
+		    /* 悬停时伪元素的模糊阴影，实现发光效果 */
+		    filter: blur(20px);
+		}
+    </style>
+</head>
+
+<body>
+    <!-- 创建一个带有流水灯边框效果的盒子 -->
+    <div class="box">
+		<a href="javascript:;">BUTTON</a>
+	</div>
+</body>
+
+</html>

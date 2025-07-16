@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 这是一个封装好的请求方法，直接使用即可
+			// 第一个参数是请求的路径
+			// 第二个参数是请求配置 
+			fetch("http://localhost:3000/users", {
+				method: "get", //请求类型
+				body: JSON.stringify({}), //传递参数
+				headers: { 
+					//设置请求头 请求头由很多个参数组成
+					// 我们设置的时候会指定其中一些进行设置
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			}).then((response) => {
+				// 执行成功
+				console.log("响应结果", response);
+
+				// 判断服务器是否成功处理请求
+				// 如果响应的ok属性为ture 说明状态码在200~299之间
+				if (response.ok) {
+					console.log("服务器请求成功");
+				} else {
+					console.log("服务器请求失败");
+				}
+			}).catch((error) => {
+				//执行失败（网络错误）
+				console.log("网络错误", error);
+			})
+
+			// 前后端交互大练习
+			// 使用axios 实现一个完整的购物车
+			// 功能需求: 登陆注册  实现商品的购买，订单生成
+			// 页面实现: 登陆页面 注册页面 购物车页面
+			// 技术栈: 基础三件套 axios jsonserver
+		</script>
+	</body>
+</html>

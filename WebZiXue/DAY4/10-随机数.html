@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        //左闭右开 0-10之间随机数，但取不到1中间的一个随机小数
+        // console.log(Math.random())
+        // 0-10之间的整数
+        // console.log(Math.floor(random()* 11))
+        // let arr = ['pink','blue','red']
+        // let random = Math.floor(Math.random() * arr.length)
+        // // console.log(random)
+        // console.log(arr[random])
+        function getRandom(N,M){
+            return Math.floor(Math.random() * (M - N + 1))
+        }
+        console.log(getRandom(4,8))
+    </script>
+</body>
+
+</html>

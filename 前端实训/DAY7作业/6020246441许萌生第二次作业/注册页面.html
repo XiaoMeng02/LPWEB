@@ -1,0 +1,215 @@
+<!-- 注册页面 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../CSS/registered.css">
+		<title>注册页面</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.home {
+				width: 1500px;
+				margin: 0 auto;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.title,
+			.title2 {
+				display: flex;
+				text-align: center;
+				align-items: center;
+			}
+
+			.title1 img {
+				width: 145px;
+				height: 55px;
+				margin-left: 60px;
+				margin-top: 20px;
+			}
+
+			.title2 {
+				margin-left: auto;
+				margin-right: 20px;
+				margin-top: 20px;
+			}
+
+			.title2 p {
+				margin-right: 40px;
+				color: grey;
+			}
+
+			.title2_p {
+				color: dodgerblue;
+			}
+
+			.title2_p:hover {
+				color: orangered;
+			}
+
+			.title2 div {
+				border: 1px solid grey;
+				width: 120px;
+				height: 30px;
+			}
+
+			.title2 div a {
+				line-height: 30px;
+			}
+
+			.title2 div a img {
+				vertical-align: middle;
+				margin: 0 3px;
+			}
+
+			.hr1 {
+				border: none;
+				border-top: 1px solid grey;
+				margin: 10px 0;
+			}
+
+			.content {
+				width: 400px;
+				margin: 20px auto;
+			}
+
+			h1 {
+				text-align: center;
+				text-indent: -1em;
+			}
+
+			form {
+				margin-top: 20px;
+			}
+
+			input {
+				width: 360px;
+				height: 54px;
+				margin: 10px;
+				text-indent: 2em;
+				margin-top: -5px;
+			}
+
+			.num1 {
+				width: 224px;
+			}
+
+			.num2 {
+				width: 126px;
+				height: 56px;
+				margin-left: -5px;
+				text-indent: 0em;
+				background-color: #57565f;
+				border: 1px solid gray;
+				border-radius: 3px;
+				color: white;
+			}
+
+			.content p {
+				font-size: 12px;
+				text-indent: 2em;
+				color: grey;
+			}
+
+			.content a {
+				color: dodgerblue;
+			}
+
+			.num3 {
+				background-color: #ff3c3c;
+				border: 1px solid #ff3c3c;
+				border-radius: 5px;
+				text-indent: 0em;
+				font-size: 17px;
+				color: white;
+				width: 363px;
+				margin-top: 12px;
+			}
+
+			.tail {
+				width: 400px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.tail div {
+				margin-top: -7px;
+			}
+
+			.tail div a {
+				font-size: 13px;
+			}
+
+			.tail div span {
+				margin: 0 5px;
+			}
+
+			.tail p {
+				font-size: 13px;
+				margin-top: 13px;
+			}
+
+			.tail div a,
+			.tail div span,
+			.tail p {
+				color: gray;
+			}
+
+			.tail div a:hover {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="home">
+			<div class="title">
+				<div class="title1">
+					<img src="image/logo.png" alt="">
+				</div>
+				<div class="title2">
+					<p>您好，欢迎光临1号店！<a href="./登录页面.html" class="title2_p">请登录</a></p>
+					<div>
+						<a><img src="image/runbun.png" alt="">帮助中心<img src="image/turnb.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<hr class="hr1">
+			<div class="content">
+				<div>
+					<h1>1号店注册</h1>
+					<form action="#">
+						<input type="text" placeholder="手机号" id="">
+						<br>
+						<input placeholder="手机号" class="num1" id="">
+						<input type=submit value="获取验证码" class="num2">
+						<br>
+						<input type="password" placeholder="密码" id="">
+						<br>
+						<input type="password" placeholder="确认密码" id="">
+						<br>
+						<p>点击注册，表示您同意1号店 <a href="#">《服务协议》</a></p>
+						<input type="submit" value="同意协议并注册" class="num3">
+					</form>
+				</div>
+			</div>
+			<div class="tail">
+				<div>
+					<a href="#">沪ICP备13044278号</a>
+					<span>|</span>
+					<a href="#">合字B1.B2-20130004</a>
+					<span>|</span>
+					<a href="#">营业执照</a>
+				</div>
+				<p>Copyright © 1号店网上超市 2007-2016，All Rights Reserved</p>
+			</div>
+		</div>
+
+	</body>
+</html>

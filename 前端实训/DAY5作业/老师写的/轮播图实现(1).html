@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图实现</title>
+		
+		<!-- 1-完成样式的设计，用一个居中的div来显示内容 -->
+		<!-- 2-是让元素动起来 -->
+		<!-- 先解决一张图片的移动 -->
+		<!-- 解决问题的思路是，把大的难的问题，分解成小的多的问题解决 -->
+		<style>
+			#window{
+				width: 230px;
+				height: 141px;
+				
+				border: 1px solid black;
+				
+				top: calc(50% - 72px);
+				left:  calc(50% - 166px);
+				position: fixed;
+				
+				/* 把多余内容隐藏 */
+				overflow: hidden;
+			}
+			
+			/* 图片的容器 */
+			#imgList{
+				/* 设置这个图片列表的宽度为六张图片的宽度 */
+				width: calc(230px * 6);
+				height: 141px;
+			}
+			#imgList>img{
+				float: left;
+			}
+			
+			/* 原本移动的是一张图片，现在移动的是由六张图片组成的列表 */
+			#imgList{
+				/* 动画样式 */
+				animation-name: move;
+				animation-duration: 12000ms;
+				animation-timing-function: ease;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+			}
+			
+			/* 如何实现鼠标悬浮，停止轮播的效果 */
+			#imgList:hover{
+				animation-play-state: paused;
+			}
+			
+			
+			/* 移动的关键帧 */
+			@keyframes move{
+				0%{
+					transform: translate(calc(-230px * 5),0px);
+				}
+				20%{
+					transform: translate(calc(-230px * 4),0px);
+				}
+				40%{
+					transform: translate(calc(-230px * 3),0px);
+				}
+				60%{
+					transform: translate(calc(-230px * 2),0px);
+				}
+				80%{
+					transform: translate(calc(-230px * 1),0px);
+				}
+				100%{
+					transform: translate(0px,0px);
+				}
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="window">
+			<div id="imgList">
+				<img src="../image/1.png" alt="" />
+				<img src="../image/2.png" alt="" />
+				<img src="../image/3.png" alt="" />
+				<img src="../image/4.png" alt="" />
+				<img src="../image/5.png" alt="" />
+				<img src="../image/6.png" alt="" />
+			</div>
+		</div>
+	</body>
+</html>

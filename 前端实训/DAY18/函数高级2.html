@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var person = {
+				username: "xiaoli",
+				password: "123456"
+			}
+
+			// 使用的是Object的静态方法
+			// 不需要实例化，就可以使用的方法
+			// 1 插入值的对象
+			// 2 键值对中的键
+			// 3 键值对中的值 为什么是对象形式？因为这种方法往往不止插入值
+			// 还会插入值的属性，比如只读属性
+			Object.defineProperty(person, 'address', {
+				value: "深圳"
+			});
+			// 这里为什么那么麻烦，为什么值需要对象类型？
+			// 因为通过这样的方法插入值，才能设置键值对的额外属性
+
+			// 设置只读属性
+			Object.defineProperty(person, 'yanzhengma', {
+				value: "R3z2",
+				//设置为true可以修改，为false的时候，为只读
+				writable: false,
+			})
+
+			// 设置值是否可被枚举属性
+			Object.defineProperty(person, "userID", {
+				value: "247841352",
+				// 默认情况下，通过这个方法插入的值，是不能被枚举的
+				// 设置值可以被枚举
+				enumerable: true,
+				// 设置设置的值的属性是否能够被修改，或者删除
+				configurable: true,
+			})
+			// 键无法被获取
+			let keys = Object.keys(person);
+			// 循环也无法循环
+			for (let key in person) {}
+
+			// 枚举 将对象中的值一一遍历的过程，我们称之为枚举
+
+
+			// 通过这样的设置，键值的关系不再是简单的键值的关系
+			// 而是键和值，和值的一些属性
+		</script>
+	</body>
+</html>

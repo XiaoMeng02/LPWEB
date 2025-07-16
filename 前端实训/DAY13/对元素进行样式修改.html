@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				transition: all 1s ease;
+			}
+
+			.bigBox {
+				width: 100px;
+				height: 100px;
+				background-color: #55ffff;
+				border: 3px solid #aaaaff;
+			}
+
+			.minBox {
+				width: 50px;
+				height: 50px;
+				background-color: #00ff00;
+				border: 1px solid #ff007f;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 现有一个盒子，要根据点击，切换大小状态 -->
+		<!-- 如点击第一次是小盒子，点击第二次是大盒子，以此类推 -->
+		<div class="frame bigBox">
+
+		</div>
+
+		<script>
+			// 当需要js修改样式的时候，简单的样式，可以通过 .style 的方式设置 ,但如果需要设置复杂样式，那么这种方法就不太可行了
+			let box = document.querySelector("div");
+
+			// 使用一个旗子代表元素状态
+			// 旗子法
+			let flag = true;
+
+			// 点击第一次，变成小盒子
+			box.onclick = function() {
+
+				// 每次都要全部重新设置css属性
+				// 所以我们会使用类名修改元素
+
+				if (flag) {
+					// 如果旗子等于真
+					// 样式修改成小盒子的样式
+					// box.style.width = "50px";
+					// box.style.height = "50px";
+					// box.style.backgroundColor = "#00ff00";
+					// box.style.border = "1px solid #ff007f";
+
+					// 修改元素类名
+					// 这里的赋值行为，也会覆盖原有的类名
+					// 原生js 中想要对类名实现增删改查，比较麻烦
+					box.className = "minBox";
+					// 除了className 属性外，还有一个classList属性，用数组形式保存了元素的类名
+					// 但是是只读属性，无法修改
+
+
+					// flag = false;
+				} else {
+					// 如果旗子等于假
+					// 样式修改成大盒子的样式
+					// box.style.width = "100px";
+					// box.style.height = "100px";
+					// box.style.backgroundColor = "#55ffff";
+					// box.style.border = "1px solid #aaaaff";
+
+					box.className = "bigBox";
+
+					// flag = true;
+				}
+
+				// 将用作旗子的布尔值取反
+				flag = !flag;
+			}
+		</script>
+	</body>
+</html>

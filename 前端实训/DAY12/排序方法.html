@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数组
+			var arrs2 = [11, 3, 21, 16, 34, 1];
+			// 数组进行排序
+			// 将一个函数，作为另外一个函数的参数传入了
+			// 这里的函数，决定了排序的顺序是正还是反
+			arrs2.sort(function(a, b) {
+				// 从小到大的顺序
+				return a - b;
+				// 想要从大到小
+				// return b - a;
+			});
+			console.log(arrs2);
+
+
+			var arrs1 = ["b", "c", "a", "A", "d", "l"]
+			// 这里排序字符串，之前的函数就不太好使了
+			// 按照自然排序进行排序
+			arrs1.sort();
+			// 这种写法,想让数组倒序
+			// 这种一环一环调用的方式,被称之为链式调用
+			arrs1.sort().reverse();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Server 简易示例（纯原生实现）</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .container { max-width: 600px; margin: 0 auto; text-align: center; }
+        .log { margin-top: 20px; padding: 10px; border: 1px solid #ccc; background-color: #f9f9f9; text-align: left; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JSON Server 简易示例</h1>
+        <button id="loginBtn">登录用户 zhangsan</button>
+        <button id="registerBtn">注册新用户</button>
+        <button id="fetchUsersBtn">获取用户列表</button>
+        
+        <div class="log" id="consoleLog">
+            <p>操作日志将显示在这里...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const API_BASE_URL = 'http://localhost:3000';
+            const consoleLog = document.getElementById('consoleLog');
+            
+            // 登录按钮（使用纯原生JSON Server实现）
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                logMessage('正在登录用户 zhangsan...');
+                
+                const xhr = new XMLHttpRequest();
+                // 使用查询参数过滤用户
+                xhr.open('GET', `${API_BASE_URL}/users?username=zhangsan&password=123456`, true);
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const users = JSON.parse(xhr.responseText);
+                        if (users.length > 0) {
+                            logMessage('登录成功!', true);
+                            logMessage('用户信息: ' + JSON.stringify(users[0], null, 2));
+                        } else {
+                            logMessage('登录失败: 用户名或密码错误', false);
+                        }
+                    } else {
+                        logMessage('请求失败: 状态码 ' + xhr.status, false);
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    logMessage('网络错误!', false);
+                };
+                
+                xhr.send();
+            });
+            
+            // 注册按钮
+            document.getElementById('registerBtn').addEventListener('click', function() {
+                logMessage('正在注册新用户...');
+                
+                const newUser = {
+                    username: 'testuser' + Math.floor(Math.random() * 1000),
+                    password: 'test123',
+                    age: 25,
+                    gender: '男',
+                    email: 'test@example.com'
+                };
+                
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', `${API_BASE_URL}/users`, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                
+                xhr.onload = function() {
+                    if (xhr.status === 201) {
+                        const response = JSON.parse(xhr.responseText);
+                        logMessage('注册成功! 用户ID: ' + response.id, true);
+                        logMessage('新用户数据: ' + JSON.stringify(response, null, 2));
+                    } else {
+                        logMessage('请求失败: 状态码 ' + xhr.status, false);
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    logMessage('网络错误!', false);
+                };
+                
+                xhr.send(JSON.stringify(newUser));
+            });
+            
+            // 获取用户列表按钮
+            document.getElementById('fetchUsersBtn').addEventListener('click', function() {
+                logMessage('正在获取用户列表...');
+                
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', `${API_BASE_URL}/users`, true);
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const users = JSON.parse(xhr.responseText);
+                        logMessage('获取成功! 用户数量: ' + users.length, true);
+                        logMessage('用户列表: ' + JSON.stringify(users, null, 2));
+                    } else {
+                        logMessage('请求失败: 状态码 ' + xhr.status, false);
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    logMessage('网络错误!', false);
+                };
+                
+                xhr.send();
+            });
+            
+            // 日志记录函数
+            function logMessage(message, isSuccess = true) {
+                const timestamp = new Date().toLocaleTimeString();
+                const logEntry = document.createElement('p');
+                logEntry.className = isSuccess ? 'success' : 'error';
+                logEntry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+                consoleLog.appendChild(logEntry);
+                consoleLog.scrollTop = consoleLog.scrollHeight;
+                
+                // 同时输出到浏览器控制台
+                if (isSuccess) {
+                    console.log(message);
+                } else {
+                    console.error(message);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

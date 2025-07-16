@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* css注释 */
+		</style>
+		<script	>
+			// js代码注释
+		</script>
+			<!-- html注释  -->
+	</head>
+	<body>
+		<form action="#" method="post">
+			<input type="submit" value="提交"/>
+		</form>
+		<!-- 使用js实现提交的行为 -->
+		<!-- 行内的js代码，需要触发某些条件才能执行 -->
+		<!-- 行内的写法，一般很少使用，并且只能有一行 -->
+		<!-- <button id="btn" onclick="alert('提交成功')">提交</button> -->
+		<button id="btn">提交</button>
+		<!-- 内嵌写法 -->
+		<script type="text/javascript">
+			// 获取页面上的指定的元素
+			let btn = document.getElementById("btn");
+			console.log(btn);
+			btn.onclick = function(){
+				// alert("这是内嵌js的提示");
+				var age = prompt("请输入你的年龄");
+				// 将保存的输入年龄输出
+				alert("你的年龄为"+age+"岁");
+			}
+		</script>
+		
+		<!-- 外部文件写法 -->
+		<script src="./index.js">
+			// 引入了外部文件的标签，里面的代码是无法执行的
+			console.log("这是内嵌的提示文本");
+		</script>
+	</body>
+</html>

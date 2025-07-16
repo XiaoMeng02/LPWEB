@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		账户<input type="text" class="inputList" value="" />
+		密码<input type="text" class="inputList" value="" />
+
+
+		<script type="text/javascript">
+			// 1 通过类名获取
+			let list = document.getElementsByClassName("inputList");
+
+			// 2 通过请求语句获取，请求语法是css选择器
+			// 使用querySelector的方法，获取到的是第一个符合要求的子元素
+			let getElement = document.querySelector(".inputList")
+
+			// 3 相对应的，也有获取所有符合要求元素的方法
+			let getElements = document.querySelectorAll("input");
+
+			// 要注意的是，css的语法都可以在这个函数的参数中使用，比如复合写法
+			getElements = document.querySelectorAll("ol>li");
+
+			// 以 getElement 开头的方法是一系列的方法
+			// 以 querySelector 开头的是另一种方法
+		</script>
+	</body>
+</html>

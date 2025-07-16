@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 这是前一段文本 -->
+		<button>点击(0)</button>
+		<!-- 这是后一段文本 -->
+
+		<script>
+			// 点击按钮后，修改按钮
+			// 事件的绑定
+
+			// 1 事件源
+			let Element = document.querySelector("button");
+			let num = 0;
+			// 2 绑定什么事件
+			Element.onclick = function() {
+				// 3 要执行什么行为
+
+				// 这个write会覆盖掉页面原有内容，所以用的很少，作用就是覆盖dom
+				// document.write(`<button>已经点击过了</button>`);
+				num++;
+				Element.innerHTML = `点击(${num})`;
+			}
+		</script>
+	</body>
+</html>

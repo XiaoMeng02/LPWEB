@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			// 通过往原型中塞入内容的方法  拓展内置对象
+			Array.prototype.sum = function() {
+				// console.log("数组:", this);
+				// 循环遍历数组
+				let sum = 0;
+				for (let val of this) {
+					sum += val;
+				}
+				return sum;
+			}
+
+			// 这样，当我们新建对象的时候，新建的数组对象也会有这个方法
+			let arr = new Array(3, 4, 32, 41, 15, 56);
+
+			let arr2 = [5, 1, 7, 24, 92];
+			// 因为这个方法被保存在了数组构造函数的原型中
+			// 所以在这个js代码中，所有的数组，都会有sum方法
+			// 静态方法
+
+			// 课堂练习
+			// 完成一个字符串类型的拓展方法，当调用该方法的时候，统计当前字符串中，有多少个字母a
+			String.prototype.getA = function(){
+				
+			}
+		</script>
+	</body>
+</html>

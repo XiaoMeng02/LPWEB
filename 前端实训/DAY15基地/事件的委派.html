@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h3>菜单</h3>
+		<ul>
+			<li data-jiage="5">胡辣汤5元</li>
+			<li data-jiage="15">红烧肉15元</li>
+			<li data-jiage="30">爆炒牛蛙30元</li>
+			<li data-jiage="25">辣椒炒肉25元</li>
+			<li data-jiage="10">番茄炒鸡蛋10元</li>
+			<li data-jiage="12">芋泥波波12元</li>
+		</ul>
+		<h6>总价 <a href="#">0</a>元</h6>
+
+		<!-- 点击菜单中的商品，加入总价 -->
+		<!-- 将难题分解成小的问题解决 -->
+		<script>
+			// 1- 单个商品价格，如何保存？
+			// (1) 数组保存
+			// 这种写法的问题在于将数组的下标和价格绑定了
+			// 如果后面要实现删除商品，那么会很麻烦，同样的，增加商品也很麻烦
+			// let arr_jiage = [5, 15, 30, 25, 10];
+			// (2) 使用自定义属性保存价格
+
+
+			// 2 绑定添加商品的事件
+			// (1)使用for循环，遍历添加
+			// let liList = document.querySelectorAll("li");
+			// for (let i = 0; i < liList.length; i++) {
+			// 	liList[i].addEventListener("click", getJiage);
+			// }
+			//获取商品价格 
+			// function getJiage() {
+			// 	console.log("该商品的价格为:");
+			// 	// 使用H5自定义属性的方法，获取商品的价格
+			// 	console.log(this.dataset["jiage"]);
+			// }
+
+			// 这种写法，尽管可以完成获取值的操作，但是对于浏览器不友好
+			// 这种情况，就会使用事件的委托
+			// 和传统的写法不一样，事件的委派绑定的是父元素
+			let ul = document.querySelector("ul");
+
+			// 商品总价
+			let sum = 0;
+
+			ul.addEventListener("click", function(e) {
+				console.log("商品价格为:");
+				console.log(e.target.dataset["jiage"]);
+
+				// 3 完成总计的变化
+				// 总价增加
+				sum += e.target.dataset["jiage"] * 1;
+				// 总价变化显示
+				let zongjia = document.querySelector("a");
+				zongjia.innerHTML = sum;
+			})
+
+
+			// 当页面上有若干个元素需要执行相同的事件的时候，就可以使用事件的委派
+		</script>
+	</body>
+</html>

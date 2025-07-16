@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				transition: all 1s ease;
+			}
+
+			.bigBox {
+				width: 100px;
+				height: 100px;
+				background-color: #55ffff;
+				border: 3px solid #aaaaff;
+			}
+
+			.minBox {
+				width: 50px;
+				height: 50px;
+				background-color: #00ff00;
+				border: 1px solid #ff007f;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- index属于自定义的属性 -->
+		<div id="box" index="001" class="bigBox">
+
+		</div>
+
+		<script>
+			// 通过js获取元素宽高
+			let div = document.querySelector("div");
+
+			// 获取元素的宽高属性
+			// 这样是无法获取的
+			// div.style.width 
+
+			// 想要获取css的相关属性，需要使用专门的方法
+			div.getAttribute("id")
+
+			// 通过这样的方法，我们可以给元素一些自定义属性
+			// 如这里可以获取到，我们自定义的序号属性
+			div.getAttribute("index")
+			// 也可以设置值
+			div.setAttribute("index", "002");
+
+			// 有些不太重要的值，可以放在元素中，比如书本的序号，商品的编号等
+
+			// 删除自定义属性的方法
+			div.removeAttribute("index");
+
+			// 这种方法能够存储值,但是意义不大,并且容易和其他的值混淆
+			
+		</script>
+	</body>
+</html>

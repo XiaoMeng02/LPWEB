@@ -1,0 +1,61 @@
+<head>
+    <style>
+        .father {
+            width: 600px;
+            border: 3px solid red;
+            margin: 0 auto;
+			
+			overflow: hidden;
+        }
+		
+		/* 添加伪元素 */
+		.father::after{
+			/* 任何伪元素要起效，都需要添加内容属性 */
+			content: "";
+			/* 设置元素类型为块 */
+			display: block;
+			/* 清除浮动 */
+			clear: both;
+			height: 0;
+			/* 将元素隐藏 */
+			visibility: hidden;
+		}
+        
+        .son1 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        
+        .son2 {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        
+        .footer {
+            width: 600px;
+            height: 300px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        
+		/* 清除浮动 */
+        /* .clear {
+            clear: both;
+        } */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son1"></div>
+        <div class="son2"></div>
+        <!-- 在最后一个浮动的元素后面添加一个块级元素的标签这种方法被称之为隔墙法  -->
+		<!-- 这个元素就承担了撑起父元素的责任 -->
+		<!-- 由于它不受到浮动的影响，所以会紧跟着浮动元素换行显示 -->
+        <!-- <div class="clear"></div> -->
+    </div>
+    <!-- <div class="footer"></div> -->
+</body>

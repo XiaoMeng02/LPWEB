@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.select {
+				border-radius: 50%;
+				padding: 5px;
+				background-color: #aaaaff;
+				border: 1px solid #00aa7f;
+			}
+		</style>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<!-- 实现选中的焦点效果，当一个按钮被选中的时候，只有这个按钮有特殊样式 -->
+		<script>
+			// 1-实现一个元素添加类名的效果
+			// 2-实现一组元素添加类名的效果
+			let btnList = document.querySelectorAll("button");
+
+			// 遍历元素
+			for (let x = 0; x < btnList.length; x++) {
+
+				btnList[x].onclick = function() {
+					// 点击事件后，给所有元素清除样式
+					for (let y = 0; y < btnList.length; y++) {
+						// 将类名置空
+						btnList[y].className = "";
+					}
+					// 给选中的元素样式
+					this.className = "select";
+				}
+			}
+
+			// 使用排他思想完成图片手风琴的效果
+		</script>
+	</body>
+</html>

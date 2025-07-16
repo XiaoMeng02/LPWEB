@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="100" height="30"></canvas>
+		<script>
+			// 实现验证码 伪代码
+			// 如果伪代码实现的过程中,遇到了新的问题和之前没想到的问题
+			// 就修正伪代码的实现流程,这个叫做控制论
+			// 1- 随机生成一个四个字符
+			// 2- 通过绘制文字方法,添加文字到画布中
+			// 3- 添加干扰线和干扰点
+			// 4- 随机生成干扰线条和点和文字的颜色
+			// 5- 将文字变形
+
+			// 封装的随机数代码
+			let getRandom = (MAX, MIN) => {
+				return Math.floor(Math.random() * (MAX - MIN)) + MIN;
+			}
+
+			// 通过随机数组下标，随机一个字符
+			let getRandomStr = (num) => {
+				// 随机生成四个字符
+				// 1.AI生成随机字库  2.通过UTF-8生成随机中文字符 3.通过随机ascll码生成 
+				let arrStr = ["A", "B", "C", "D", "E", "F", "G", "￥", "$", "%"]
+				// 保存随机出随机字符的
+				let RandomStr = [];
+				for (let i = 0; i < num; i++) {
+					RandomStr.push(arrStr[getRandom(arrStr.length, 0)]);
+				}
+				return RandomStr;
+			}
+
+			// 随机生成颜色和透明度的方法
+			let getRandomColor = () => {
+				return `rgba(${getRandom(255,0)},${getRandom(255,0)},${getRandom(255,0)},${getRandom(9,6) / 10})`;
+			}
+
+			// 创建画布对象
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			// 将画验证码的方法封装起来
+			let draw = () => {
+				// 每次重绘之前,清除原本的内容
+				ctx.clearRect(0, 0, 100, 30)
+				// 保存画布的基本状态
+				ctx.save();
+
+				// 绘制图形
+				ctx.font = "22px sans-serif";
+				// 获取四个随机数
+				let getStr = getRandomStr(4);
+				for (let i = 0; i < getStr.length; i++) {
+					ctx.save();
+					ctx.beginPath();
+					// 打开路径
+					// 随机倾斜 倾斜范围为20 ~ 5度
+					ctx.rotate(Math.PI / 180 * (getRandom(20, 0) - 10));
+					// 随机文字颜色
+					ctx.fillStyle = getRandomColor();
+					ctx.fillText(getStr[i], i * 22 + 10, 20);
+					// 闭合路径
+					ctx.closePath();
+					ctx.restore();
+					// 每画一个图形或者之类的东西都打开以及闭合路径
+					// 这样的好处是,图形之间不会互相影响
+				}
+				// 完成后再保存一遍
+				ctx.save();
+
+
+
+				// 添加干扰线和干扰点
+
+				// 生成随机的干扰线
+				// 这里也需要使用随机数生成,先绘制一个标准的直线
+				// 随机绘制直线 通过随机Y轴的位置,产生随机的干扰线
+				for (let line = 0; line < 3; line++) {
+					ctx.beginPath();
+					ctx.strokeStyle = getRandomColor();
+					ctx.moveTo(0, getRandom(30, 0));
+					ctx.lineTo(100, getRandom(30, 0));
+					ctx.closePath();
+					ctx.stroke();
+				}
+
+
+
+				// 生成随机的干扰点
+				for (let arc = 0; arc < 200; arc++) {
+					ctx.beginPath();
+					// 设置每次颜色的变化
+					ctx.fillStyle = getRandomColor();
+					ctx.arc(getRandom(100, 0), getRandom(30, 0), 1, 0, Math.PI * 2);
+					ctx.closePath();
+					// 这个方法会填充形状,闭合路径,所以需要每一次循环都调用
+					ctx.fill();
+				}
+
+				// 还原画布
+				ctx.restore();
+			}
+
+
+
+
+
+			// 页面刷新执行一次绘画验证码的行为
+			draw();
+
+			// 每次重新点击画布的时候,都重新绘制这个图形
+			canvas.addEventListener("click", draw);
+		</script>
+	</body>
+</html>

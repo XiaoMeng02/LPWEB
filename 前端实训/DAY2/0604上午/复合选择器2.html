@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 选择div标签下的第一级的a标签 */
+			/* 子选择器 */
+		   div>a {
+		       color: red;
+		   }
+		   
+		   /* 并集选择器 */
+		   /* 选择所有div标签和所有ul标签 */
+		   div,ul{
+			   
+		   }
+		   
+		   /* 选择div下的第一级li标签 和 span标签下的第一级li标签 */
+		   div > li , span > li{
+			   
+		   }
+		</style>
+	</head>
+	<body>
+	    <div class="hot">
+	        <a href="#">大肘子</a>
+	        <ul>
+	            <li>
+					<a href="#">猪头</a>
+				</li>
+	            <li>
+					<a href="#">猪尾巴</a>
+				</li>
+	        </ul>
+	    </div>
+	</body>
+</html>

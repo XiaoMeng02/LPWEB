@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 顶级对象 window 也就是我们所称的BOM
+			// window.document
+			// window.console
+			// window.Math
+			// 这也是为什么我们说js是一门基于对象的语言
+			// 除此之位还有一些常见的window的方法
+			// 这也是个事件，当某个资源加载完成后执行
+			window.onload = function() {
+				// 这里的代码会在window加载完成后执行
+				// 保证能够获取到元素
+				console.log("加载事件执行");
+				console.log(document.getElementById("box"));
+			}
+			// 等dom加载完成后执行
+			document.onload = function() {
+
+			}
+			// 获取元素
+			console.log("js代码执行");
+			let box = document.getElementById("box");
+			// 此时返回为空
+
+			// 同学们认为 html css js 比较好的加载顺序是什么
+			// 一般会先加载 html 然后加载css 最后加载js
+			// 这个顺序是人为控制，所以需要自己完成加载顺序
+			// 后面还有单页面应用的处理方式
+		</script>
+		<!-- 当js执行完成的时候，html结构还没有加载完成 -->
+		<!-- 没有加载完成，自然也就获取不到 -->
+		<div id="box">
+
+		</div>
+	</body>
+</html>

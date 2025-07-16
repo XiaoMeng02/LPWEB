@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<script>
+			// 第一种情况,指向顶级对象window
+			// 全局作用域
+			console.log("全局作用域:", this);
+			// 普通函数this指向
+			function say() {
+				console.log("普通函数:", this);
+			}
+			say();
+
+			// 第二种情况 指向调用函数的对象
+			document.querySelector("button").addEventListener("click", function() {
+				console.log("由某个对象调用1:", this);
+			})
+			var obj = {
+				say: function() {
+					console.log("由某个对象调用2:", this);
+				}
+			}
+			obj.say();
+
+
+			// 第三种情况 指向构造函数 其实原理和第二种情况一样,都是谁调用,指向谁
+			// 构造函数如何声明?
+			function Pserson() {
+				this.say = function() {
+					console.log("构造函数中的指向:", this);
+				}
+			}
+			// 在这个例子中,this指向pr
+			let pr = new Pserson();
+			pr.say();
+		</script>
+	</body>
+</html>

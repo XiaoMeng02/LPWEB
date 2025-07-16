@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function func() {
+				// 函数中的参数列表是一个伪数组类型
+				console.log(Array.isArray(arguments));
+			}
+
+			// 伪数组和数组类型区别到底在哪里
+			let arr = [1, 2, 3, 4, 5, 6];
+
+			// 添加值的方法，返回的是添加的数组长度
+			// 尾部添加值
+			// arr[arr.length] = "newValue";
+			arr.push("newValue");
+			// 头部插入值
+			arr.unshift("headValue")
+
+			// 对应的删除方法
+			// 删除方法会返回被删除的值
+			// 尾部删除
+			arr.pop();
+			// 头部删除
+			arr.shift();
+
+
+			// 颠倒数组的方法
+			arr.reverse();
+			// 这个方法会对原数组产生影响
+
+			let num = 100;
+			// 将值重新进行赋值
+			function getValue(val) {
+				// 实参在传入给形参的时候，进行赋值
+				val = num
+				// val 是 num 一个副本，对val值进行修改不会影响到外部传入的num
+				val = 200;
+			}
+			getValue(num);
+
+			// 将数组类型传入函数
+			let list = [1, 2, 3, 4, 5]
+
+			function getList(arr_list) {
+				// 和简单类型不同，复杂类型的修改会影响到原本的值
+				arr_list.push("newValue");
+			}
+
+			// 这也是为什么颠倒数组的方法可以直接修改原数组的原因
+		</script>
+	</body>
+</html>

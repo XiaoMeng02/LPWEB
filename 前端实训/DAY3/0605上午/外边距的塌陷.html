@@ -1,0 +1,42 @@
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	   	<style>
+	        .father {
+				/* 1 给父元素定义边框 */
+				/* border: 1px solid black; */
+				
+				/* 2 给父元素内边距 */
+				/* padding: 1px; */
+				
+				/* 3 定义多余内容如何显示 */
+				/* 设置多余内容的显示方式 多余内容隐藏 */
+				overflow: hidden;
+				
+	            width: 150px;
+	            height: 150px;
+	            background-color: red;
+	            margin-top: 70px;
+	        }
+	        
+	        .son {
+	            width: 100px;
+	            height: 100px;
+	            background-color: blue;
+	            margin-top: 60px;
+				margin-left: 50px;
+	        }
+			
+			/* 当父元素和子元素,挨得太近的时候,上外边距会溢出,导致子元素无法使用上外边距移动自己 */
+			/* 解决问题的关键在于父元素和子元素,挨得太近 */
+	    </style>
+	</head>
+	<body>
+	    <div class="father">
+	        <div class="son">
+	        </div>
+	    </div>
+	</body>
+</html>

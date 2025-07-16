@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>新增一个账户</button>
+		<script>
+			// 既然我们传输数据给后端，完成的时间不确定
+			// 我们从服务器下载某个文件，是否是一瞬间完成的？
+			// 在下载一些较大的文件的时候，这个过程是需要花费时间的
+			// 绑定的按钮
+			let btn = document.querySelector("button");
+			let rls = "";
+
+			// 既然每一次请求，都需要设置消息头，设置open状态，新建对象
+			// let xhr = new XMLHttpRequest();
+			// xhr.open("post", "http://localhost:3000/users");
+			// xhr.setRequestHeader('Content-Type', 'application/json');
+			// 这样写时不行的，因为短连接，当连接完成以后，就会close关闭
+
+
+			btn.addEventListener("click", () => {
+				// 老老实实的每一次请求，都创建设置对象
+				let xhr = new XMLHttpRequest();
+				xhr.open("post", "http://localhost:3000/users");
+				xhr.setRequestHeader('Content-Type', 'application/json');
+
+				let param = {
+					username: "xiaoli",
+					password: "123456",
+					age: 28,
+					gender: "男",
+					address: "北京市朝阳区",
+					phone: "13800138000",
+					email: "xiaoli@example.com"
+				}
+				xhr.send(JSON.stringify(param));
+				// 当请求响应的状态码发生变化的时候触发
+				xhr.addEventListener("readystatechange", () => {
+					// 这里缺乏请求成功的处理，以及判断
+					// 当请求的状态为4，也就是请求完成时执行
+					if (xhr.readyState == 4) {
+						// 如果状态码不为201，说明请求失败
+						if (xhr.status == 201) {
+							rls = JSON.parse(xhr.responseText);
+							console.log("新用户注册成功！");
+						} else {
+							console.log("响应失败，请检查你的网络");
+						}
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

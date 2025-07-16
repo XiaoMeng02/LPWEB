@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let time = new Date();
+
+			// 得到总的毫秒数
+			console.log("毫秒数1", time.valueOf());
+			console.log("毫秒数2", time.getTime());
+			var date1 = +new Date();
+			console.log("毫秒数3", date1)
+			// 第四种方法，不需要每次都new一个时间对象
+			console.log("毫秒数4", Date.now());
+
+
+			// 将毫秒转换为时分秒
+			console.log("秒", Date.now() / 1000);
+			console.log("分", Date.now() / 1000 / 60);
+			console.log("时", Date.now() / 1000 / 60 / 60);
+			console.log("天", Date.now() / 1000 / 60 / 60 / 24);
+		</script>
+	</body>
+</html>

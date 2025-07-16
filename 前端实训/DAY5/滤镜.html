@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			/* 根元素 表示html 在这里用来存储css的全局变量*/
+			:root{
+				/* 存储了字体颜色 */
+				--font-color: #00aaff;
+				--frame-width: 100px;
+			}
+			
+			
+			/* 在div中写的叫做局部变量 */
+			div{
+				width: var(--frame-width);
+				/* 计算函数 和 变量可以搭配起来使用 */
+				width: calc(var(--frame-width) - 50px);
+				
+				/* 使用全局变量对div进行颜色的赋值 */
+				/* 错误用法 */
+				color: --font-color;
+				/* 正确用法 */
+				color: var(--font-color);
+				
+				/* 滤镜，是将指定元素和指定元素上的其他元素一起进行某种处理的行为 */
+				filter: grayscale(100%);
+			}
+
+			div:hover {
+				filter: grayscale(0%);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			这是一段文本
+			<img src="../img/img1.jpg" />
+		</div>
+	</body>
+</html>

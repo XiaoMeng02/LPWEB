@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 防止B/S架构 中的浏览器,重复发送信息给服务器,也会造成类似DDos攻击的效果,为了防止这样的情况产生,就需要使用到防抖和节流   -->
+		<!-- DDos攻击 通过伪造大量请求攻击服务器,让服务器无法处理正常请求 -->
+
+		<button>发送短信</button>
+		<script>
+			// 防止用用户60秒内重复点击按钮
+			let btn = document.querySelector("button");
+			// 绑定发送事件
+			btn.addEventListener("click", send);
+			// 为了防止重复发送,就需要使用计时器实现防抖
+			function send() {
+				console.log("发送短信");
+
+				//设置按钮禁用
+				btn.disabled = true;
+
+				//60秒后恢复按钮使用
+				window.setTimeout(function() {
+					// 恢复使用
+					// 这里this关键字指向window而非外部的btn按钮
+					// this.disabled = false;
+					btn.disabled = false;
+					// 清除定时器的效果
+					window.clearInterval(loop);
+					btn.innerHTML = `发送短信`
+				}, 1000 * 10);
+
+				// 加入倒计时的定时器
+				let time = 10;
+				let loop = window.setInterval(function() {
+					//修改按钮显示
+					time--;
+					btn.innerHTML = `发送短信(${time})`
+				}, 1000)
+
+				// 现在很少直接禁用按钮,而是禁用发送,限制发送的频率为60s一次
+			}
+		</script>
+	</body>
+</html>

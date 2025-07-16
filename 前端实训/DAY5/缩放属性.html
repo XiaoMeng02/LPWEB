@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素缩放</title>
+
+		<style>
+			div{
+				display: inline-block;
+			}
+			
+			#move {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				
+				width: 100px;
+				height: 100px;
+
+				background-color: #00ffff;
+
+				transition: all 10s ease;
+			}
+
+			/* 旋转元素 */
+			#move:hover {
+			/* 	margin-left: -25px;
+				margin-top: -25px;
+				
+				width: 150px;
+				height: 150px; */
+				
+				/* 使用缩放属性 */
+				/* 参数为自身大小的倍数 默认为1 */
+				/* transform: scale(-1); */
+				
+				/* transform: translate(300px,300px) rotate(720deg) ; */
+				
+				/* 先位移再旋转 */
+				transform: rotate(720deg) translate(300px,300px) ;
+				/* 动画中的一帧 */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="move"">
+			
+		</div>
+	</body>
+</html>

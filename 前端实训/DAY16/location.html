@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="https://www.baidu.com">跳转至百度</a>
+		<script>
+			// 路径对象
+			window.location
+
+			// 有时候也会需要使用js进行跳转或者重定向
+			let a = document.querySelector("a");
+
+			a.addEventListener("click", function(event) {
+				// 通过js进行跳转
+				// 跳转方式,就是将窗口的路径值重新赋值
+				window.location.href = "https://zhuanlan.zhihu.com/p/697855958";
+				// 重定向方法
+				window.location.assign("https://zhuanlan.zhihu.com/p/697855958");
+				// 阻止默认跳转
+				event.preventDefault()
+			})
+			
+			// 可以使用该方法,实现页面的前进后退
+			window.history 
+		</script>
+	</body>
+</html>

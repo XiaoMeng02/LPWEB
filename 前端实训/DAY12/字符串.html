@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let str = "这是一个字符串";
+
+			// 由于结构和数组类似
+			// 可以使用下标方式访问
+			str[0];
+			// 也可以使用类似数组的方法
+			str.indexOf("个");
+			str.lastIndexOf("字");
+
+			// 当查到指定字符的时候，返回下标
+			// 如果没有找到指定的字符，则返回-1
+			if (str.indexOf("字") != -1) {
+				console.log("字符串中包含该字符");
+			} else {
+				console.log("没有该字符");
+			}
+		</script>
+	</body>
+</html>

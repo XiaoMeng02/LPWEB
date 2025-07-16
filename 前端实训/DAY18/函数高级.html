@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数组的迭代或者遍历 我们一般会使用for(;;)
+			// 但是这样的方法没有办法遍历其他类型的对象
+			// 因为其他对象的键值对形式，不是下标形式的123456
+			var person = {
+				username: "xiaoli",
+				password: "123456"
+			}
+
+			// 所以对象一般使用 for in 或者 for of
+			// 或者获取所有键组成的数组，通过键可以获取到值，实现一些遍历效果
+			var keys = Object.keys(person);
+
+
+			// 使用普通的for循环去遍历对象
+			for (let i = 0; i < keys.length; i++) {
+				console.log(person[keys[i]]);
+			}
+		</script>
+	</body>
+</html>

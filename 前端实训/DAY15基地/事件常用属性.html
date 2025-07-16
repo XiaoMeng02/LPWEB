@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				width: 100%;
+				height: 800px;
+			}
+
+			/* 移动元素 */
+			#box {
+				/* 使用固定定位 */
+				position: fixed;
+				left: 0px;
+				top: 0px;
+
+				width: 100px;
+				height: 100px;
+				background-color: brown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+
+		<!-- 当鼠标移动的时候，跟随鼠标显示鼠标位置 -->
+		<script>
+			// 获取body元素
+			let body = document.body;
+			let box = document.getElementById("box");
+
+			body.addEventListener("mousemove", function(e) {
+				let text = `
+				<p>X${e.clientX}</p>
+				<p>Y${e.clientY}</p>
+				`;
+
+				// 跟随鼠标移动的效果
+				// 需要添加单位
+				box.style.top = Number(e.clientY) - 50 + "px";
+				box.style.left = Number(e.clientX) - 50 + "px";
+
+				box.innerHTML = text;
+			})
+
+
+			// 键盘事件
+			// 往整个页面上加键盘事件，由于键盘响应方式的不同，触发的行为也不同
+			// document.addEventListener("keydown", function() {
+			// 	console.log("键盘按下");
+			// })
+			// document.addEventListener("keypress", function() {
+			// 	console.log("完成按下");
+			// })
+			// document.addEventListener("keyup", function() {
+			// 	console.log("键盘弹起");
+			// })
+
+			// 如何识别用户按下了什么键
+			document.addEventListener("keydown", function(event) {
+				// 从事件对象中获取键值Ascll码
+				console.log("按下", event.keyCode);
+
+				// 一般来说，按下不同的键会有不同的效果
+				// 比如这个例子中，我们想让键盘上下左右也可以控制元素的移动
+				// 这里使用 if else 还是使用 switch语句
+				// 使用ifelse不太适合这个场景，如果要匹配的是一个范围，那么使用ifelse
+				// if (event.keyCode == 38) {
+				// 	console.log("元素向上移动");
+				// } else if (event.keyCode == 40) {
+				// 	console.log("元素向下移动");
+				// } else if (event.keyCode == 37) {
+				// 	console.log("元素向左移动");
+				// } else if (event.keyCode == 39) {
+				// 	console.log("元素向右移动");
+				// } else {
+				// 	console.log("按下了其他按键");
+				// }
+
+				// 这里使用swidth语句更合适
+				switch (event.keyCode) {
+					case 38:
+						console.log("元素向上移动");
+						break;
+					case 40:
+						console.log("元素向下移动");
+						break;
+					case 37:
+						console.log("元素向左移动");
+						break;
+					case 39:
+						console.log("元素向右移动");
+						break;
+					default:
+						console.log("按下了其他按键");
+						break;
+				}
+			})
+		</script>
+	</body>
+</html>

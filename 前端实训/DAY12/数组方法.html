@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数组
+			let arr_1 = [1, 2, 3, 4, 5, 6, 7]
+			let arr_2 = [8, 9, 10, 11, 12]
+
+			// 拼接数组
+			// 这样拼接数组，是将数组变成一个单独的元素，添加到数组的尾部
+			// arr_1.push([8, 9, 10, 11]);
+
+			// 使用数组提供的方法实现
+			// 这里实现拼接了数组1和数组2
+			arr_1.concat(arr_2, [13, 14, 15])
+
+
+			// 截取方法
+			// 第一个值是开始位置，第二个值是结束位置
+			arr_1.slice(5, 6)
+
+
+			// 删除数组中的指定位置的元素
+			// 一般和indexof方法配合，删除指定的内容
+			let get = prompt("请输入要删除的内容");
+			// 通过indexOf的方法找到要删除的元素的位置
+			// indexOf方法会对比类型
+			let delIndex = arr_1.indexOf(get * 1);
+			// 通过该方法删除指定元素
+			arr_1.splice(delIndex, 1)
+		</script>
+	</body>
+</html>

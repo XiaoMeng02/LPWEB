@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 在一段时间后执行一次代码
+			let loop1 = window.setTimeout(function() {
+				console.log("六秒以后执行");
+			}, 6000);
+
+			// 每隔一段时间,执行一段代码
+			// 第一个参数,循环调用的函数
+			// 第二个参数,循环调用时间
+			let loop2 = window.setInterval(function() {
+				let time = new Date();
+				document.body.innerText = time;
+			}, 1000);
+
+
+			// 如何停止定时器
+			// 当设置定时器以后,会保存一个识别码,通过这个值,能清除指定的定时器
+			// 使用clear 清除定时器
+			// 需要使用参数清除
+			window.clearInterval(loop2);
+			window.clearTimeout(loop1);
+
+			// 定时器又涉及到 同步代码和异步代码 的概念
+		</script>
+	</body>
+</html>

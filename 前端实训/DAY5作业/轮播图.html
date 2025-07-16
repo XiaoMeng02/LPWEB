@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+			<!-- 1-完成样式的设计，用一个居中的div来显示内容 -->
+			<!-- 2-是让元素动起来 -->
+			<!-- 先解决一张图片的移动 -->
+			<!-- 解决问题的思路是，把大的难的问题，分解成小的多的问题解决 -->
+			<style>
+				#window{
+					width: 230px;
+					height: 140px;
+					/* 轮播图居中 */
+					/* margin:1rem auto; */
+					position: fixed;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%,-50%);
+					border: 1px solid black;
+				}
+				#imgs{
+					width: 600%;
+					height: 140px;
+					animation-name: move;
+					animation-duration: 10000s;
+					animation-iteration-count: infinite;
+					animation-timing-function: linear;
+				}
+				#imgs:hover{
+					animation-play-state: paused;
+				}
+				.banner-img img{
+					width: 100%;
+					height: 100%;
+					
+				}
+				@keyframes mover{
+					0%{
+						transform: translateX(0%);
+					}
+					100%{
+						transform: translateX(-100%);
+					}
+				}
+			</style>
+	</head>
+	<body>
+		<div id="window">
+			<div id="imgs">
+				<img src="../image/1.png" alt="">
+				<img src="../image/2.png" alt="">
+				<img src="../image/3.png" alt="">
+				<img src="../image/4.png" alt="">
+				<img src="../image/5.png" alt="">
+			</div>
+		</div>
+	</body>
+</html>

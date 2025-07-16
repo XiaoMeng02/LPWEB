@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 通配符有性能问题，字体使用body设置 */
+			div{
+				color: red;
+			}
+			
+			/* #box i,#box s,#box p */
+		</style>
+	</head>
+	<body>
+	/* 在文字处理的时候，往往希望给一大文字相同的样式 */
+	/* 通过继承性，我们只需要给父元素一个样式即可 */
+		<div id="box">
+			<i>这是一段文本,<s>这是什么文本</s></i>
+			<p>文字1</p>
+			<p>文字2</p>
+		</div>
+	</body>
+</html>

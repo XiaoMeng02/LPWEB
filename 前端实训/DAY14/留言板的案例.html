@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h6>留言板</h6>
+		<textarea name="" id="content" placeholder="请输入您的留言" cols="10" rows="4"></textarea>
+		<button id="send">发布</button>
+		<ul id="list">
+			<li>
+				留言1
+				<button id="del">删除</button>
+			</li>
+			<li>
+				留言2
+				<button>删除</button>
+			</li>
+		</ul>
+
+		<script>
+			// 点击发布的时候，将文本框的内容生成留言，放到列表中
+			// 点击按钮删除元素
+			// 文本框
+			let content = document.getElementById("content");
+			// 发布按钮
+			let send = document.getElementById("send");
+			// 列表
+			let list = document.getElementById("list");
+
+			// 删除按钮
+			let del = document.getElementById("del");
+
+
+			// 删除事件
+			del.onclick = delDom;
+
+			// 封装删除事件
+			function delDom() {
+				// 通过父元素找到删除的子元素
+				list.removeChild(this.parentNode)
+			}
+
+			// 先给已经存在留言添加事件
+			for (let i = 0; i < list.children.length; i++) {
+				// 循环给列表中已经存在的留言保存删除
+				console.log(list.children[i].lastElementChild);
+				list.children[i].lastElementChild.onclick = delDom;
+			}
+
+
+			// 发送事件
+			send.onclick = function() {
+				// 1获取输入框内容
+				// 2重置输入框
+				// 3在list中创建新的dom对象
+
+				// 通过 .value的方式,获取用户输入
+				let text = content.value;
+				// 重置输入框
+				content.value = "";
+
+
+				// 创建dom对象并且添加
+				let li = document.createElement("li");
+				li.innerText = text;
+
+				// 将创建好的删除按钮,放到li标签中
+				let btn = document.createElement("button")
+				btn.innerText = "删除"
+				btn.onclick = delDom;
+				li.appendChild(btn);
+				list.insertBefore(li, list.childNodes[0]);
+			}
+		</script>
+	</body>
+</html>

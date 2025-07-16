@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+			/* 以一个插件的标准,去定义这个加载效果 */
+			/* 全局的变量 */
+			:root {
+				--bg-color:#ffffff;
+				--unit-color: #000000;
+				--unit-size: 40px;
+			}
+
+			.loading {
+				/* 为什么给了背景颜色才有效果 */
+				/* 没给背景颜色的情况下,背景颜色默认是透明的,不是白色 */
+				background-color: var(--bg-color);
+
+				/* 定位 */
+				position: relative;
+				left: 100px;
+				top: 100px;
+
+				/* 设置一个固定的宽高 */
+				width: 300px;
+				height: 200px;
+				overflow: hidden;
+
+				/* 拉高父元素的对比度 */
+				filter: contrast(15);
+			}
+
+			/* 在写代码的时候,选择器的范围尽量精准 */
+			/* 要考虑到移植性的问题 */
+			.loading span {
+				/* 给球体一个大小 */
+				width: var(--unit-size);
+				height: var(--unit-size);
+
+				/* 让元素变成圆形 */
+				border-radius: 50%;
+
+				/* 设置元素的显示模式 */
+				display: inline-block;
+
+				/* 定位实现元素的重叠 */
+				position: absolute;
+				top: 80px;
+				left: 40px;
+
+				background-color: var(--unit-color);
+
+				/* 加入动画效果 */
+				animation-name: loading;
+				animation-duration: 5000ms;
+				animation-iteration-count: infinite;
+
+				/* 设置每个圆的初始位置的不同 */
+				/* 使用变量的值做出区别 */
+				transform: rotate(calc(360deg / 8 * var(--i)));
+				/* 改变旋转的圆心 */
+				transform-origin: 100px center;
+				/* 使用高斯模糊的滤镜,将元素虚化 */
+				filter: blur(10px);
+			}
+
+			/* 加载动画 */
+			@keyframes loading {
+
+				/* 0 - 50 是动画展开的部分 */
+				0% {
+					transform: rotate(0deg) translateX(100px);
+				}
+
+				50% {
+					transform: rotate(calc(360deg / 8 * var(--i)));
+				}
+
+				/* 50 - 100 是将元素收归原位的过程 */
+				100% {
+					transform: rotate(360deg) translateX(80px);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1 先进行布局 -->
+		<div class="loading">
+			<!-- 将值保存到元素中 -->
+			<span style="--i:0"></span>
+			<span style="--i:1"></span>
+			<span style="--i:2"></span>
+			<span style="--i:3"></span>
+			<span style="--i:4"></span>
+			<span style="--i:5"></span>
+			<span style="--i:6"></span>
+			<span style="--i:7"></span>
+		</div>
+	</body>
+</html>

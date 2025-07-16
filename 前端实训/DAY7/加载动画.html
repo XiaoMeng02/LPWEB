@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.loading{
+				background-color: white;
+				position: relative;
+				left: 100px;
+				top: 100px;
+			}
+			.loading>span{
+				width: 30px;
+				height: 30px;
+				/* 让球体变圆 */
+				border-radius: 50px;
+				/* 设置元素显示模式 */
+				display: inline-block;
+				/* 设置背景元素 */
+				background-color: black;
+				/* 使用定位实现元素的重叠 */
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				/* 加入动画效果 */
+				animation-name: loading;
+				animation-duration: 10000ms;
+				/* 改变旋转的圆心 */
+				transform-origin: 100px center ;
+				/* 设置每个圆的初始位置的不同 */
+				transform: rotate(360deg / 8 *var(--i));
+				
+			}
+			@keyframes loading {
+				0%{
+					transform: rotate(0deg) translateX(80px);
+				}
+				50%{
+					transform: rotate(calc(360deg /8*var(--i)));
+					
+				}
+				100%{
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.先进行布局 -->
+		<div class="loading">
+			<!-- 将值保存在元素中 -->
+			<span style="--i:0"></span>
+			<span style="--1:1"></span>
+			<span style="--1:2"></span>
+			<span style="--1:4"></span>
+			<span style="--1:5"></span>
+			<span style="--1:6"></span>
+			<span style="--1:7"></span>
+			<span style="--1:8"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+</html>

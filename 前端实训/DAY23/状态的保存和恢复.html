@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="300" height="300"> </canvas>
+		<script>
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			// 状态保存和恢复
+			ctx.fillStyle = "#19da26";
+			ctx.strokeStyle = "#51a0d1";
+			// 这个save 会保存当前canvas的样式和变形状态
+			ctx.save();
+			// 修改了样式,画了别的内容
+			// 这个时候,又需要恢复到之前的画笔的状态
+			// 调用restore的方法,恢复之前保存的画笔状态
+			ctx.restore();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Person(username, password) {
+				this.username = username;
+				this.password = password;
+			}
+
+			// 保存一个静态成员的属性
+			Person.prototype.key = "10086";
+
+			//实例化两个对象
+			let xiaowang = new Person("xiaowang", 123456);
+			let xiaoli = new Person("xiaoli", 123456);
+
+			// 通过.的方式，我们可以得到10086
+			// xiaowang.key == "10086"
+			// xiaoli.key == "10086"
+
+			// 当我们试图修改这个值的时候，会发生什么
+			// 其实是往xiaowang的对象中，添加了一个key值
+			// 又由于对象中已经有了key这个值，当试图访问key这个值的时候
+			// 我们得到的是xiaowang这个对象中保存的key，而非原型中的
+			xiaowang.key = "12306";
+
+			// 现在再次访问，会得到什么值
+			// 问题在于，是否能够进行修改，以及是否是修改指定的值
+			// xiaowang.key == 12306
+			// xiaoli.key == 10086
+
+			// 假如这个时候，我还是想访问原型中key，怎么办？
+			xiaowang.__proto__.key
+		</script>
+	</body>
+</html>

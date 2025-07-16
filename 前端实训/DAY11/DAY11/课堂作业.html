@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 请同学们编写一段代码，现有数组['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'] 
+			// 获取用户输入，如，当用户输入a后，代码删除数组中所有值为a的元素，返回新的数组为['c', 'z', 'x', 'x', 'c', 'b'] 
+
+			// 需要进行操作的数组
+			var arr = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b']
+
+			// 在代码完善的过程中，会使用一个固定值进行测试
+			// var getStr = "a";
+			// 从固定值变成获取用户的输入
+			var getStr = prompt("请输入要删除的值");
+
+			// 调用函数
+			alert(`新的数组为:${delStr(arr, getStr)}`);
+
+			// 删除指定值的函数
+			function delStr(delArr, delChar) {
+				// 用来放新的数组
+				var newArr = [];
+
+				// 使用for of的方法遍历
+				for (let val of delArr) {
+					// 如果当前值和删除值相等，则不将该值加入
+					if (delChar == val) {
+						// 不添加
+					} else {
+						// 添加到新数组中
+						newArr[newArr.length] = val;
+					}
+				}
+
+				// 将删除完成的数组返回到函数的外部
+				return newArr;
+			}
+		</script>
+	</body>
+</html>

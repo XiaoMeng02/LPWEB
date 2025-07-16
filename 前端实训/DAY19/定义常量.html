@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 常量  一旦创建就不会发生变化的值
+			// es6之前可以实现类似常量的效果，但是只能在
+			// 对象中实现
+			let obj = {}
+			Object.defineProperty(obj, "username", {
+				value: "xiaoli",
+				// 定义这个值不能被修改
+				// 定义这个值不能被删除
+			});
+			// es6定义常量 常量不能被修改
+			// 当试图修改这个常量值的时候，就会报错
+			const password = "123456";
+			// 同时这个值无法被删除
+			delete password;
+		</script>
+	</body>
+</html>

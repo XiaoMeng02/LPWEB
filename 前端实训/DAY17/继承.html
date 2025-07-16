@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>继承的实现</title>
+	</head>
+	<body>
+		<script>
+			// 继承的实现以es6 为分水岭， es6以前如何实现，es6以后如何实现
+
+			// call方法 
+
+			// 普通函数的this关键字指向 window
+			function fn(str) {
+				console.log(this);
+				this.objName = str;
+			}
+
+			let obj = {
+				objName: "这是另一个对象"
+			}
+
+			// 正常调用函数的方法
+			// fn("这是赋值得到的字符串");
+			// .call的方法也是调用这个函数,但是重新绑定this指向
+			// 第一个参数是 修改这个函数中的this指向 到新的对象中
+			// fn.call(obj, "这是赋值得到的字符串");
+
+			// 继承的含义是 在某个类的基础上,进行拓展和修改,这种行为就被称之为继承
+			// 基础的类,被称为父类
+			// 修改后的类,被称之为子类
+			// 如何使用它实现继承的效果?
+
+			// 父构造函数
+			function Father(username, password) {
+				// 当使用call方法,改变了父构造函数的this指向,那么这里进行的赋值行为,在子构造函数中也进行了一遍
+				this.username = username;
+				this.password = password;
+				// 动态方法和动态属性都可以继承
+				this.register = function() {
+					console.log("用户", this.username, "完成了注册");
+				}
+			}
+
+			// 静态的属性或者方法可以继承吗？事实上无法直接继承。
+			// 这里的继承行为是模拟出来的，需要靠代码实现
+			Father.prototype.login = function() {
+				console.log("用户", this.username, "完成了登陆");
+			}
+			// 保存创建的日期
+			Father.prototype.createTime = "2025.7.7";
+
+			// 子构造函数
+			function Child(username, password, yanzhengma) {
+				// 剪切粘贴不能算是父子的继承关系
+				// call方法实现的继承,其实就是让父构造函数的赋值行为,在子构造函数中也执行了一遍,和直接复制过来效果类似
+				// this.username = username;
+				// this.password = password;
+				// 使用call方法去模拟继承行为
+				// 调用父构造函数,然后让当前子构造函数的this关键字,代替父构造函数关键字,运行一遍
+				Father.call(this, username, password);
+				this.yanzhengma = yanzhengma;
+			}
+
+			// 如果子构造函数，本身也有静态方法
+			// 由于父构造函数的原型覆盖了子构造函数，那么就会导致原本的静态方法消失
+			Child.prototype.zhuxiao = function() {
+				console.log("用户", this.username, "注销了账户");
+			}
+
+			// 但是这样的继承方法,会有所遗漏
+			// 尽管实现了某种意义上的继承，但是两个构造函数的原型指向是不一样的，甚至不在一个原型链上，所以无法实现静态的继承
+
+			// 这样是否可以让两个构造函数的原型链也实现继承？  
+			// 这样是可以完成将静态函数保存的方法
+			Child.prototype = Father.prototype;
+			// 但是会导致 子构造函数的原型的构造，指向父构造函数
+			// Child.prototype.constructor  === Father();
+			
+			// 由于实现了原型的继承 , 子构造函数的原型，和父构造函数的原型绑定
+			// 对子构造函数的原型的修改，会影响到父构造函数,这不是一件好事
+			Child.prototype.createTime  === Father.prototype.createTime ;
+			
+			// 在对象中，父子之间可以有联系，比如说继承关系
+			// 但是 继承关系，一般指的是，子继承父的属性和方法，对子构造函数的修改不影响父构造函数，这种关系才是正确的。
+			//因为一个父构造函数有可能被几个子构造函数继承，如果子构造函数都能够修改父构造函数的内容，那么父构造函数会变得不可控，比如A 被B继承了，B修改了A的num值 = 100，C也继承了A对象， 并且修改了num值为20 以此类推
+			// 所以 一个正确的继承关系，应该是子类从父类中获取了某些方法和属性，但是不能需改
+		</script>
+	</body>
+</html>

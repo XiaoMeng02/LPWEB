@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#" method="get">
+			<!-- 复选框 -->
+			<dl>
+				<dt>爱好：</dt>
+				<dd>
+					<ul>
+						<li>唱歌：<input type="checkbox" name="aihao" value="changge" checked/></li>
+						
+						<!-- 将文字和选项框绑定，这里绑定的是id值 -->
+						<li><label for="tiaowu">跳舞：</label><input type="checkbox" id="tiaowu" name="aihao" value="tiaowu" /></li>
+						<li>羽毛球：<input type="checkbox" name="aihao"  value="yumaoqiu"/></li>
+					</ul>
+					<!-- 提交结果 -->
+					<!-- ?爱好=changge&爱好=tiaowu&爱好=yumaoqiu# -->
+				</dd>
+				<dt>
+					性别：
+				</dt>
+				<dd>
+					<ul>
+						<!-- 使用name表名两个输入框属于同一组输入框 -->
+						<li>男：<input type="radio" name="sex" value="men"/></li>
+						<li>女：<input type="radio" name="sex" value="girl"/></li>
+					</ul>
+					<!-- 提交结果 -->
+					<!-- ?sex=girl# -->
+				</dd>
+			</dl>
+			<!-- 文件上传：<input type="file" /> -->
+			<input type="hidden" name="shenfen" value="vip"/>
+			
+			<!-- 下拉选框 -->
+			<select name="chengshi" id="">
+				<!-- 里面每栏都是一个选项 -->
+				<!-- option选项标签，在select中才能使用 -->
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="nanchang">南昌</option>
+			</select><br />
+			<!-- 提交结果 -->
+			<!-- ?shenfen=vip&chengshi=nanchang# -->
+			
+			
+			
+			<!-- 这个健专门提交数据 -->
+			<input type="submit" value="提交"/>
+			
+			<!-- 重置按钮 -->
+			<!-- 当前表单域的所有表单全部重置 -->
+			<input type="reset" value="重置"/>
+			
+		</form>
+	</body>
+</html>

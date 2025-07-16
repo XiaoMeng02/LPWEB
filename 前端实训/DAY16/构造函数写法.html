@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 在对象中保存的属性和方法叫做[实例成员]
+			function Person() {
+				// 在对象中,叫做属性和方法
+				this.name = "xiaoli";
+				this.say = function() {
+					console.log("你好");
+				}
+			}
+
+			// 在构造函数上保存的,叫做[静态成员]
+			Person.jump = function() {
+				console.log("跳");
+			}
+
+			// 创建一个对象,并保存
+			let obj = new Person();
+			// 实例化出来的对象无法调用静态成员
+			// obj.jump();  报错
+			// 实际调用静态成员的方法
+			Person.jump()
+
+			// 为什么要区分静态成员和实例成员?
+			// 实例化过程中,有些属性,和方法是固定的,比如同学们的身份都是学生,行为都是学习
+			// 这种固定值就是所有的实例化出来的对象都共有的
+			// 但是由于实例化的作用,每一个独立的对象,都会包含这些原本共有的方法和属性,实例化多少个,就有多少份
+			//为了实现这些需要共享的值和方法的共享,所以需要静态的成员
+		</script>
+	</body>
+</html>

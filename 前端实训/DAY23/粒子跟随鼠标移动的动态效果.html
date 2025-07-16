@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="frame" width="800" height="600"> </canvas>
+		<script src="random.js"></script>
+		<script>
+			// 实现伪代码
+			// 先使用黑色背景，实现类似星空的感觉
+			// 使用循环，使得星星动起来的效果
+			// 当鼠标经过这些闪烁的粒子附近的时候，实现粒子的一定程度的动画效果
+			// 实现星星的吸附效果
+			// 当鼠标离开太远，取消吸附
+
+			// 存储这类复杂的数据类型，使用对象类型保存
+			// 每个星的对象，都保存了相应的数据信息
+			class Star {
+				// 使用静态成员，保存星星的数量
+				static starNum = 40;
+
+				// 构造函数保存每个星星的属性
+				constructor(X, Y, size) {
+					// 当前的位置信息
+					this.X = X;
+					this.Y = Y;
+					// 当前单元的大小
+					this.size = size;
+					// 标记当前发生放大还是缩小行为
+					this.flag = true;
+					// 这个值，用于标记单元是否处于鼠标范围
+					this.show = false;
+					// 记录单元和鼠标的最大距离距离
+					this.MaxStarX = 0;
+					this.MaxStarY = 0;
+					// 生成每次需要移动的位置信息
+					this.MoveStarX = 0;
+					this.MoveStarY = 0;
+				}
+
+
+				// 每次设置这个值的时候，计算当前移动的比例
+				setMaxStar(MaxStarX, MaxStarY) {
+					this.MaxStarX = MaxStarX;
+					this.MaxStarY = MaxStarY;
+
+					// 通过获得的最大偏移量，生成每次移动的偏移量
+					if (this.MaxStarX > 0) {
+						this.MoveStarX = 1;
+					} else if (this.MaxStarX < 0) {
+						this.MoveStarX = -1;
+					} else {
+						this.MoveStarX = 0;
+					}
+
+					if (this.MaxStarY > 0) {
+						this.MoveStarY = 1;
+					} else if (this.MaxStarY < 0) {
+						this.MoveStarY = -1;
+					} else {
+						this.MoveStarY = 0;
+					}
+				}
+			}
+
+
+			let canvas = document.getElementById("frame");
+			let ctx = canvas.getContext("2d");
+
+			let frameW = 800;
+			let frameH = 600;
+
+			// 初始化的时候，记录每个星星的状态
+			// 在星星位置不变的情况下，去对星星的大小等状态进行变化
+			let starList = [];
+
+			// 初始化数据
+			let initData = () => {
+				// 将初始化数据的部分，和绘画的部分分开
+				for (let i = 0; i < Star.starNum; i++) {
+					starList.push(new Star(RD.getRandom(frameW, 0), RD.getRandom(frameH, 0), RD.getRandom(4, 0)))
+				}
+			}
+
+
+			// 封装绘画代码 初始化的方法
+			let init = () => {
+				// 清除原本内容
+				ctx.clearRect(0, 0, frameW, frameH);
+				// 保存画布状态
+				ctx.save();
+				// 黑色背景
+				ctx.fillRect(0, 0, frameW, frameH);
+			}
+
+			// 绘制星星的方法
+			let draw = () => {
+				// 绘制星星的过程
+				for (let i = 0; i < Star.starNum; i++) {
+					ctx.save();
+					ctx.beginPath()
+
+
+					// 当该元素处于鼠标时的特殊处理
+					if (starList[i].show) {
+						// 将获得到的偏移量的属性加入到计算中实现吸附效果
+						ctx.arc(starList[i].X += starList[i].MoveStarX, starList[i].Y += starList[i].MoveStarY, starList[i]
+							.size, 0, Math.PI * 2)
+						ctx.fillStyle = "rgba(255, 52, 16, 1.0)";
+					} else {
+						ctx.arc(starList[i].X, starList[i].Y, starList[i].size, 0, Math.PI * 2)
+						ctx.fillStyle =
+							`rgba(${starList[i].size * 50},${starList[i].size * 50},${starList[i].size * 50}, 1.0)`
+					}
+					// 使用一个旗子，判断size这个值，处于放大缩小的那个阶段
+					if (starList[i].flag) {
+						// 让大小发生变化
+						starList[i].size += 1;
+						// 如果大小变化完成后，等于4
+						if (starList[i].size >= 4) {
+							// 进入缩小阶段
+							starList[i].flag = !starList[i].flag;
+						}
+					} else {
+						starList[i].size -= 1;
+						if (starList[i].size <= 0) {
+							// 进入放大阶段
+							starList[i].flag = !starList[i].flag;
+						}
+					}
+					ctx.closePath();
+					ctx.fill()
+					ctx.restore();
+				}
+				ctx.restore();
+			}
+
+			// 初始化数据
+			initData();
+
+			// 通过循环，实现星星的变化的效果
+			setInterval(() => {
+				// 初始化背景界面
+				// 通过这样的方法，我们将星星的相关的信息，和页面上的星星进行了绑定
+				init();
+				// 实现所有星星的闪烁效果
+				draw();
+			}, 100);
+
+
+			// 要实现吸附的效果，我们需要实现鼠标的位置的获取
+			canvas.addEventListener("mousemove", (event) => {
+				// 吸附效果如何实现的
+				// 1 先判断，元素是否处于鼠标附近
+				for (let i = 0; i < starList.length; i++) {
+					// 判断，鼠标的位置是否在这个对象X轴50px或者以内的位置
+					// 将鼠标的X轴位置减去星星对象的X轴位置，
+					// 将得到的计算结果取绝对值，再和50做比较
+					let starX = event.offsetX - starList[i].X;
+					let starY = event.offsetY - starList[i].Y;
+
+					if (Math.abs(starX) <= 100 && Math.abs(starY) <=
+						100) {
+						// 这里是比较简单的做法，如果需要判断一个圆形的范围如何实现
+						// 这里通过这种方法，得到的是一个矩形的范围
+						// console.log(`星星编号${i}处于鼠标范围`);
+						// 当某个星星处于鼠标范围的时候，给该单元打上印记
+						// 打上标记是为了渲染的时候，特殊对待这个元素
+						starList[i].show = true;
+
+						// 实现鼠标的吸附效果，星星需要移动
+						console.log("该元素距离鼠标的最大距离:", starX, starY);
+						starList[i].setMaxStar(starX, starY);
+					} else {
+						//不在范围内的，重置为false
+						starList[i].show = false;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			
+			#box1{
+				background-color: #aaaaff;
+			}
+			
+			/* 浮动的元素，不再占据自己在标准文档流中的位置 */
+			#box2{
+				background-color: #00ffff;
+				
+				/* 添加浮动 */
+				float: left;
+			}
+			
+			#box3{
+				width: 150px;
+				height: 150px;
+				background-color: #aaaa00;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">1</div>
+		<div id="box2">2</div>
+		<div id="box3">3</div>
+	</body>
+</html>

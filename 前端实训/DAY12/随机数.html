@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>随机数</title>
+	</head>
+	<body>
+		<script>
+			//会随机产生一个数值，可能为0，不可能为1 
+			console.log("随机数:", Math.random());
+
+			// 将随机数封装成一个函数使用
+			// 再封装  某个值到某个值 之间的随机整数
+			function getRandom(min, max) {
+				// 第一步，将最大值乘以随机数
+				// 第二步，向下取整
+				// 第三步，拿最大值减去最小值，得到取值区间
+				// 第四步，还原值的范围
+				// 第五步，
+				return Math.floor(((max + 1) - min) * Math.random()) + min;
+			}
+		</script>
+	</body>
+</html>
