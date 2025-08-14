@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>购物车</title>
+		<!-- 远程加载资源 -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="./plus/font-awesome-4.7.0/css/font-awesome.min.css" />
+		<script>
+			// 页面统一风格的配置,后面用的更多的是框架
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#3B82F6',
+							secondary: '#F97316',
+							neutral: {
+								100: '#F3F4F6',
+								200: '#E5E7EB',
+								300: '#D1D5DB',
+								700: '#374151',
+								800: '#1F2937',
+								900: '#111827'
+							}
+						},
+						fontFamily: {
+							inter: ['Inter', 'system-ui', 'sans-serif'],
+						},
+					}
+				}
+			}
+		</script>
+		<style type="text/tailwindcss">
+			@layer utilities {
+            .cart-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .btn-primary {
+                @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90;
+            }
+            .btn-secondary {
+                @apply bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary/90;
+            }
+            .btn-outline {
+                @apply border border-neutral-300 text-neutral-700 px-3 py-1.5 rounded-lg hover:bg-neutral-100;
+            }
+        }
+		</style>
+		<style>
+			/* 模板元素隐藏 */
+			#muban {
+				display: none;
+			}
+		</style>
+	</head>
+	<body class="bg-neutral-100 font-inter">
+		<div id="app" class="max-w-6xl mx-auto px-4 py-8">
+			<h1 class="text-2xl font-bold text-neutral-800 mb-6">我的购物车</h1>
+
+			<div class="grid grid-cols-3 gap-8">
+				<!-- 商品列表 -->
+				<div class="col-span-2">
+					<div class="bg-white rounded-xl p-6 cart-shadow mb-6">
+						<h2 class="text-xl font-bold text-neutral-800 mb-4">
+							<i class="fa fa-shopping-basket text-primary mr-2"></i>商品列表
+						</h2>
+						<div id="cart-items">
+							<template v-if="productList.length == 0">
+								<!-- 购物车为空状态时的显示状态 -->
+								<div id="empty-cart" class="py-12 text-center">
+									<i class="fa fa-shopping-cart text-5xl text-neutral-300 mb-4"></i>
+									<p class="text-neutral-500 text-lg">购物车是空的</p>
+									<p class="text-neutral-400 mt-1">添加一些商品到购物车吧</p>
+								</div>
+							</template>
+							<template v-else>
+								<!-- 这个模板不显示，所以可以放在HTML的任何地方 -->
+								<!-- 商品案例 用于生成模板 js中利用这个模板去新增商品 -->
+								<div v-for="(item,index) in productList" class="bg-neutral-50 rounded-lg p-4 mb-4">
+									<div class="grid grid-cols-12 gap-4">
+										<div class="col-span-2">
+											<img src="https://picsum.photos/200/200?random=1" alt="商品图片"
+												class="w-full h-20 object-cover rounded-lg">
+										</div>
+										<div class="col-span-7 ">
+											<h3 class="name font-semibold text-neutral-800">{{item.productName}}</h3>
+											<p class="price text-neutral-500">￥{{item.productPrice}}</p>
+										</div>
+										<div class="col-span-3 flex items-center justify-end">
+											<button class="btn-outline rounded-r-none"
+												@click="setProductNumber(index,-1)">
+												<i class="fa fa-minus"></i>
+											</button>
+											<span
+												class="px-3 py-1.5 border-y border-neutral-300 bg-white productNumber">{{item.productNumber}}</span>
+											<button class="btn-outline rounded-l-none"
+												@click="setProductNumber(index,1)">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+									</div>
+									<div
+										class="flex justify-between items-center mt-3 pt-3 border-t border-neutral-200">
+										<span class="font-medium text-secondary">单个商品小计:¥<b class="productSum">
+												{{item.productPrice * item.productNumber}}</b></span>
+										<button @click="delDroduct(index)"
+											class="deletBtn text-neutral-500 hover:text-red-500">
+											<i class="fa fa-trash"></i> 移除
+										</button>
+									</div>
+								</div>
+							</template>
+						</div>
+					</div>
+
+					<!-- 添加商品区域 -->
+					<div class="bg-white rounded-xl p-6 cart-shadow">
+						<h2 class="text-xl font-bold text-neutral-800 mb-4">
+							<i class="fa fa-plus-circle text-secondary mr-2"></i>添加商品
+						</h2>
+
+						<form id="add-product-form">
+							<div class="grid grid-cols-2 gap-4 mb-4">
+								<div>
+									<label for="product-name"
+										class="block text-sm font-medium text-neutral-700 mb-1">商品名称</label>
+									<input type="text" id="product-name" v-model="product.productName"
+										placeholder="输入商品名称"
+										class="w-full px-4 py-2 border border-neutral-300 rounded-lg">
+								</div>
+								<div>
+									<label for="product-price"
+										class="block text-sm font-medium text-neutral-700 mb-1">商品价格</label>
+									<input type="number" id="product-price" v-model="product.productPrice"
+										placeholder="输入商品价格" min="0.01" step="0.01"
+										class="w-full px-4 py-2 border border-neutral-300 rounded-lg">
+								</div>
+							</div>
+							<button type="button" @click="addDroduct()" class="btn-secondary w-full">
+								<i class="fa fa-plus mr-2"></i> 添加到购物车
+							</button>
+						</form>
+					</div>
+				</div>
+
+				<!-- 购物车订单信息 -->
+				<div class="col-span-1">
+					<div class="bg-white rounded-xl p-6 cart-shadow sticky top-6">
+						<h2 class="text-xl font-bold text-neutral-800 mb-4">
+							<i class="fa fa-calculator text-primary mr-2"></i>购物车订单信息
+						</h2>
+
+						<div class="space-y-4">
+							<div class="flex justify-between py-2 border-b border-neutral-200">
+								<span class="text-neutral-600">商品总数</span>
+								<span class="font-medium sum"> <b>{{productList.length}}</b> </span>
+							</div>
+							<div class="flex justify-between py-2 text-lg font-bold">
+								<span class="text-neutral-800">总计</span>
+								<span class="text-secondary">¥<b>{{productSum}}<b></span>
+							</div>
+
+							<button id="sendRls" class="btn-primary w-full py-3 mt-4">
+								<i class="fa fa-credit-card mr-2 "></i> 结算
+							</button>
+							<button class="btn-primary w-full py-3 mt-4">
+								<i class="fa fa-share-square mr-2"></i> 保存购物车
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<!-- 导入外部js框架 -->
+	<script src="plus/axios.js"></script>
+	<script src="plus/random.js"></script>
+	<script src="plus/vue.global.js"></script>
+	<!-- 导入js功能代码 -->
+	<script src="js/mian.js"></script>
+</html>

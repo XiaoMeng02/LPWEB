@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<h1>{{username}}</h1>
+		<!-- 每次输入都会触发 -->
+		<!-- 可以使用修饰符解决这个问题 -->
+		<!-- 比如lazy修饰符，会将数据更新的行为延后，当回车或者失去焦点的时候，数据才更新 -->
+		用户名：<input type="text" @input="ajax" v-model.lazy="username"><br />
+		<!-- 去除空格的方法 -->
+		<!-- 在一些严肃的场合,比如登陆注册的时候,空格往往会影响到正常的流程 -->
+		<!-- 需要使用这个修饰符,让空格消失 -->
+		密码:<input type="text" v-model.trim="password"><br />
+
+		<!-- html的number类型，事实上是加了一些控件，数据的类型没有变化 -->
+		<!-- 加上vue强制的数据类型转换,将值转换为number类型,这种转换只会转换能够变成数字的字符串类型 -->
+		年龄:<input type="text" v-model.number="age" value="" />
+
+		<button @click="show">获取值</button>
+	</div>
+
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		// 需求 完成输入验证的操作,验证数据是否合规
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					username: "",
+					password: "",
+					age: 0,
+				}
+			},
+			// 保存函数的对象
+			methods: {
+				ajax() {
+					// setTimeout(() => {
+					// 	if (this.username == "xiaoli") {
+					// 		alert("账户未存在");
+					// 	} else {
+					// 		alert("账户已存在");
+					// 	}
+					// }, 3000);
+				},
+				show() {
+					console.log("username", this.username);
+					console.log("age", this.age);
+				}
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

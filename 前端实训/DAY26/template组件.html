@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 组件 -->
+
+		<ul>
+			<!-- 遍历商品列表 -->
+			<!-- 插值表达式中，和js代码一样，都需要使用双引号或者其他方法，声明这是一个字符串 -->
+			<!-- 这里v-for循环的是li标签，就相当于在页面上循环输出几次li标签 -->
+			<!-- 但是这样不好看，我们想让每个对象中的值单独一个li标签 -->
+			<!-- 这里冲突，是因为li标签既作为vue数据的载体和显示的载体，所以发生冲突了 -->
+			<!-- <li v-for="(item,index) in persons">
+				商品名称:{{item.productName}}
+				商品价格:{{item.productPrice}}
+				商品数量:{{item.productNumber}}
+			</li> -->
+
+			<!-- 这个时候，就需要使用到vue的组件标签 -->
+			<!-- 类似于其他的语义化标签，这个标签一般作为容器使用，本身没有含义 -->
+			<!-- 将这个组件，作为一个整体，用来展示数据 -->
+			<template v-for="(item,index) in persons">
+				<li>
+					——————————————————————————————————————
+				</li>
+				<li>
+					商品名称:{{item.productName}}
+				</li>
+				<li>
+					商品价格:{{item.productPrice}}
+				</li>
+				<li>
+					商品数量:{{item.productNumber}}
+				</li>
+			</template>
+
+			<!-- 这里的组件元素，在页面上是没有的，不会被渲染的 -->
+			<!-- 页面结构中，也没有template这个标签，如果使用div之类的，会破坏页面结构 -->
+		</ul>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="./vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					// 商品列表
+					persons: [{
+						id: 1,
+						productName: "商品1",
+						productPrice: 50,
+						productNumber: 0
+					}, {
+						id: 2,
+						productName: "商品2",
+						productPrice: 100,
+						productNumber: 0
+					}, {
+						id: 3,
+						productName: "商品3",
+						productPrice: 200,
+						productNumber: 0
+					}],
+				}
+			},
+			// 保存函数的对象
+			methods: {
+
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

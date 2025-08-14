@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 购物车按钮 -->
+		<!-- 这里绑定事件的写法，和原生js的类似，但是不完全一样 -->
+		<!-- 这里的@表示的是vue的相关的指令 就和jq的$.axjx -->
+		<button @click="add">+1</button>
+		<!-- 插值表达式 -->
+		{{number}}
+		<!-- 这里的事件，会自动的完成和函数的绑定 -->
+		<!-- <button @click="sub">-1</button> -->
+		<!-- 除了绑定事件以外，如果行为比较简单，甚至可以直接写在元素中 -->
+		<!-- 在元素中访问data中的值或者其他类型的值，不需要加this前缀 -->
+		<button @click="number--">-1</button>
+
+		<!-- 其他的事件也是类似，使用@ 代替原本的on -->
+		<input type="text" @focus="" onfocus="" @click="" onclick="" />
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="./vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					// 保存的商品数量
+					number: 0,
+				}
+			},
+			// 保存函数的对象
+			methods: {
+				// 增加和减少事件
+				add() {
+					console.log("增加", this.number);
+					// 通过对number值的修改，我们实现数据的变化
+					this.number++;
+				},
+				sub() {
+					// 如何在vue的对象中，获取到data中保存的值？
+					// 直接通过this关键字即可获取到
+					console.log("减少", this.number);
+					this.number--;
+				}
+
+				// 当数据完成变化之后，vue框架会帮我们完成页面的同步更新
+				// 重构之前完成的购物车案例
+			}
+		});
+
+		// 2指定这个app对象挂载到那个元素上
+		app.mount("#app");
+	</script>
+</html>

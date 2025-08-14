@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<ul>
+			<!-- vue2常见写法 -->
+			<!-- vue2会尝试复用input表单，但是vue3不会 -->
+			<!-- 登陆页面有两个输入框，注册页面有四个输入框 -->
+			<!-- 当从登陆页面切换到注册页面的时候,vue会尝试着重新利用登陆页面两个输入框 -->
+			<!-- 页面上新加入两个元素,和修改两个元素,花费的资源是不一样的 -->
+			<!-- 但是也有一定的问题，登陆输入框的内容在使用到注册输入框时，内容会一起带过去 -->
+			<li v-for="(item,index) in persons" :key="index">
+				<input type="checkbox" /> {{item.id}} -- {{item.name}}
+			</li>
+		</ul>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="./vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					persons: [{
+						id: 1,
+						name: "段康家"
+					}, {
+						id: 2,
+						name: "彭依凝"
+					}, {
+						id: 3,
+						name: "王朝"
+					}]
+				}
+			},
+			// 保存函数的对象
+			methods: {
+
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

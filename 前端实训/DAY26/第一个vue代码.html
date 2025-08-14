@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- id命名为app，这是一个大的框架，用来决定vue的生效范围 -->
+		<div id="app">
+			<!-- 插值表达式 -->
+			{{message}}
+			<!-- vue渲染一组数据 -->
+			<ul>
+				<!-- v-开头的属性，多半是vue的指令 -->
+				<!-- 就和js中的for in一样 for循环会遍历数组 -->
+				<li v-for="(item,index) in addresses"> {{":"+index +":" +item}} </li>
+				<!-- 对象类型的遍历 -->
+				<li v-for="(value,key) in user">{{key}} --- {{value}}</li>
+
+				<!-- 面对复杂的类型，如何遍历 -->
+				<li v-for="(item,index) in persons">"商品名称"+{{item.productName}}</li>
+
+			</ul>
+			<!-- v-if v-else 可以实现分支语句 -->
+			<p v-if="flag">条件为真</p>
+			<p v-else>条件为假</p>
+
+			<!-- vue中的基本语句，其实就是将html当成js来处理 -->
+			<!-- 这样的好处是，能够快速的上手 -->
+			<p v-if="score > 90">优秀</p>
+			<p v-else-if="score > 80">良好</p>
+			<p v-else-if="score > 70">中等</p>
+			<p v-else-if="score > 60">及格</p>
+			<p v-else>差</p>
+
+
+		</div>
+	</body>
+	<!-- 引入vue.js框架 -->
+	<script src="./vue.global.js"></script>
+	<!-- 完成js代码 -->
+	<script>
+		// 1 调用vue对象的创建方法
+		// 创建了一个叫做app的对象
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					// 修改这个值，页面也会发生变化，所以被称之为数据驱动
+					message: "你好，世界",
+					// 这里是一组数据，假如说要将这一组数据，渲染到页面上，原生js要如何进行？
+					// 如果要实现，当数组中的值被修改，页面的值同步完成值的修改的效果，原生js要如何实现？
+					addresses: [
+						'河南商丘',
+						'陕西西安',
+						'山西太原',
+						'河北邯郸',
+						'江西南昌'
+					],
+					// 这就是vue的好处，当我们修改值的时候，页面的结构在vue的处理下，已经不知不觉完成了变化
+					// 对象类型
+					user: {
+						username: 'xiaoli',
+						password: "123456",
+						address: '北京市'
+					},
+
+					// 对象数组类型
+					persons: [{
+						id: 1,
+						productName: "商品1",
+						productPrice: 50,
+						productNumber: 0
+					}, {
+						id: 2,
+						productName: "商品2",
+						productPrice: 100,
+						productNumber: 0
+					}, {
+						id: 3,
+						productName: "商品3",
+						productPrice: 200,
+						productNumber: 0
+					}],
+
+
+					// 使用布尔类型的值判断
+					flag: false,
+					// 多重判断
+					score: 70
+				}
+			}
+		});
+
+		// 2指定这个app对象挂载到那个元素上
+		app.mount("#app");
+	</script>
+</html>

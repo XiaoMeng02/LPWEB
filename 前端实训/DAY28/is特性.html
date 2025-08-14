@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 正常的写法 -->
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+		<!-- 另一种写法 -->
+		<ul>
+			<my-li></my-li>
+			<my-li></my-li>
+		</ul>
+		<!-- 正确写法,是使用is属性来设置组件 -->
+		<ul>
+			<!-- 通过这样的方法,我们可以去声明一个组件的名称 -->
+			<li is="my-li"></li>
+			<li is="my-li"></li>
+		</ul>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {}
+			},
+			// 保存函数的对象
+			methods: {
+
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

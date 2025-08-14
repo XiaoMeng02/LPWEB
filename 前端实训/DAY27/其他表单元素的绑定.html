@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 输出值的结果 -->
+		获取到的结果: {{selects}}<br>
+		<input type="text" v-model="selects" /><br>
+		<!-- 单选框的绑定 -->
+		<!-- 单选框或者复选框都需要绑定v-model 以及 value值 -->
+		<!-- 当选择某个元素的时候，会把对应的value值赋值给v-model中的值 -->
+		选项1 <input type="radio" name="select" v-model="select" value="选项1" /><br>
+		选项2 <input type="radio" name="select" v-model="select" value="选项2" /><br>
+		选项3 <input type="radio" name="select" v-model="select" value="选项3" /><br>
+
+		<!-- 复选框的效果 -->
+		<!-- 如果没有值,只有一个选项,这个时候,复选框得到的是一个布尔类型的值 -->
+		单个复选框 <input type="checkbox" v-model="checkbox" /><br>
+
+		<!-- 多个复选框 -->
+		<!-- v-bind的作用,是将元素中的属性,和vue中的值捆绑 -->
+		<!-- 这个代码会试图在vue对象中,找到名为多选框1的变量,因为没有这个值,所以会警告甚至报错 -->
+		多个复选框1 <input type="checkbox" name="checkboxs" v-model="checkboxs" v-bind:value="多选框1" /><br>
+		多个复选框2 <input type="checkbox" name="checkboxs" v-model="checkboxs" value="多选框2" /><br>
+		多个复选框3 <input type="checkbox" name="checkboxs" v-model="checkboxs" value="多选框3" /><br>
+
+
+		<!-- select下拉框类型 -->
+		<!-- 实现数据的双向绑定 -->
+		<select v-model="selects">
+			<option value="下拉框1">下拉框1</option>
+			<option value="下拉框2">下拉框2</option>
+			<option value="下拉框3">下拉框3</option>
+		</select>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					// 选项也会反向的影响到单选框
+					// 所以这里也是双向绑定的效果
+					select: "选项2",
+					// 单个复选框的值 布尔类型的值
+					checkbox: false,
+					// 多个复选框 是数组类型的键值对,默认的value值为 on
+					checkboxs: [],
+					// 下拉框期望得到的键值对只有一个值，因此也只需要绑定一次
+					// 通过数，反向选择默认的选项
+					selects: "下拉框3",
+				}
+			},
+			// 保存函数的对象
+			methods: {
+
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+
+		<!-- 反过来，页面发生变化会影响到数据吗？一般是不会，因为值没有设置的情况下，不会有双向绑定的效果 -->
+		<!-- 什么样的情况下，会发生页面数据的修改？ -->
+		<!-- 和焦点的获取一样，只有表单元素，能够与用户进行交互 -->
+		<!-- 双向绑定的效果 ， 数据 -> 视图 , 视图 -> 数据 -->
+		第一种直接绑定 <input type="text" v-model="inputMessage" /><br />
+		<!-- 使用两个绑定，也可以实现相同的效果 -->
+		<!-- @input 是当输入的时候触发的事件 -->
+		<!-- 将input的value值保存到vue中对应值中  实现了视图绑定数据-->
+		<!-- 第二部，使用v-bind:value="inputMessage" 实现数据绑定视图 -->
+		第二种通过组合的方式绑定 <input type="text" name="name" v-bind:value="inputMessage" @input="inputHandle" /><br>
+		<!-- 之前的代码，都是单纯的将数据，绑定到页面上 -->
+		{{inputMessage}}
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					inputMessage: "绑定的数据",
+				}
+			},
+			// 保存函数的对象
+			methods: {
+				inputHandle(event) {
+					this.inputMessage = event.target.value;
+				}
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

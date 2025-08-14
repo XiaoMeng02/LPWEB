@@ -1,0 +1,50 @@
+<body>
+	<!-- 增加一点小小的功能,比如说取余 -->
+	<div id="app">
+		<input type="text" v-model.number="num1" />
+		<select v-model="operation">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" v-model.number="num2">
+		<input type="button" value="=" @click="calc">
+		<input type="text" v-model="result" />
+	</div>
+</body>
+<script src="../plus/vue.global.js"></script>
+<script type="text/javascript">
+	// 1、创建App对象
+	const app = Vue.createApp({
+		data() {
+			return {
+				num1: 0,
+				num2: 0,
+				operation: '+',
+				result: 0
+			}
+		},
+		methods: {
+			// 实现计算
+			calc() {
+				switch (this.operation) {
+					case "+":
+						this.result = this.num1 + this.num2;
+						break;
+					case "-":
+						this.result = this.num1 - this.num2;
+						break;
+					case "*":
+						this.result = this.num1 * this.num2;
+						break;
+					case "/":
+						this.result = this.num1 / this.num2;
+						break;
+				}
+			}
+		}
+	});
+	// 2、挂载
+	app.mount('#app');
+</script>

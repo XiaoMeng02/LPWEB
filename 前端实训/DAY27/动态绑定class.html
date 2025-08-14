@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+			.bigBox {
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+				background-color: #c55c2b;
+			}
+
+			.minBox {
+				width: 50px;
+				height: 50px;
+				border: 1px solid black;
+				background-color: #4fc553;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<button @click="flag = !flag">切换显示</button>
+		<!-- 通过v-bind的方式，实现绑定样式 -->
+		<div :class="getClass()">
+
+		</div>
+
+		<!-- 数组动态绑定 -->
+		<div :class="getClassArr()">
+
+		</div>
+
+		<!-- 动态的绑定样式 -->
+		<div :style="getStyle()">
+		</div>
+
+
+		<!-- 动态的绑定属性名称 -->
+		<!-- 这里实现了动态的绑定属性名称 -->
+		<div :[propname]="getClassArr()">
+
+		</div>
+
+
+		<!-- 直接使用一个对象,作为元素固有属性的设置 -->
+		<!--  vue组件之间的传参,使用这个方法实现 -->
+		<p v-bind="unitObj"></p>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					flag: false,
+					propname: "class",
+					// 存储元素的属性
+					unitObj: {
+						class: "bigBox",
+						username: "xiaoli",
+						password: "123456"
+					}
+				}
+			},
+			// 保存函数的对象
+			methods: {
+				// 声明获取类名的方法
+				getClass() {
+					// 通过函数返回值的方式，返回类名
+					// return "bigBox";
+					// 对象类型class类名,是键值对的形式
+					// 键 是类名, 值是 布尔类型, 如果为真则使用这个类名,如果为假则不使用
+					return {
+						"bigBox": this.flag,
+						"minBox": !this.flag,
+					}
+				},
+				// 数组类型也可用作与class的获取
+				getClassArr() {
+					return ['class1', 'class2', 'minBox'];
+				},
+
+				// 获取样式的方法
+				getStyle() {
+					// 相比于class的切换方法来说,这样的切换方法非常的繁琐
+					// 会比类名切换更加灵活,如果有新的样式要加入,可以直接修改
+					if (this.flag) {
+						return {
+							'width': '30px',
+							'height': '30px',
+							'border': '1px solid #4cb5c5',
+							'background-color': '#4c4ec5'
+						}
+					} else {
+						return {
+							'width': '100px',
+							'height': '100px',
+							'border': '1px solid black',
+							'background-color': '#c55c2b'
+						}
+					}
+				}
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

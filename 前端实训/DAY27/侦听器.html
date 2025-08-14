@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.Hint {
+				color: #21b5b5;
+			}
+
+			.errorHint {
+				color: #eb2822;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 账户密码为:[{{username}}][{{password}}]<br> -->
+		账户<input type="text" v-model="username" /><br>
+		密码<input type="text" v-model="password" /><br>
+		<p :class="hintClass">{{hintMessgae}}</p>
+
+		<button @click="addUser()">添加用户</button>
+	</div>
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					username: "xiaoli",
+					password: "123456",
+					hintMessgae: "",
+					hintClass: "Hint",
+					userList: ["xiaoli", "xiaowang", "mazi"],
+				}
+			},
+			// 保存函数的对象
+			methods: {
+				// 增加新用户的方法
+				addUser() {
+					console.log("userList", this.userList.push(this.username));
+					// 如果不设置深度监听deep属性，只有赋值类型的值被修改的时候才会触发
+					// this.userList = {}
+				}
+			},
+			// 计算属性
+			components: {},
+			// 侦听器
+			watch: {
+				// 以需要侦听的数据为名称
+				// 当同名的值发生变化的时候，侦听这个值的变化
+				// 方法类型的侦听器，当侦听的时候，第一次不会发生变化
+				username(newValue, oldValue) {
+					console.log("数据发生了变化", newValue)
+					if (this.userList.indexOf(newValue) != -1) {
+						this.hintMessgae = "该账户已注册";
+						this.hintClass = 'errorHint';
+					} else {
+						this.hintMessgae = "该账户未注册";
+						this.hintClass = 'Hint';
+					}
+				},
+				// 使用对象类型的侦听器
+				password: {
+					// 每个对象类型的侦听器中，都会有一个handler方法
+					// 专门用来触发数据更新时间
+					handler(newValue) {
+						console.log("侦听:", newValue);
+					},
+					// 使用对象类型，目的是为了设置一些属性
+					// 表示页面初次渲染好之后，就立即触发当前的 watch 侦听器
+					immediate: true,
+				},
+
+				// 侦听器设置深度不设置的区别
+				userList: {
+					// 复杂类型的里面的数据变化默认情况下不会侦听
+					handler(newValue) {
+						console.log("复杂类型:", newValue);
+					},
+					// 设置侦听器的深度监听属性，复杂类型，其中的值发生变化的的时候，侦听其变化
+					deep: true,
+				},
+
+				// 这种侦听方法，只会侦听其中的某个值
+				'userList[0]': {
+					// handler是固定写法，表示当对象中username属性的值变化时，自动调用 handler 处理函数
+					handler(newValue) {
+						console.log(newValue);
+					}
+				}
+			}
+		});
+		app.mount("#app");
+	</script>
+</html>

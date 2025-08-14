@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<div id="app">
+		<!-- 在vue中,使用刚刚注册好的组件 -->
+		<!-- 这个模板可以复用 -->
+		<hello-world></hello-world>
+
+		<!-- 尝试在全局的范围中，使用私有的组件 -->
+		<!-- 这个组件并不会被解析，因为没有在他的生效范围内 -->
+		<component-a></component-a>
+
+		<!-- 反过来,驼峰命名法,不能不加-使用 -->
+		<HelloWorld></HelloWorld>
+	</div>
+	<!-- 组件模板 -->
+	<!-- 组件模板写在vue对象的外面,然后给一个id -->
+	<template id="helloworld">
+		<p>helloWord</p>
+		<p>我是一个全局的组件</p>
+		<!-- 全局组件的传参 -->
+		<b>{{message}}</b>
+		<!-- 使用私有组件 -->
+		<component-a></component-a>
+	</template>
+
+	<!-- 定义的私有组件 -->
+	<template id="componentA">
+		<h1>私有组件: {{message}}</h1>
+	</template>
+
+
+	<!-- 引入vue.js框架 -->
+	<script src="../plus/vue.global.js"></script>
+	<script>
+		// 1-创建一个vue的对象
+		const app = Vue.createApp({
+			// 保存数据的对象
+			data: function() {
+				return {
+					message: "这是全局的message"
+				}
+			},
+			// 保存函数的对象
+			methods: {
+
+			}
+		});
+		// 2-将组件在vue对象中注册
+		// 这样,我们就在app中注册了一个叫做HelloWorld的组件
+		// 为什么我们这里名字叫做HelloWorld,但是使用的时候使用hello-world?
+		// 因为标签中使用驼峰命名法,将除第一个字母外,大写的字母改为小写,并且加上-
+		// 也可以直接使用驼峰命名法,命名
+		// app.component('HelloWorld', {
+		app.component('hello-world', {
+			template: "#helloworld",
+			// 组件本身也是一个vue对象,因此可以同样拥有属性和方法
+			data() {
+				return {
+					// 当组件中的变量名和外部的变量名发生冲突的时候
+					// 也是遵循就近原则
+					message: "组件中的数据"
+				}
+			},
+			components: {
+				// 在全局组件中注册私有组件
+				// 使用一个对象，定义绑定的私有组件
+				'component-a': {
+					template: '#componentA',
+					data() {
+						return {
+							message: 'componentA'
+						}
+					}
+				},
+			}
+		})
+
+		// 3-将这个对象挂载到指定元素上
+		app.mount("#app");
+
+
+		// 组件的使用过程分为三个步骤
+		// 1.声明模板
+		// 2.在vue对象中注册
+		// 3.使用模板
+
+
+		// 在使用组件的时候，我们会尽量的少使用全局组件，而是改为使用局部组件
+	</script>
+</html>
