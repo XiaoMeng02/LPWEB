@@ -1,0 +1,277 @@
+{
+  "users": [
+    {
+      "id": "3dde",
+      "nickname": "可爱的跳跳糖",
+      "username": "xiaozhang",
+      "password": "123456",
+      "bio": "这是一个管理员账户"
+    },
+    {
+      "id": "64ce",
+      "nickname": "曾经的吐司",
+      "username": "xiaowang",
+      "password": "123456",
+      "bio": "大家好，我是小王"
+    }
+  ],
+  "categories": [
+    {
+      "name": "电子产品",
+      "icon": "Monitor",
+      "id": "ee33"
+    },
+    {
+      "name": "生鲜瓜果",
+      "icon": "Grape",
+      "id": "623e"
+    },
+    {
+      "name": "即送外卖",
+      "icon": "Burger",
+      "id": "2ce6"
+    },
+    {
+      "name": "美妆个护",
+      "icon": "Brush",
+      "id": "d914"
+    },
+    {
+      "name": "食品饮料",
+      "icon": "Coffee",
+      "id": "053a"
+    },
+    {
+      "name": "运动户外",
+      "icon": "Medal",
+      "id": "d3c1"
+    },
+    {
+      "name": "图书音像",
+      "icon": "Document",
+      "id": "833b"
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "priceTag": "热销商品",
+      "priceType": "电子产品",
+      "name": "无线蓝牙耳机 主动降噪长续航入耳式",
+      "price": 299,
+      "originalPrice": 499,
+      "discount": 6,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=1"
+    },
+    {
+      "id": "3",
+      "priceTag": "热销商品",
+      "priceType": "生鲜瓜果",
+      "name": "智利进口车厘子 大果2斤装 新鲜水果",
+      "price": 158,
+      "originalPrice": 198,
+      "discount": 8,
+      "rating": 4.9,
+      "imgUrl": "https://picsum.photos/300/300?random=2"
+    },
+    {
+      "id": "4",
+      "priceTag": "热销商品",
+      "priceType": "即送外卖",
+      "name": "经典牛肉汉堡套餐 含薯条可乐",
+      "price": 39.9,
+      "originalPrice": 58,
+      "discount": 6.9,
+      "rating": 4.6,
+      "imgUrl": "https://picsum.photos/300/300?random=3"
+    },
+    {
+      "id": "5",
+      "priceTag": "热销商品",
+      "priceType": "美妆个护",
+      "name": "氨基酸洁面乳 温和清洁保湿洗面奶",
+      "price": 89,
+      "originalPrice": 129,
+      "discount": 6.9,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=4"
+    },
+    {
+      "id": "6",
+      "priceTag": "热销商品",
+      "priceType": "食品饮料",
+      "name": "纯牛奶 250ml*24盒 营养早餐奶",
+      "price": 68,
+      "originalPrice": 88,
+      "discount": 7.7,
+      "rating": 4.8,
+      "imgUrl": "https://picsum.photos/300/300?random=5"
+    },
+    {
+      "id": "7",
+      "priceTag": "热销商品",
+      "priceType": "运动户外",
+      "name": "专业跑步鞋 轻便减震男女同款运动鞋",
+      "price": 359,
+      "originalPrice": 599,
+      "discount": 6,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=6"
+    },
+    {
+      "id": "8",
+      "priceTag": "热销商品",
+      "priceType": "图书音像",
+      "name": "经典文学名著全集 精装10册 世界名著",
+      "price": 199,
+      "originalPrice": 399,
+      "discount": 5,
+      "rating": 4.9,
+      "imgUrl": "https://picsum.photos/300/300?random=7"
+    },
+    {
+      "id": "9",
+      "priceTag": "新品推荐",
+      "priceType": "电子产品",
+      "name": "智能手表 心率监测运动手环 多功能",
+      "price": 299,
+      "originalPrice": 459,
+      "discount": 6.5,
+      "rating": 4.6,
+      "imgUrl": "https://picsum.photos/300/300?random=8"
+    },
+    {
+      "id": "10",
+      "priceTag": "新品推荐",
+      "priceType": "生鲜瓜果",
+      "name": "海南三亚芒果 大青芒5斤装 热带水果",
+      "price": 49.9,
+      "originalPrice": 79,
+      "discount": 6.3,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=9"
+    },
+    {
+      "id": "11",
+      "priceTag": "新品推荐",
+      "priceType": "即送外卖",
+      "name": "香辣小龙虾 3斤装 鲜活现做",
+      "price": 128,
+      "originalPrice": 168,
+      "discount": 7.6,
+      "rating": 4.8,
+      "imgUrl": "https://picsum.photos/300/300?random=10"
+    },
+    {
+      "id": "12",
+      "priceTag": "新品推荐",
+      "priceType": "美妆个护",
+      "name": "补水保湿面膜 20片装 提亮肤色玻尿酸",
+      "price": 79,
+      "originalPrice": 159,
+      "discount": 5,
+      "rating": 4.9,
+      "imgUrl": "https://picsum.photos/300/300?random=11"
+    },
+    {
+      "id": "13",
+      "priceTag": "新品推荐",
+      "priceType": "食品饮料",
+      "name": "薯片大礼包 混合口味10包 休闲零食",
+      "price": 45,
+      "originalPrice": 69,
+      "discount": 6.5,
+      "rating": 4.6,
+      "imgUrl": "https://picsum.photos/300/300?random=12"
+    },
+    {
+      "id": "14",
+      "priceTag": "热销商品",
+      "priceType": "运动户外",
+      "name": "防晒衣 男女通用 轻薄透气防紫外线",
+      "price": 129,
+      "originalPrice": 219,
+      "discount": 5.9,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=13"
+    },
+    {
+      "id": "15",
+      "priceTag": "热销商品",
+      "priceType": "图书音像",
+      "name": "成功学励志书籍 3册套装 人生哲理",
+      "price": 59,
+      "originalPrice": 108,
+      "discount": 5.5,
+      "rating": 4.6,
+      "imgUrl": "https://picsum.photos/300/300?random=14"
+    },
+    {
+      "id": "16",
+      "priceTag": "热销商品",
+      "priceType": "电子产品",
+      "name": "家用投影仪 高清智能无线 家庭影院",
+      "price": 2499,
+      "originalPrice": 3299,
+      "discount": 7.6,
+      "rating": 4.8,
+      "imgUrl": "https://picsum.photos/300/300?random=15"
+    },
+    {
+      "id": "17",
+      "priceTag": "热销商品",
+      "priceType": "生鲜瓜果",
+      "name": "有机蔬菜礼盒 5斤装 多种时蔬组合",
+      "price": 89,
+      "originalPrice": 129,
+      "discount": 6.9,
+      "rating": 4.8,
+      "imgUrl": "https://picsum.photos/300/300?random=16"
+    },
+    {
+      "id": "18",
+      "priceTag": "热销商品",
+      "priceType": "即送外卖",
+      "name": "披萨双人套餐 9寸奥尔良鸡肉+培根",
+      "price": 79,
+      "originalPrice": 118,
+      "discount": 6.7,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=17"
+    },
+    {
+      "id": "19",
+      "priceTag": "热销商品",
+      "priceType": "美妆个护",
+      "name": "香水套装 3件套 淡香持久 送女友",
+      "price": 258,
+      "originalPrice": 398,
+      "discount": 6.5,
+      "rating": 4.9,
+      "imgUrl": "https://picsum.photos/300/300?random=18"
+    },
+    {
+      "id": "20",
+      "priceTag": "热销商品",
+      "priceType": "食品饮料",
+      "name": "进口红酒 750ml*2瓶 干红葡萄酒",
+      "price": 199,
+      "originalPrice": 358,
+      "discount": 5.6,
+      "rating": 4.7,
+      "imgUrl": "https://picsum.photos/300/300?random=19"
+    },
+    {
+      "id": "21",
+      "priceTag": "热销商品",
+      "priceType": "运动户外",
+      "name": "羽毛球拍 双拍套装 全碳素超轻耐用",
+      "price": 239,
+      "originalPrice": 369,
+      "discount": 6.5,
+      "rating": 4.8,
+      "imgUrl": "https://picsum.photos/300/300?random=20"
+    }
+  ]
+}
