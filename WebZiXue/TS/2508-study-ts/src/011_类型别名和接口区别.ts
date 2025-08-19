@@ -21,8 +21,8 @@ const pp1: IP1 = {
   age: 100,
 };
 
-type Tp1 = string;
-type Tp1 = number;
+// type Tp1 = string;
+// type Tp1 = number;
 
 interface IAnimal {
   name: string;
