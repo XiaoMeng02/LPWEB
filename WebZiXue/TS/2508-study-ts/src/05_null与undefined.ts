@@ -7,4 +7,4 @@ let u:undefined=undefined;
 let n:null =null;
 
 let num1 :number
-num1 = undefined
+// num1 = undefined
